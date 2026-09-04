@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict G6zeH5UwfQ5MQCB39myU1ezmfzHvOf9tw7qGNQG5CMUloy2DMFh5z4cNORDE2tE
+\restrict f7foR6gh2O5fclk96Rb57vHqGn61r88EGxSYuYbQFzgc1CQyLrYIlIxQaWSXXqV
 
 -- Dumped from database version 18.4
 -- Dumped by pg_dump version 18.4
@@ -618,19 +618,381 @@ ALTER TABLE public._prisma_migrations OWNER TO postgres;
 --
 
 COPY public."Acesso" (id, portal, area, usuario, ip, "dataAcesso", tipo) FROM stdin;
-cmrt5y1ev0000xbme221orz56	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-20 11:50:38.494	PORTAL_VIEW
-cmrt67jro0005xbmeg4y62wjo	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.92	2026-07-20 11:57:58.317	PORTAL_VIEW
-cmrt8l6uu0004mdi1jt2b2pvw	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-20 13:04:37.874	SERVICO_VIEW
-cmrtgh80k0008mdi1sfgkdl9q	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-20 16:45:25.779	PORTAL_VIEW
-cmrtn51fp000bbqr5mj5q8ave	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-20 19:51:54.68	SERVICO_VIEW
-cmruminut0007jzjxyyu06o7m	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-21 12:22:20.877	PORTAL_VIEW
-cmrur6vut0000d883vckttk36	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-21 14:33:03.737	PORTAL_VIEW
-cmruw8w7w0014d883499b8jxj	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.59	2026-07-21 16:52:51.607	PORTAL_VIEW
-cmruw8w8h0015d883f8fkql5z	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.59	2026-07-21 16:52:52.21	SERVICO_VIEW
-cmruz1d3k001hd883tt0ckkbb	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.148	2026-07-21 18:12:54.62	PORTAL_VIEW
-cmrv1h818001ld883cd9oomis	Portal de Serviços Corporativos	Portal de Serviços Corporativos		fe80::9059:7586:6ed6:321d%21	2026-07-21 19:21:27.638	PORTAL_VIEW
-cmrv1h8nn001md883o4ueb8h9	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		fe80::9059:7586:6ed6:321d%21	2026-07-21 19:21:28.62	PORTAL_VIEW
-cmrv3z6mc001td88367gkhhni	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-21 20:31:04.919	PORTAL_VIEW
+cmrt5y1ev0000xbme221orz56	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-20 11:50:38.494	PORTAL_VIEW
+cmrt67jro0005xbmeg4y62wjo	Patrimônio	Patrimônio		::ffff:172.31.104.92	2026-07-20 11:57:58.317	PORTAL_VIEW
+cmrt8l6uu0004mdi1jt2b2pvw	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-20 13:04:37.874	SERVICO_VIEW
+cmruminut0007jzjxyyu06o7m	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-21 12:22:20.877	PORTAL_VIEW
+cmrv1h8nn001md883o4ueb8h9	Patrimônio	Patrimônio		fe80::9059:7586:6ed6:321d%21	2026-07-21 19:21:28.62	PORTAL_VIEW
+cmrv3z6mc001td88367gkhhni	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-21 20:31:04.919	PORTAL_VIEW
+cmrw4waky00026luzhjpip11e	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-22 13:44:35.982	SERVICO_VIEW
+cmrtgh80k0008mdi1sfgkdl9q	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-20 16:45:25.779	PORTAL_VIEW
+cmrtn51fp000bbqr5mj5q8ave	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-20 19:51:54.68	SERVICO_VIEW
+cmrur6vut0000d883vckttk36	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-21 14:33:03.737	PORTAL_VIEW
+cmruw8w7w0014d883499b8jxj	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.59	2026-07-21 16:52:51.607	PORTAL_VIEW
+cmruw8w8h0015d883f8fkql5z	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.59	2026-07-21 16:52:52.21	SERVICO_VIEW
+cmruz1d3k001hd883tt0ckkbb	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.148	2026-07-21 18:12:54.62	PORTAL_VIEW
+cmrv1h818001ld883cd9oomis	Serviços Corporativos	Serviços Corporativos		fe80::9059:7586:6ed6:321d%21	2026-07-21 19:21:27.638	PORTAL_VIEW
+cmrw1o72q002611htjrcx5gs8	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-22 12:14:13.037	SERVICO_VIEW
+cmrw3hdoi0000jmlr5aq6j5vs	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-22 13:04:54.217	SERVICO_VIEW
+cmrw3w5x2000051o3wf0981zy	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-22 13:16:23.954	SERVICO_VIEW
+cmrw4w4g100016luz8th5bkin	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 13:44:28.028	SERVICO_VIEW
+cmrw5ne0y0000kwhyf8e9jfwt	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-22 14:05:33.835	SERVICO_VIEW
+cmrwadxl50000kn2lbm98qo3d	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 16:18:16.968	SERVICO_VIEW
+cmrwc30m1000214idcunp9ej6	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 17:05:46.964	SERVICO_VIEW
+cmrwcbmsi000010wga17tjxuo	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 17:12:28.883	SERVICO_VIEW
+cmrwd3iyt0002ezmc87rgh48u	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 17:34:10.37	SERVICO_VIEW
+cmrt5yqfr0001xbmej9ajfotj	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-20 11:51:10.806	PORTAL_VIEW
+cmrtma6e2000omdi1duxxzgvz	Patrimônio	Patrimônio		::ffff:172.31.104.92	2026-07-20 19:27:54.758	PORTAL_VIEW
+cmrtncvmj0000b6em2f6poepc	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-20 19:58:04.306	NOTICIA_VIEW
+cmrv1i3uo001nd883eorf7yop	Patrimônio	Patrimônio		fe80::9059:7586:6ed6:321d%21	2026-07-21 19:22:09.087	SERVICO_VIEW
+cmrv1iqjx001od883xfa8a1o6	Patrimônio	Patrimônio		fe80::9059:7586:6ed6:321d%21	2026-07-21 19:22:38.507	SERVICO_VIEW
+cmrv1ivk9001pd883cxsu9hp5	Patrimônio	Patrimônio		fe80::9059:7586:6ed6:321d%21	2026-07-21 19:22:44.995	SERVICO_VIEW
+cmrv1jg9b001rd8833mx1na70	Patrimônio	Patrimônio		fe80::9059:7586:6ed6:321d%21	2026-07-21 19:23:11.821	SERVICO_VIEW
+cmrv48run0000nm7h4bhl2oxz	Patrimônio	Patrimônio		fe80::9059:7586:6ed6:321d%21	2026-07-21 20:38:52.43	SERVICO_VIEW
+cmrwdpjl0000hezmcankc29a0	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 17:51:17.597	SERVICO_VIEW
+cmrumwsay0008jzjx20gf2owt	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-21 12:33:13.899	PORTAL_VIEW
+cmrushlb3000fd883zn2yfirw	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-21 15:09:28.473	PORTAL_VIEW
+cmruxeal4001dd88351eixfye	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-07-21 17:26:52.988	PORTAL_VIEW
+cmruztka3001id8835v8tq8xy	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.132	2026-07-21 18:34:59.945	PORTAL_VIEW
+cmrw18ky9002211htbdjcvfi4	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 12:02:10.828	PORTAL_VIEW
+cmrt5zloo0002xbmeaxir016i	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-20 11:51:51.428	PORTAL_VIEW
+cmrt60inh0003xbmeycpfzyba	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-20 11:52:34.152	PORTAL_VIEW
+cmrtmiv35000pmdi1gxxminpm	Patrimônio	Patrimônio		::ffff:172.31.104.92	2026-07-20 19:34:40.021	SERVICO_VIEW
+cmrumcaqc0003jzjxnsctp9j3	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-21 12:17:23.723	PORTAL_VIEW
+cmrv0ctk9001jd883i5oeqqcq	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-21 18:49:42.819	PORTAL_VIEW
+cmrv1j0v5001qd883irts5rxn	Patrimônio	Patrimônio		fe80::9059:7586:6ed6:321d%21	2026-07-21 19:22:51.873	SERVICO_VIEW
+cmrw1pwcx002711ht2r7e7ai7	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-22 12:15:32.463	SERVICO_VIEW
+cmrt73emc0001mdi1j1adrj2f	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-20 12:22:48.509	SERVICO_VIEW
+cmrtb8b4z0006mdi109n0nifh	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-07-20 14:18:35.775	PORTAL_VIEW
+cmrupiaur0002qshwrjc2v4j5	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-21 13:46:02.726	SERVICO_VIEW
+cmrusy9x0000zd8834m8cio82	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-21 15:22:26.864	SERVICO_VIEW
+cmruxi8dq001ed883w8imuxa5	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-21 17:29:50.855	SERVICO_VIEW
+cmrt60srn0004xbmevm1s2125	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-20 11:52:47.263	PORTAL_VIEW
+cmruyq4cd001gd883r1riazyb	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-21 18:04:04.414	SERVICO_VIEW
+cmrv0vqwo001kd883jxb3qcxw	Patrimônio	Patrimônio		::ffff:172.31.104.31	2026-07-21 19:04:25.073	PORTAL_VIEW
+cmrv1qszr001sd883cw975cn9	Patrimônio	Patrimônio		fe80::9059:7586:6ed6:321d%21	2026-07-21 19:28:54.915	SERVICO_VIEW
+cmrt5o6ih0008clahj14t9up5	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-20 11:42:58.547	PORTAL_VIEW
+cmrt5o6ip0009clah435xbh92	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-20 11:42:58.558	PORTAL_VIEW
+cmrt76gcj0002mdi1vghngqj7	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-20 12:25:10.719	NOTICIA_VIEW
+cmrtgdb9j0007mdi131cxx8s2	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-07-20 16:42:27.296	SERVICO_VIEW
+cmrtn4rm2000abqr5ifbmxtbx	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-20 19:51:39.666	PORTAL_VIEW
+cmrupibm90003qshwoc4i6rqb	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-21 13:46:03.726	SERVICO_VIEW
+cmruvsipk0013d8832vj3if73	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-21 16:41:51.593	SERVICO_VIEW
+cmrw1ltmu002511ht9l0wv2kr	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-22 12:12:22.083	PORTAL_VIEW
+cmrw258dn002811ht0rkh4hwb	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-22 12:27:27.88	SERVICO_VIEW
+cmrw3pmei0000f6jczpjut95x	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-22 13:11:18.738	SERVICO_VIEW
+cmrw4jm7n00006luzunf8oqi7	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 13:34:44.523	SERVICO_VIEW
+cmrw4x6cc00036luzjahl4eor	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 13:45:17.119	SERVICO_VIEW
+cmrw7zx750000jpo74mux5d64	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 15:11:24.097	SERVICO_VIEW
+cmrwc37iu000314idt587hufd	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 17:05:55.922	SERVICO_VIEW
+cmrwc3co3000414id3j7y387p	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 17:06:02.59	SERVICO_VIEW
+cmrwc3ip9000514idnbk7sjdq	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 17:06:10.41	SERVICO_VIEW
+cmrwd0yhi0000ezmcnis7r4gf	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-22 17:32:04.152	SERVICO_VIEW
+cmrwdi2ol000aezmc6tw7fg3g	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 17:45:29.107	SERVICO_VIEW
+cmrwe0qcu000324rvkywgpipl	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 17:59:59.592	SERVICO_VIEW
+cmrwe34l0000524rv0w88halm	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 18:01:51.342	SERVICO_VIEW
+cmrweaceb0000htwtd3lfhmwd	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 18:07:28.059	SERVICO_VIEW
+cmrxhiwlr0001a05rumm7119t	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-23 12:25:51.311	PORTAL_VIEW
+cmrxi7kha0002a05rodiexcii	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-23 12:45:02.308	SERVICO_VIEW
+cmrxn0pve0004a05rd87sg0ac	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-23 14:59:40.15	NOTICIA_VIEW
+cmrxn1ena0005a05rox107b10	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-23 15:00:12.242	PORTAL_VIEW
+cmrxn1hri0006a05rafsgv3kb	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-23 15:00:16.308	NOTICIA_VIEW
+cmrxn2vxo0008a05rhyl4g4m4	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-23 15:01:21.322	NOTICIA_VIEW
+cmrxoepie0009a05rjpyzx95g	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-23 15:38:32.2	PORTAL_VIEW
+cmrxof2lu000aa05reu53poc7	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-23 15:38:49.475	NOTICIA_VIEW
+cmrxof4ym000ba05rmafqkl6v	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-23 15:38:52.535	NOTICIA_VIEW
+cmrxraixw000ia05rupro943v	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-23 16:59:17.75	PORTAL_VIEW
+cmrxsh4ph000ma05rcodpsj14	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-23 17:32:25.534	NOTICIA_VIEW
+cmrxsmpxr000na05rrh7t7mt1	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-23 17:36:46.317	PORTAL_VIEW
+cmrweh1qi0002htwt81nu9jkx	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 18:12:40.839	SERVICO_VIEW
+cmrwet7d40007htwte387g6z9	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 18:22:08.004	SERVICO_VIEW
+cmrwf10mi000fhtwtwfdwn1x8	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 18:28:12.518	SERVICO_VIEW
+cmrwf5yoe000lhtwtxdldyrml	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 18:32:03.273	SERVICO_VIEW
+cmrwfdglr00048laws163i6ut	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 18:37:53.098	SERVICO_VIEW
+cmrwfo6u000058lawxz0fgn4h	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 18:46:13.649	SERVICO_VIEW
+cmrwfz8f00000x42imrt96sqh	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-22 18:54:42.547	SERVICO_VIEW
+cmrwg09eo0001x42ii718xze0	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 18:55:36.859	SERVICO_VIEW
+cmrwg78pe00036qu35yu6p9lm	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 19:01:02.54	SERVICO_VIEW
+cmrxgdvjw0000a05rnyka0g7k	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-23 11:53:49.715	PORTAL_VIEW
+cmrxq0c5b000fa05re8ta602s	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.64	2026-07-23 16:23:21.201	PORTAL_VIEW
+cmrxs6jr5000la05r61flqtun	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-23 17:24:11.771	SERVICO_VIEW
+cmrxsvvzl000ua05rxhrfalc9	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.64	2026-07-23 17:43:54.072	PORTAL_VIEW
+cmrxue5c40000uovf4flwlg7u	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-23 18:25:57.398	SERVICO_VIEW
+cmrxv1bdh0008v50ttqs7ui3s	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 18:44:06.481	NOTICIA_VIEW
+cmrxvb1oc0009v50tqicdcgrz	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 18:51:40.472	NOTICIA_VIEW
+cmrxvb5od000av50tprw1brnm	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 18:51:45.656	NOTICIA_VIEW
+cmrxw8z5g0000fyqbam6st2b4	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-23 19:18:03.437	PORTAL_VIEW
+cmrxwb53l0000w8indj4of5sn	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-23 19:19:44.63	NOTICIA_VIEW
+cmrxwermh0002w8in70vlsgvi	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 19:22:33.684	NOTICIA_VIEW
+cmrxwew2j0003w8inq4c8qk5q	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-23 19:22:39.55	SERVICO_VIEW
+cmrxwezwb0004w8in8ie4n8cl	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-23 19:22:44.52	SERVICO_VIEW
+cmrxwfnml0005w8in6wt9tmxs	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 19:23:15.16	NOTICIA_VIEW
+cmrxwh7d60006w8in7p7f46rq	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-23 19:24:27.509	SERVICO_VIEW
+cmrxwri31000fw8inuxrigb61	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 19:32:27.85	NOTICIA_VIEW
+cmrxwvgvq000kw8inktvlkgj6	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 19:35:32.916	NOTICIA_VIEW
+cmrxxfpew00003oi2zvjc3alg	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 19:51:17.089	NOTICIA_VIEW
+cmrxxfqav00013oi2e8plrlf7	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 19:51:18.242	NOTICIA_VIEW
+cmrxxdax9000pw8infzfsc6i7	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-23 19:49:16.417	PORTAL_VIEW
+cmrxxdt0h0000113lxktnguz6	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-23 19:49:40.267	SERVICO_VIEW
+cmryxfsjy0002eveoxqy89gqu	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-07-24 12:39:07.399	PORTAL_VIEW
+cmryzad7u000peveoqqdu7ust	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-24 13:30:53.095	SERVICO_VIEW
+cmryzapej000qeveox25ye5it	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-24 13:31:08.892	SERVICO_VIEW
+cmrz1qi55000reveopp6xrcuc	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-24 14:39:25.652	NOTICIA_VIEW
+cmrz88p7w000seveo65s8snhh	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-24 17:41:32.294	SERVICO_VIEW
+cmrz8yfor000teveo8es68338	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-24 18:01:32.863	SERVICO_VIEW
+cmrzbadq5000ueveoitn16s89	Patrimônio	Patrimônio		::ffff:172.31.104.31	2026-07-24 19:06:48.824	PORTAL_VIEW
+cms35bruf00062ggiidbk9dng	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-27 11:31:01.502	SERVICO_VIEW
+cms36i48n000j2ggir63y0bfo	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-27 12:03:57.103	NOTICIA_VIEW
+cms36nve2000k2ggi5a41owr4	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-27 12:08:25.566	SERVICO_VIEW
+cms36nwrc000l2ggivxa0f6e3	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-27 12:08:27.352	SERVICO_VIEW
+cms36w17l000q2ggioj9a93kh	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-27 12:14:46.367	NOTICIA_VIEW
+cms4pbw5j00182ggir51qenn2	Patrimônio	Patrimônio		::ffff:172.31.104.146	2026-07-28 13:34:52.481	PORTAL_VIEW
+cms4pchd500192ggibq0kngoe	Patrimônio	Patrimônio		::ffff:172.31.104.146	2026-07-28 13:35:22.607	SERVICO_VIEW
+cms4ruj8x001m2ggi3zs6yly5	Patrimônio	Patrimônio		::ffff:172.31.104.146	2026-07-28 14:45:24.081	NOTICIA_VIEW
+cms4t4q56001n2ggivxj9vjm5	Patrimônio	Patrimônio		::ffff:172.31.104.59	2026-07-28 15:23:12.874	PORTAL_VIEW
+cms4zunz4001y2ggio1u2ge5t	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-28 18:33:17.793	PORTAL_VIEW
+cms500e6g001z2ggifv24zbep	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-28 18:37:45.052	SERVICO_VIEW
+cms35bcv700042ggij36vk17q	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-07-27 11:30:42.074	PORTAL_VIEW
+cms3fgrt900102ggiuw74bsmo	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-27 16:14:50.338	PORTAL_VIEW
+cms3fksl000112ggijggzn80u	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-27 16:17:58.399	SERVICO_VIEW
+cms3fmnko00122ggikgg8m1n7	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-27 16:19:25.217	SERVICO_VIEW
+cms3jab0o00162ggicnxuu7qk	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-07-27 18:01:47.626	SERVICO_VIEW
+cms4lgwtr00172ggifya5g6yw	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-07-28 11:50:41.213	SERVICO_VIEW
+cms4peqqa001i2ggi0mhv8ds1	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.146	2026-07-28 13:37:08.025	PORTAL_VIEW
+cms4petes001j2ggi2voyesf9	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.146	2026-07-28 13:37:11.536	SERVICO_VIEW
+cms4t4s29001o2ggighfpx0wg	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.59	2026-07-28 15:23:15.919	PORTAL_VIEW
+cms4taybt001p2ggir2drdv3o	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.59	2026-07-28 15:28:01.656	PORTAL_VIEW
+cms4tayce001q2ggics421c4h	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.59	2026-07-28 15:28:04.021	SERVICO_VIEW
+cms4x2mpi001r2ggispzr7kq0	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-28 17:15:27.819	PORTAL_VIEW
+cms4x56t3001s2ggieo1kl6jg	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-28 17:17:27.567	SERVICO_VIEW
+cms4x6x8p001u2ggibnx5jcde	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-07-28 17:18:50.679	SERVICO_VIEW
+cms4x9657001v2ggin7mgljt3	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-28 17:20:33.33	SERVICO_VIEW
+cms4z0639001x2ggiygza3l0h	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-07-28 18:09:32.576	SERVICO_VIEW
+cms50v90u00202ggigml13rmj	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-28 19:01:44.714	SERVICO_VIEW
+cms50vcke00212ggign2aq7wv	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-28 19:01:49.321	SERVICO_VIEW
+cms510jir00222ggimqnplqfo	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-28 19:05:51.609	SERVICO_VIEW
+cms51872400232ggica748pbz	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-28 19:11:48.715	SERVICO_VIEW
+cms518oql00242ggib0npsof1	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-28 19:12:11.627	SERVICO_VIEW
+cms7fr7ko00252gginhqr67ng	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-30 11:34:02.23	PORTAL_VIEW
+cms7qhqo600272ggibcgn6tg2	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-30 16:34:36.364	PORTAL_VIEW
+cms7qkqif00282ggiatc4ng9t	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-30 16:36:56.396	SERVICO_VIEW
+cms7qyunl00292ggiiecry329	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-30 16:47:54.934	SERVICO_VIEW
+cms7tduh9002a2ggimrg96p1i	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-30 17:55:33.42	SERVICO_VIEW
+cms90ax1d002b2ggix40vywnk	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-31 13:57:00.554	NOTICIA_VIEW
+cms90ayae002c2ggi621kt9m7	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-31 13:57:02.179	NOTICIA_VIEW
+cmsd8bipw00312ggi8p2xrsla	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-08-03 12:52:28.358	PORTAL_VIEW
+cms7fraoc00262ggiuuzfpo9y	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-07-30 11:34:06.535	PORTAL_VIEW
+cmsd67xgs002d2ggisbexwg3n	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.59	2026-08-03 11:51:41.106	SERVICO_VIEW
+cmsd67xw7002e2ggirau6ovek	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.59	2026-08-03 11:51:40.163	PORTAL_VIEW
+cmsd7qfrr002f2ggixgs7qtzb	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-08-03 12:36:06.333	PORTAL_VIEW
+cmsd8e1wy00322ggih05m9mio	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.64	2026-08-03 12:54:26.792	PORTAL_VIEW
+cmsda120h00372ggig7nfracf	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-03 13:40:14.549	PORTAL_VIEW
+cmselkezu006i2ggi5nw5esyq	Patrimônio	Patrimônio		::ffff:172.31.104.66	2026-08-04 11:51:06.611	PORTAL_VIEW
+cmsdhr0gm006g2ggipwu4o3yt	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-03 17:16:23.201	NOTICIA_VIEW
+cmsevms9t006x2ggi7e9i39i1	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.64	2026-08-04 16:32:52.746	PORTAL_VIEW
+cmseyeg24006y2ggik10utld7	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.64	2026-08-04 17:50:22.581	SERVICO_VIEW
+cmseykt3k00702ggik318t5uc	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-04 17:55:16.294	PORTAL_VIEW
+cmsezhhyj00712ggitfir8vb1	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-04 18:20:44.133	SERVICO_VIEW
+cmsezhpst00722ggiii7s8vzr	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-04 18:20:54.311	SERVICO_VIEW
+cmsgbpyyw007b2ggi1saj8dxg	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-05 16:50:59.499	PORTAL_VIEW
+cmsgbq2m7007c2ggi1smwje8e	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-05 16:51:04.506	SERVICO_VIEW
+cmsgbqaf5007d2ggife8hyl7g	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-05 16:51:14.614	SERVICO_VIEW
+cmsgez8yf007f2ggif3itd61a	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-05 18:22:11.469	SERVICO_VIEW
+cmshgi6xs007i2ggi3v00g8m4	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-06 11:52:39.071	PORTAL_VIEW
+cmshgjl6b007j2ggi95haqynj	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-06 11:53:44.601	NOTICIA_VIEW
+cmshjwohm007k2ggihmtyd9zc	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-06 13:27:54.242	SERVICO_VIEW
+cmshjx4na007l2ggiynykdrby	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-06 13:28:15.185	SERVICO_VIEW
+cmshqeoxg007v2gginmrwv0t0	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-06 16:29:52.282	NOTICIA_VIEW
+cmshrsdiu008a2ggi3frmwhix	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-06 17:08:30.294	NOTICIA_VIEW
+cmshsjiei008b2ggiz3gcrhdj	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-08-06 17:29:40.072	SERVICO_VIEW
+cmsj714lw00ab2ggij3vlnhop	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.29	2026-08-07 17:03:09.997	PORTAL_VIEW
+cmsn7atiq00ac2ggiz4vyurcm	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-08-10 12:21:39.391	PORTAL_VIEW
+cmsn7axeq00ad2ggiz2go54ro	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-08-10 12:21:44.754	SERVICO_VIEW
+cmsn82p6y00ah2ggi7amapsqy	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-08-10 12:43:20.486	SERVICO_VIEW
+cmsn888k400ak2ggiw5fj6g24	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-08-10 12:47:38.859	SERVICO_VIEW
+cmsn8cqa100an2ggimfc7nzm5	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-08-10 12:51:08.455	SERVICO_VIEW
+cmsnm3tcb00b92ggitg0jeimh	Patrimônio	Patrimônio		::ffff:172.31.104.31	2026-08-10 19:16:06.156	PORTAL_VIEW
+cmsol3rzr00bd2gginwrroqmr	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-08-11 11:35:51.677	PORTAL_VIEW
+cmsszm5200008i6j3l8pm93zl	Patrimônio	Patrimônio		::ffff:172.31.104.31	2026-08-14 13:33:07.665	PORTAL_VIEW
+cmst13xtr0009i6j3slvpwx7t	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-08-14 14:14:55.855	PORTAL_VIEW
+cmsx88mhy000313zxt9eq7w4b	Patrimônio	Patrimônio		::ffff:172.31.104.31	2026-08-17 12:45:38.981	PORTAL_VIEW
+cmsn9jhvf00as2ggib1jh0mh5	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-08-10 13:24:23.775	SERVICO_VIEW
+cmsnb9x4a00b12ggixbfkrfgv	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.29	2026-08-10 14:13:04.544	PORTAL_VIEW
+cmsnbb43m00b22ggiicgt9bi2	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.29	2026-08-10 14:14:00.541	SERVICO_VIEW
+cmsnbbk7t00b32ggiw1bmyq4w	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.29	2026-08-10 14:14:21.436	SERVICO_VIEW
+cmsnbbptk00b42ggihlvnfk7e	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.29	2026-08-10 14:14:28.687	SERVICO_VIEW
+cmsnbc5ls00b52ggiawq2os6c	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.29	2026-08-10 14:14:49.15	SERVICO_VIEW
+cmsylbstw000g13zxkp27sfez	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-08-18 11:39:47.76	PORTAL_VIEW
+cmsyvqnjp000h13zxbhvotjfq	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-08-18 16:31:17.687	PORTAL_VIEW
+cmsywaqsz000i13zxg6xeia6b	Patrimônio	Patrimônio		::ffff:172.31.104.42	2026-08-18 16:46:53.553	PORTAL_VIEW
+cmsyxsplx000j13zx0am9u18n	Patrimônio	Patrimônio		::ffff:172.31.104.42	2026-08-18 17:28:51.527	NOTICIA_VIEW
+cmsyxu84n000k13zx9zle291y	Patrimônio	Patrimônio		::ffff:172.31.104.42	2026-08-18 17:30:02.187	SERVICO_VIEW
+cmsyxw4hq000l13zxcn06ld7t	Patrimônio	Patrimônio		::ffff:172.31.104.42	2026-08-18 17:31:30.786	SERVICO_VIEW
+cmsz1dtko000s13zxdyrabx6m	Patrimônio	Patrimônio		::ffff:172.31.104.31	2026-08-18 19:09:15.998	PORTAL_VIEW
+cmt048wjo000t13zx4ch2jof7	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-08-19 13:17:11.395	PORTAL_VIEW
+cmt1m0a97001013zx9vr66ygp	Patrimônio	Patrimônio		::ffff:172.31.104.31	2026-08-20 14:22:08.292	PORTAL_VIEW
+cmt1tf6jq001713zxz0sz9ec8	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-08-20 17:49:40.071	PORTAL_VIEW
+cmt2vhde8001u13zx0hgyw6d7	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-08-21 11:35:08.531	PORTAL_VIEW
+cmt2xc19z001v13zx3zr1df9g	Patrimônio	Patrimônio		::ffff:172.31.104.31	2026-08-21 12:26:58.389	PORTAL_VIEW
+cmt2xf153001x13zxgbb4jrlt	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-08-21 12:29:18.683	PORTAL_VIEW
+cmt2zqd41001z13zxd5gmvrs5	Patrimônio	Patrimônio		::ffff:172.31.104.66	2026-08-21 13:34:06.836	PORTAL_VIEW
+cmt2zt2np002013zxquqamc7n	Patrimônio	Patrimônio		::ffff:172.31.104.66	2026-08-21 13:36:13.634	SERVICO_VIEW
+cmsyy3il8000p13zxm1clvdex	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.42	2026-08-18 17:37:15.644	PORTAL_VIEW
+cmsyy854j000r13zxjif3qa36	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.42	2026-08-18 17:40:51.482	SERVICO_VIEW
+cmt04hzb2000x13zxus0729pl	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-19 13:24:14.521	PORTAL_VIEW
+cmt05ctbt000z13zxjud7fx1j	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-19 13:48:13.378	SERVICO_VIEW
+cmt1mh8vi001113zxwocmp2kd	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-20 14:35:17.262	PORTAL_VIEW
+cmt1mjeft001213zx0un0ndpt	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-20 14:36:58.23	SERVICO_VIEW
+cmt1vdzm6001b13zxjado33u3	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.31	2026-08-20 18:44:44.061	PORTAL_VIEW
+cmt2xcaf8001w13zxys0vo0s8	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.31	2026-08-21 12:27:10.504	PORTAL_VIEW
+cmt2xf4uq001y13zxy9gotl3d	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-08-21 12:29:23.696	PORTAL_VIEW
+cmt75l1zw0000d7vzdeey4nok	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-08-24 11:29:01.26	PORTAL_VIEW
+cmt75l2180001d7vzlomvnntz	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-08-24 11:29:01.462	PORTAL_VIEW
+cmt75l5yu0002d7vzp9h7c5i2	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-08-24 11:29:06.674	PORTAL_VIEW
+cmt78z1mn000bd7vz0p97u9cd	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-08-24 13:03:51.4	PORTAL_VIEW
+cmt75l9da0006d7vz58s8ixl6	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-08-24 11:29:11.078	PORTAL_VIEW
+cmt7g49mb000gd7vzr5z42oow	Patrimônio	Patrimônio		::ffff:172.31.104.98	2026-08-24 16:23:53.991	PORTAL_VIEW
+cmt7lx96i000394za8kr4p0wr	Patrimônio	Patrimônio		::1	2026-08-24 19:06:24.562	PORTAL_VIEW
+cmt7m2exg000694zay1is73t9	Patrimônio	Patrimônio		::1	2026-08-24 19:10:25.297	SERVICO_VIEW
+cmt8rirx5000894za7l8ilzvn	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-08-25 14:30:52.524	PORTAL_VIEW
+cmt8wn7ab0002ocops1wnqw60	Patrimônio	Patrimônio		::1	2026-08-25 16:54:17.502	NOTICIA_VIEW
+cmt8wn9cj0003ocop75eronko	Patrimônio	Patrimônio		::1	2026-08-25 16:54:20.175	SERVICO_VIEW
+cmtahlasp000alvieytxi54g3	Patrimônio	Patrimônio		::ffff:172.31.104.45	2026-08-26 19:28:26.043	PORTAL_VIEW
+cmtahlsaf000blvie8zja25nr	Patrimônio	Patrimônio		::ffff:172.31.104.45	2026-08-26 19:28:48.743	NOTICIA_VIEW
+cmtahm06g000clviekrqi9mm7	Patrimônio	Patrimônio		::ffff:172.31.104.45	2026-08-26 19:28:58.967	SERVICO_VIEW
+cmtahmkts000dlviey04ygm08	Patrimônio	Patrimônio		::ffff:172.31.104.45	2026-08-26 19:29:25.728	SERVICO_VIEW
+cmt7g4ji8000kd7vzrn5ciqsv	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.98	2026-08-24 16:24:07.086	PORTAL_VIEW
+cmt7lwjnl000094za84wazoef	Serviços Corporativos	Serviços Corporativos		::1	2026-08-24 19:05:51.276	PORTAL_VIEW
+cmta59cdk0000qc8pxr0jjy61	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-26 13:43:04.43	PORTAL_VIEW
+cmta59vei0001qc8pn1c01nni	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-26 13:43:29.577	SERVICO_VIEW
+cmtbt5kyc0012lvie72o3qimh	Patrimônio	Patrimônio		::ffff:172.31.104.31	2026-08-27 17:39:54.595	PORTAL_VIEW
+cmtbthq650018lviekpaz1357	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-08-27 17:49:20.957	PORTAL_VIEW
+cmtbuplpi001dlviey147w6gi	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-08-27 18:23:28.055	SERVICO_VIEW
+cmtbw0wy7001glvieoppns37s	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-08-27 19:00:15.469	SERVICO_VIEW
+cmtbw6xxz001ilviez7pgz4nq	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-08-27 19:04:56.694	SERVICO_VIEW
+cmtbwq9a7001klviesew58ny3	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-08-27 19:19:58.13	PORTAL_VIEW
+cmtbt7uem0013lviec1jxmuyo	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.31	2026-08-27 17:41:40.401	PORTAL_VIEW
+cmtbtji750019lviek6zzy891	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.64	2026-08-27 17:50:43.939	PORTAL_VIEW
+cmtbwqcg5001llviex63hj69e	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.64	2026-08-27 19:20:02.239	PORTAL_VIEW
+cmthb7w5g002ylvieqkm11wpw	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-08-31 14:04:26.928	PORTAL_VIEW
+cmthb8l49002zlvie65cojuak	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-08-31 14:04:59.551	SERVICO_VIEW
+cmthba1ik0030lvie1r4j40us	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-08-31 14:06:07.461	SERVICO_VIEW
+cmthbn1jr0031lvie05cb37vr	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-08-31 14:16:14.048	SERVICO_VIEW
+cmthbn8t40032lvielfgb0nt7	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-08-31 14:16:23.457	SERVICO_VIEW
+cmthbo9vy0033lviempljrufx	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-08-31 14:17:11.516	SERVICO_VIEW
+cmthbogeq0034lvieyldrjcyw	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-08-31 14:17:19.964	SERVICO_VIEW
+cmthbp7mn0035lvieuipf6mah	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-08-31 14:17:55.242	SERVICO_VIEW
+cmthg97d40036lvieprkoquz6	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-08-31 16:25:25.927	PORTAL_VIEW
+cmthg99h10037lviebzv1ho21	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-08-31 16:25:28.933	PORTAL_VIEW
+cmthg9ejb003blvie2xera073	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-08-31 16:25:35.489	PORTAL_VIEW
+cmthg9idz003clvier0qecig7	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-08-31 16:25:40.449	PORTAL_VIEW
+cmtim2up3003plviehmgazjxj	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-09-01 11:56:13.525	PORTAL_VIEW
+cmtim4sk4003qlvien1eis2pz	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-09-01 11:57:44.3	SERVICO_VIEW
+cmtip0b07003rlviezjjgsf6c	Patrimônio	Patrimônio		::ffff:172.31.104.42	2026-09-01 13:18:13.616	PORTAL_VIEW
+cmtip8aqu003slvierphadpbx	Patrimônio	Patrimônio		::ffff:172.31.104.42	2026-09-01 13:24:26.638	SERVICO_VIEW
+cmtiq2d52003vlvie6y5a4pc4	Patrimônio	Patrimônio		::ffff:172.31.104.119	2026-09-01 13:47:49.361	PORTAL_VIEW
+cmtiq4mw30041lviexljwhsh1	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-09-01 13:49:35.324	PORTAL_VIEW
+cmtiqbk2n0048lviesmzh3176	Patrimônio	Patrimônio		::ffff:172.31.104.155	2026-09-01 13:54:59.908	PORTAL_VIEW
+cmtis1wux004dlviewd8r6zia	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-09-01 14:43:27.511	PORTAL_VIEW
+cmtivxybt004glvie4d1958gz	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-09-01 16:32:21.393	PORTAL_VIEW
+cmtiq2r3g003wlviezqs7i21z	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.119	2026-09-01 13:48:07.453	PORTAL_VIEW
+cmtivy17n004hlvieuy7cz3tk	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-09-01 16:32:25.293	PORTAL_VIEW
+cmtiw49i4004nlvieg8plnlbr	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-09-01 16:36:59.609	PORTAL_VIEW
+cmtixbpeh004tlvie80h395yx	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-09-01 17:10:46.653	SERVICO_VIEW
+cmtixf8zk004ulviet0zw0lq9	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-09-01 17:13:32.003	SERVICO_VIEW
+cmtiynvs9004wlviei8qi1m9v	Patrimônio	Patrimônio		fe80::63bc:1e34:52f9:4365%21	2026-09-01 17:48:29.975	PORTAL_VIEW
+cmtiytobx004ylviec516o6j5	Patrimônio	Patrimônio		fe80::63bc:1e34:52f9:4365%21	2026-09-01 17:53:00.478	PORTAL_VIEW
+cmtiyvswv004zlvienaq5ercu	Patrimônio	Patrimônio		fe80::63bc:1e34:52f9:4365%21	2026-09-01 17:54:39.754	SERVICO_VIEW
+cmtiz21al0050lviewa66yy2d	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-09-01 17:59:30.628	SERVICO_VIEW
+cmtiz28kj0051lvielg5o306m	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-09-01 17:59:40.057	SERVICO_VIEW
+cmtiz2e6y0052lvie4wu3mj5j	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-09-01 17:59:47.335	SERVICO_VIEW
+cmtiz35340053lviefwxhdgtg	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-09-01 18:00:22.2	SERVICO_VIEW
+cmtj1ahwo0054lvie58bp270p	Patrimônio	Patrimônio		fe80::63bc:1e34:52f9:4365%21	2026-09-01 19:02:04.51	PORTAL_VIEW
+cmtjzsgqn0057lviecscgy1j7	Patrimônio	Patrimônio		::ffff:172.31.104.155	2026-09-02 11:07:54.166	PORTAL_VIEW
+cmtk06qjf005alvie27wdpu44	Patrimônio	Patrimônio		::ffff:172.31.104.155	2026-09-02 11:19:00.346	PORTAL_VIEW
+cmtk19exx005flvie6uye2lla	Patrimônio	Patrimônio		::ffff:172.31.104.157	2026-09-02 11:49:00.617	PORTAL_VIEW
+cmtk2kmio005klvieyiadnxtx	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-09-02 12:25:41.414	PORTAL_VIEW
+cmtk2kwt6005llvie0peu5snl	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-09-02 12:25:55.092	SERVICO_VIEW
+cmtk2tb2n005mlviesi38m1qq	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-09-02 12:32:27.845	PORTAL_VIEW
+cmtk2u7hn005nlvie53iq99ze	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-09-02 12:33:10.099	PORTAL_VIEW
+cmtk2v9yi005olvie8i2rklsm	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-09-02 12:33:59.987	SERVICO_VIEW
+cmtkaleah005rlviefdlg0nu0	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-09-02 16:10:16.337	SERVICO_VIEW
+cmtkalpoy005slviezxznwld2	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-09-02 16:10:31.116	SERVICO_VIEW
+cmtkamfju005ulvie0ltk0iys	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-09-02 16:11:04.624	SERVICO_VIEW
+cmtkcbae2005vlvieupupp3mu	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-09-02 16:58:24.043	SERVICO_VIEW
+cmtkfovkw0067lviefjj04r44	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-09-02 18:32:55.673	PORTAL_VIEW
+cmtk1698u005blvieupgp4o5d	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.157	2026-09-02 11:46:33.024	PORTAL_VIEW
+cmtk1shro005glviedye60azn	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-09-02 12:03:49.291	PORTAL_VIEW
+cmtk1xnjq005hlvie4736sfqw	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-09-02 12:07:50.345	PORTAL_VIEW
+cmtk2316u005ilviewwsk9qt6	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-09-02 12:12:01.311	SERVICO_VIEW
+cmtk4fu9c005plview5qkmoot	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-09-02 13:17:58.079	SERVICO_VIEW
+cmtkakbzh005qlvie9u79zc80	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-09-02 16:09:25.348	SERVICO_VIEW
+cmtkam5u8005tlviegyldk4g2	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-09-02 16:10:50.696	SERVICO_VIEW
+cmtkfjjbf005wlviefiml0dkd	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-09-02 18:28:47.1	PORTAL_VIEW
+cmtlfj74g006llvielop0ji50	Patrimônio	Patrimônio		::ffff:172.31.104.155	2026-09-03 11:16:18.425	PORTAL_VIEW
+cmtlfl94a006mlviekkpn2zcq	Patrimônio	Patrimônio		::ffff:172.31.104.159	2026-09-03 11:17:53.205	PORTAL_VIEW
+cmtlfz36b006plvietrduwksp	Patrimônio	Patrimônio		::ffff:172.31.104.159	2026-09-03 11:28:38.91	SERVICO_VIEW
+cmtlg4eo0006qlvief45fx2i2	Patrimônio	Patrimônio		::ffff:172.31.104.159	2026-09-03 11:32:47.093	SERVICO_VIEW
+cmtlgb5kk006rlviev31ouj4e	Patrimônio	Patrimônio		::ffff:172.31.104.159	2026-09-03 11:38:01.909	SERVICO_VIEW
+cmtlgc8r4006slvietldoozr8	Patrimônio	Patrimônio		::ffff:172.31.104.159	2026-09-03 11:38:52.69	SERVICO_VIEW
+cmtlgmusi006wlviejvyqhahd	Patrimônio	Patrimônio		::ffff:172.31.104.131	2026-09-03 11:47:09.213	PORTAL_VIEW
+cmtlgo2vm006xlvie9ptsjsuc	Patrimônio	Patrimônio		::ffff:172.31.104.131	2026-09-03 11:48:06.551	SERVICO_VIEW
+cmtlgsuo7006zlvie7fbmboev	Patrimônio	Patrimônio		::ffff:172.31.104.159	2026-09-03 11:51:47.613	SERVICO_VIEW
+cmtlgv2wm0071lviefoyxmurd	Patrimônio	Patrimônio		::ffff:172.31.104.65	2026-09-03 11:53:29.515	PORTAL_VIEW
+cmtlh1wri0072lvie1vurysdh	Patrimônio	Patrimônio		::ffff:172.31.104.65	2026-09-03 11:58:48.337	SERVICO_VIEW
+cmtlhf2dq007blvie6w9yf5ky	Patrimônio	Patrimônio		::ffff:172.31.104.65	2026-09-03 12:09:02.143	SERVICO_VIEW
+cmtlhouuv007jlvievooq7c2m	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-09-03 12:16:40.37	PORTAL_VIEW
+cmtkfpags006blviejyloy9o4	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.64	2026-09-02 18:33:15.202	PORTAL_VIEW
+cmtkfshrw006flvie8b3fajhd	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.64	2026-09-02 18:35:44.659	PORTAL_VIEW
+cmtkftfep006glviepwa3karu	Serviços Corporativos	Serviços Corporativos		fe80::960d:7fa3:9c61:cde9%21	2026-09-02 18:34:00.568	PORTAL_VIEW
+cmtkfy402006hlviexda9zhut	Serviços Corporativos	Serviços Corporativos		fe80::960d:7fa3:9c61:cde9%21	2026-09-02 18:37:39.258	SERVICO_VIEW
+cmtkht4mc006ilvieuh6eh5rw	Serviços Corporativos	Serviços Corporativos		fe80::960d:7fa3:9c61:cde9%21	2026-09-02 19:29:46.046	SERVICO_VIEW
+cmtkiagwn006jlvie71k3sgv8	Serviços Corporativos	Serviços Corporativos		fe80::960d:7fa3:9c61:cde9%21	2026-09-02 19:43:15.127	SERVICO_VIEW
+cmtlhxa61007nlvienpanonpj	Patrimônio	Patrimônio		::ffff:172.31.104.65	2026-09-03 12:23:12.041	SERVICO_VIEW
+cmtlkb9ej0082lvied5e4r8t7	Patrimônio	Patrimônio		::ffff:172.31.104.159	2026-09-03 13:30:05.58	SERVICO_VIEW
+cmtlkiipm0087lvieaget1h53	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-09-03 13:35:43.893	PORTAL_VIEW
+cmtlkmybo0088lviehuee7tlb	Patrimônio	Patrimônio		::ffff:172.31.104.165	2026-09-03 13:39:11.073	SERVICO_VIEW
+cmtlksr3c0089lvie8xu6flih	Patrimônio	Patrimônio		::ffff:172.31.104.65	2026-09-03 13:43:39.495	SERVICO_VIEW
+cmtlm6nfs008hlviefxujm949	Patrimônio	Patrimônio		::ffff:172.31.104.65	2026-09-03 14:22:27.539	SERVICO_VIEW
+cmtlma0cj008ilvie1rdu2kv8	Patrimônio	Patrimônio		::ffff:172.31.104.39	2026-09-03 14:25:05.637	PORTAL_VIEW
+cmtlmglfn008jlvieqfzx9kbk	Patrimônio	Patrimônio		::ffff:172.31.104.39	2026-09-03 14:30:13.151	SERVICO_VIEW
+cmtlmm4ec008klviewci8zw54	Patrimônio	Patrimônio		::ffff:172.31.104.65	2026-09-03 14:34:29.355	SERVICO_VIEW
+cmtlr7al40090lvie4tvl190i	Patrimônio	Patrimônio		::ffff:172.31.104.65	2026-09-03 16:42:55.57	SERVICO_VIEW
+cmtlrr9d20094lvievob9foyc	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-09-03 16:58:28.685	PORTAL_VIEW
+cmtlhykp8007olviejzt78ram	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.65	2026-09-03 12:24:12.341	SERVICO_VIEW
+cmtll008c008alviehh9p5e7l	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.65	2026-09-03 13:49:17.925	SERVICO_VIEW
+cmtll0oxd008elvie76lyqter	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.165	2026-09-03 13:49:52.048	PORTAL_VIEW
+cmtll1531008flvieikw4lnxl	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.165	2026-09-03 13:50:13.037	SERVICO_VIEW
+cmtlloxxw008glvievig1vckb	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.65	2026-09-03 14:08:41.348	SERVICO_VIEW
+cmtlmnn5z008llvieg7ffh4i3	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.159	2026-09-03 14:35:42.659	PORTAL_VIEW
+cmtlmr4i9008plvieo0ttw5vt	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.139	2026-09-03 14:38:32.591	PORTAL_VIEW
+cmtlmrnkp008qlviejrm3l8dj	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.139	2026-09-03 14:38:57.548	NOTICIA_VIEW
+cmtlmuw6h008ulviecjp8zcbe	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.139	2026-09-03 14:41:28.667	SERVICO_VIEW
+cmtln9mrg008vlviesagzs59d	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.139	2026-09-03 14:52:56.3	SERVICO_VIEW
+cmtlnnx2t008wlvier7ohh064	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.139	2026-09-03 15:04:02.849	SERVICO_VIEW
+cmtlnxgp4008xlviesxkiguc1	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.139	2026-09-03 15:11:28.172	SERVICO_VIEW
+cmtltv79n009glvie0vlfl7xc	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-09-03 17:57:31.999	SERVICO_VIEW
+cmtlvra11009vlvielc7rq997	Patrimônio	Patrimônio		::ffff:172.31.104.159	2026-09-03 18:50:29.215	PORTAL_VIEW
+cmtlvrshb009wlvieskk59fdz	Patrimônio	Patrimônio		::ffff:172.31.104.159	2026-09-03 18:50:53.33	SERVICO_VIEW
+cmtlx4ccr00aalvietjwmkmna	Patrimônio	Patrimônio		fe80::a56f:5e46:21ba:26da%21	2026-09-03 19:28:37.922	PORTAL_VIEW
+cmtlx4m1i00ablvie5lks1nq6	Patrimônio	Patrimônio		fe80::a56f:5e46:21ba:26da%21	2026-09-03 19:28:50.678	SERVICO_VIEW
+cmtly4g0i00ahlvie3ldl3qfw	Patrimônio	Patrimônio		::ffff:172.31.104.39	2026-09-03 19:56:41.634	PORTAL_VIEW
+cmtmu02cb00aklviepbog1pbn	Patrimônio	Patrimônio		::ffff:172.31.104.155	2026-09-04 10:49:07.122	PORTAL_VIEW
+cmtmvgijc00b4lvie7mk09lth	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-09-04 11:29:51.41	PORTAL_VIEW
+cmtlvoc7b009tlvieptseoxyw	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.131	2026-09-03 18:48:13.901	PORTAL_VIEW
+cmtlvperw009ulviewcmrfdo7	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.131	2026-09-03 18:49:03.908	SERVICO_VIEW
+cmtly431b00aglvie7cyd3488	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.39	2026-09-03 19:56:24.717	PORTAL_VIEW
+cmtmvrmni00b8lvievb2otnxd	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-04 11:38:29.949	PORTAL_VIEW
+cmtmvrmpi00b9lvieagdgbi8b	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-04 11:38:29.951	PORTAL_VIEW
+cmtmvrmpz00balvie7z4uc37z	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-04 11:38:29.953	PORTAL_VIEW
+cmtmw2wm800bdlviemyi7w44o	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-09-04 11:47:17.001	PORTAL_VIEW
+cmtmw2wmx00belviepg6hyyxh	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-09-04 11:47:17.003	PORTAL_VIEW
+cmtmw3hb300bglviexzruegft	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-09-04 11:47:43.821	PORTAL_VIEW
+cmtmw3hb200bflviefva74za6	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-09-04 11:47:43.821	PORTAL_VIEW
+cmtmvwj1700bblviex4pmkiyz	Patrimônio	Patrimônio		::ffff:172.31.104.157	2026-09-04 11:42:19.425	PORTAL_VIEW
+cmtmww5ee00004wlim6gftu3d	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-09-04 12:10:01.425	PORTAL_VIEW
+cmtmx5d6s00014wliphup2zlg	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-09-04 12:17:07.749	SERVICO_VIEW
+cmtmyune3000n4wlipwka2u16	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-09-04 13:04:46.982	SERVICO_VIEW
 cmrv4a9l5000128k92kz0z3h8	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-21 20:39:41.991	PORTAL_VIEW
 cmrv4aez9000228k981hx2i3g	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-21 20:39:49.013	PORTAL_VIEW
 cmrv4aeza000328k9f00djvdh	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-21 20:39:49.016	PORTAL_VIEW
@@ -657,32 +1019,9 @@ cmrw0yl4q001r11ht3oa4gfnv	Engenharia e Arquitetura	Engenharia e Arquitetura		::f
 cmrw10c6d001x11ht5rh83wuj	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-22 11:55:46.162	PORTAL_VIEW
 cmrw13ss1001y11htmdtsndg7	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-22 11:58:27.686	PORTAL_VIEW
 cmrw1cagd002311htldn81mgc	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-22 12:05:03.828	PORTAL_VIEW
-cmrw1o72q002611htjrcx5gs8	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-22 12:14:13.037	SERVICO_VIEW
-cmrw3hdoi0000jmlr5aq6j5vs	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-22 13:04:54.217	SERVICO_VIEW
-cmrw3w5x2000051o3wf0981zy	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-22 13:16:23.954	SERVICO_VIEW
-cmrw4w4g100016luz8th5bkin	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 13:44:28.028	SERVICO_VIEW
-cmrw4waky00026luzhjpip11e	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-22 13:44:35.982	SERVICO_VIEW
-cmrw5ne0y0000kwhyf8e9jfwt	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-22 14:05:33.835	SERVICO_VIEW
-cmrwadxl50000kn2lbm98qo3d	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 16:18:16.968	SERVICO_VIEW
-cmrwc30m1000214idcunp9ej6	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 17:05:46.964	SERVICO_VIEW
-cmrwcbmsi000010wga17tjxuo	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 17:12:28.883	SERVICO_VIEW
-cmrwd3iyt0002ezmc87rgh48u	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 17:34:10.37	SERVICO_VIEW
-cmrwdpjl0000hezmcankc29a0	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 17:51:17.597	SERVICO_VIEW
-cmrt5yqfr0001xbmej9ajfotj	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-20 11:51:10.806	PORTAL_VIEW
-cmrt73a1w0000mdi10b3bj1pz	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-20 12:22:42.586	SERVICO_VIEW
-cmrt77wpy0003mdi1ajb1j1qc	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-20 12:26:18.595	SERVICO_VIEW
-cmrtb889y0005mdi1l457qr6l	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.69	2026-07-20 14:18:31.986	PORTAL_VIEW
-cmrtma6e2000omdi1duxxzgvz	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.92	2026-07-20 19:27:54.758	PORTAL_VIEW
-cmrtncvmj0000b6em2f6poepc	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-20 19:58:04.306	NOTICIA_VIEW
-cmrumwsay0008jzjx20gf2owt	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-21 12:33:13.899	PORTAL_VIEW
-cmrushlb3000fd883zn2yfirw	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-21 15:09:28.473	PORTAL_VIEW
-cmruxeal4001dd88351eixfye	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-07-21 17:26:52.988	PORTAL_VIEW
-cmruztka3001id8835v8tq8xy	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.132	2026-07-21 18:34:59.945	PORTAL_VIEW
-cmrv1i3uo001nd883eorf7yop	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		fe80::9059:7586:6ed6:321d%21	2026-07-21 19:22:09.087	SERVICO_VIEW
-cmrv1iqjx001od883xfa8a1o6	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		fe80::9059:7586:6ed6:321d%21	2026-07-21 19:22:38.507	SERVICO_VIEW
-cmrv1ivk9001pd883cxsu9hp5	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		fe80::9059:7586:6ed6:321d%21	2026-07-21 19:22:44.995	SERVICO_VIEW
-cmrv1jg9b001rd8833mx1na70	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		fe80::9059:7586:6ed6:321d%21	2026-07-21 19:23:11.821	SERVICO_VIEW
-cmrv48run0000nm7h4bhl2oxz	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		fe80::9059:7586:6ed6:321d%21	2026-07-21 20:38:52.43	SERVICO_VIEW
+cmrt73a1w0000mdi10b3bj1pz	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-20 12:22:42.586	SERVICO_VIEW
+cmrt77wpy0003mdi1ajb1j1qc	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-20 12:26:18.595	SERVICO_VIEW
+cmrtb889y0005mdi1l457qr6l	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-07-20 14:18:31.986	PORTAL_VIEW
 cmrv4bccc000428k9bqxugnch	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-21 20:40:32.305	PORTAL_VIEW
 cmrv4bds8000b28k9hvnv8qsi	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-21 20:40:34.18	PORTAL_VIEW
 cmrv4c221000c28k9emhumss7	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-21 20:41:05.63	PORTAL_VIEW
@@ -715,20 +1054,7 @@ cmrw0yl4p001q11htv52azce6	Engenharia e Arquitetura	Engenharia e Arquitetura		::f
 cmrw0ywmf001t11htoczzi8pe	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-22 11:54:39.391	PORTAL_VIEW
 cmrw0zrz9001u11htohkqzltq	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-22 11:55:20.03	PORTAL_VIEW
 cmrw142v4002011htx4m4ygmk	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-22 11:58:40.762	PORTAL_VIEW
-cmrw18ky9002211htbdjcvfi4	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 12:02:10.828	PORTAL_VIEW
 cmrw1cage002411ht4htatyh2	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-22 12:05:03.83	PORTAL_VIEW
-cmrw1pwcx002711ht2r7e7ai7	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-22 12:15:32.463	SERVICO_VIEW
-cmrt5zloo0002xbmeaxir016i	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-20 11:51:51.428	PORTAL_VIEW
-cmrt60inh0003xbmeycpfzyba	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-20 11:52:34.152	PORTAL_VIEW
-cmrt73emc0001mdi1j1adrj2f	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-20 12:22:48.509	SERVICO_VIEW
-cmrtb8b4z0006mdi109n0nifh	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-07-20 14:18:35.775	PORTAL_VIEW
-cmrtmiv35000pmdi1gxxminpm	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.92	2026-07-20 19:34:40.021	SERVICO_VIEW
-cmrumcaqc0003jzjxnsctp9j3	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-21 12:17:23.723	PORTAL_VIEW
-cmrupiaur0002qshwrjc2v4j5	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-21 13:46:02.726	SERVICO_VIEW
-cmrusy9x0000zd8834m8cio82	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-21 15:22:26.864	SERVICO_VIEW
-cmruxi8dq001ed883w8imuxa5	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-21 17:29:50.855	SERVICO_VIEW
-cmrv0ctk9001jd883i5oeqqcq	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-21 18:49:42.819	PORTAL_VIEW
-cmrv1j0v5001qd883irts5rxn	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		fe80::9059:7586:6ed6:321d%21	2026-07-21 19:22:51.873	SERVICO_VIEW
 cmrv49qsp0001nm7hjzuf0sh5	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-21 20:39:17.727	PORTAL_VIEW
 cmrv49qsu0002nm7h6ac0dq4l	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-21 20:39:17.737	PORTAL_VIEW
 cmrv4bcce000528k91c7rzng8	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-21 20:40:32.306	PORTAL_VIEW
@@ -769,16 +1095,7 @@ cmrw0ncbj000k11ht94yme9qt	Engenharia e Arquitetura	Engenharia e Arquitetura		::f
 cmrw0ncpy000r11htqyp2gp3p	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-22 11:45:40.388	PORTAL_VIEW
 cmrw0ncuz000s11ht3pz81wkh	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-22 11:45:40.568	PORTAL_VIEW
 cmrw0ncv0000t11htv1rqvqkf	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-22 11:45:40.569	PORTAL_VIEW
-cmrt60srn0004xbmevm1s2125	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-20 11:52:47.263	PORTAL_VIEW
-cmrt76gcj0002mdi1vghngqj7	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-20 12:25:10.719	NOTICIA_VIEW
-cmrtgdb9j0007mdi131cxx8s2	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-07-20 16:42:27.296	SERVICO_VIEW
-cmrtn4rm2000abqr5ifbmxtbx	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-20 19:51:39.666	PORTAL_VIEW
-cmrumectw0004jzjxdgvigb16	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-07-21 12:18:59.966	PORTAL_VIEW
-cmrupibm90003qshwoc4i6rqb	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-21 13:46:03.726	SERVICO_VIEW
-cmruvsipk0013d8832vj3if73	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-21 16:41:51.593	SERVICO_VIEW
-cmruyq4cd001gd883r1riazyb	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-21 18:04:04.414	SERVICO_VIEW
-cmrv0vqwo001kd883jxb3qcxw	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.31	2026-07-21 19:04:25.073	PORTAL_VIEW
-cmrv1qszr001sd883cw975cn9	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		fe80::9059:7586:6ed6:321d%21	2026-07-21 19:28:54.915	SERVICO_VIEW
+cmrumectw0004jzjxdgvigb16	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-07-21 12:18:59.966	PORTAL_VIEW
 cmrv4a9jv000028k9jscnrqq7	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-21 20:39:41.989	PORTAL_VIEW
 cmrv4k9ao000s28k940k5hqhp	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-21 20:47:28.26	PORTAL_VIEW
 cmrvzy0i9000w28k9geoofxil	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-22 11:25:58.15	PORTAL_VIEW
@@ -787,8 +1104,6 @@ cmrw0nccr000l11ht580ahlma	Engenharia e Arquitetura	Engenharia e Arquitetura		::f
 cmrw0ncgp000m11htnps9tzkv	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-22 11:45:40.052	PORTAL_VIEW
 cmrw0ncgs000n11ht7ivylt70	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-22 11:45:40.054	PORTAL_VIEW
 cmrw0ncm1000o11ht6fllmkoh	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-22 11:45:40.244	PORTAL_VIEW
-cmrt5o6ih0008clahj14t9up5	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-20 11:42:58.547	PORTAL_VIEW
-cmrt5o6ip0009clah435xbh92	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-20 11:42:58.558	PORTAL_VIEW
 cmrw0ncm3000p11ht5mvaolou	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-22 11:45:40.246	PORTAL_VIEW
 cmrw0ncpx000q11htrxk3vgvn	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-22 11:45:40.386	PORTAL_VIEW
 cmrw0nczn000v11htlmkg5g65	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-22 11:45:40.735	PORTAL_VIEW
@@ -800,184 +1115,45 @@ cmrw0zrza001v11htramywudx	Engenharia e Arquitetura	Engenharia e Arquitetura		::f
 cmrw10c56001w11ht5iwz3bu7	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-22 11:55:46.16	PORTAL_VIEW
 cmrw13ss1001z11htktcyi781	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-22 11:58:27.69	PORTAL_VIEW
 cmrw142vh002111htq4anadsv	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-22 11:58:40.764	PORTAL_VIEW
-cmrw1ltmu002511ht9l0wv2kr	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-22 12:12:22.083	PORTAL_VIEW
-cmrw258dn002811ht0rkh4hwb	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-22 12:27:27.88	SERVICO_VIEW
-cmrw3pmei0000f6jczpjut95x	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-22 13:11:18.738	SERVICO_VIEW
-cmrw4jm7n00006luzunf8oqi7	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 13:34:44.523	SERVICO_VIEW
-cmrw4x6cc00036luzjahl4eor	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 13:45:17.119	SERVICO_VIEW
-cmrw7zx750000jpo74mux5d64	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 15:11:24.097	SERVICO_VIEW
 cmrwbik10000031qzxsvpc6dj	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-22 16:49:52.265	PORTAL_VIEW
 cmrwbik1r000131qzaj4mnaq1	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-22 16:49:52.266	PORTAL_VIEW
-cmrwc37iu000314idt587hufd	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 17:05:55.922	SERVICO_VIEW
-cmrwc3co3000414id3j7y387p	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 17:06:02.59	SERVICO_VIEW
-cmrwc3ip9000514idnbk7sjdq	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 17:06:10.41	SERVICO_VIEW
-cmrwd0yhi0000ezmcnis7r4gf	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-22 17:32:04.152	SERVICO_VIEW
-cmrwdi2ol000aezmc6tw7fg3g	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 17:45:29.107	SERVICO_VIEW
-cmrwe0qcu000324rvkywgpipl	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 17:59:59.592	SERVICO_VIEW
-cmrwe34l0000524rv0w88halm	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 18:01:51.342	SERVICO_VIEW
-cmrweaceb0000htwtd3lfhmwd	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 18:07:28.059	SERVICO_VIEW
-cmrweec6r0001htwtgi7et8g3	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 18:10:34.412	SERVICO_VIEW
-cmrweh1qi0002htwt81nu9jkx	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 18:12:40.839	SERVICO_VIEW
-cmrwet7d40007htwte387g6z9	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 18:22:08.004	SERVICO_VIEW
-cmrwf10mi000fhtwtwfdwn1x8	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 18:28:12.518	SERVICO_VIEW
-cmrwf5yoe000lhtwtxdldyrml	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 18:32:03.273	SERVICO_VIEW
-cmrwfdglr00048laws163i6ut	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 18:37:53.098	SERVICO_VIEW
-cmrwfo6u000058lawxz0fgn4h	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 18:46:13.649	SERVICO_VIEW
-cmrwfz8f00000x42imrt96sqh	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-22 18:54:42.547	SERVICO_VIEW
-cmrwg09eo0001x42ii718xze0	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 18:55:36.859	SERVICO_VIEW
-cmrwg78pe00036qu35yu6p9lm	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 19:01:02.54	SERVICO_VIEW
-cmrxgdvjw0000a05rnyka0g7k	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-23 11:53:49.715	PORTAL_VIEW
-cmrxhiwlr0001a05rumm7119t	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-23 12:25:51.311	PORTAL_VIEW
-cmrxi7kha0002a05rodiexcii	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-23 12:45:02.308	SERVICO_VIEW
-cmrxn0pve0004a05rd87sg0ac	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-23 14:59:40.15	NOTICIA_VIEW
-cmrxn1ena0005a05rox107b10	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-23 15:00:12.242	PORTAL_VIEW
-cmrxn1hri0006a05rafsgv3kb	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-23 15:00:16.308	NOTICIA_VIEW
-cmrxn2vxo0008a05rhyl4g4m4	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-23 15:01:21.322	NOTICIA_VIEW
-cmrxoepie0009a05rjpyzx95g	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-23 15:38:32.2	PORTAL_VIEW
-cmrxof2lu000aa05reu53poc7	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-23 15:38:49.475	NOTICIA_VIEW
-cmrxof4ym000ba05rmafqkl6v	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-23 15:38:52.535	NOTICIA_VIEW
-cmrxpudop000ca05r1ms7pem8	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-07-23 16:18:43.283	PORTAL_VIEW
+cmrxpudop000ca05r1ms7pem8	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-07-23 16:18:43.283	PORTAL_VIEW
 cmrxpudqy000da05rzczjr6pf	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-07-23 16:18:43.285	PORTAL_VIEW
 cmrxpudr2000ea05r3ns5bhht	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-07-23 16:18:43.287	PORTAL_VIEW
-cmrxq0c5b000fa05re8ta602s	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.64	2026-07-23 16:23:21.201	PORTAL_VIEW
 cmrxr9xzs000ga05rju1mvj9x	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-07-23 16:58:50.558	PORTAL_VIEW
 cmrxr9xzs000ha05r10li3u8h	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-07-23 16:58:50.559	PORTAL_VIEW
-cmrxraixw000ia05rupro943v	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-23 16:59:17.75	PORTAL_VIEW
 cmrxrd27g000ja05rgnmj4wvu	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-07-23 17:01:15.997	PORTAL_VIEW
 cmrxrd27h000ka05r3k1l6pe1	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-07-23 17:01:15.998	PORTAL_VIEW
-cmrxs6jr5000la05r61flqtun	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-07-23 17:24:11.771	SERVICO_VIEW
-cmrxsh4ph000ma05rcodpsj14	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-23 17:32:25.534	NOTICIA_VIEW
-cmrxsmpxr000na05rrh7t7mt1	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-23 17:36:46.317	PORTAL_VIEW
-cmrxsmwu5000oa05rzijhdezs	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-23 17:36:55.272	NOTICIA_VIEW
 cmrxsp2h5000pa05rp0j0yetq	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-23 17:38:35.753	PORTAL_VIEW
 cmrxsp2h7000qa05rjii4vb6y	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-23 17:38:35.755	PORTAL_VIEW
-cmrxsp7t1000ra05rs92yefp8	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 17:38:42.754	NOTICIA_VIEW
-cmrxsvp7j000ta05rkxlolpd9	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-23 17:43:45.264	PORTAL_VIEW
-cmrxsvvzl000ua05rxhrfalc9	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.64	2026-07-23 17:43:54.072	PORTAL_VIEW
-cmrxtihg70015a05r2rskvt0j	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 18:01:28.276	NOTICIA_VIEW
-cmrxtjy1t0017a05rhsdkn2u3	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 18:02:36.443	SERVICO_VIEW
-cmrxtk4cl0018a05r8sc1py03	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 18:02:44.608	NOTICIA_VIEW
-cmrxtrvl90000b70won1malof	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 18:08:46.454	NOTICIA_VIEW
-cmrxtxmyk0001b70wno8pjtwj	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 18:13:15.256	NOTICIA_VIEW
-cmrxty3wp0002b70wzt2rcwwk	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 18:13:37.221	NOTICIA_VIEW
-cmrxty4s40003b70w2gt2twjd	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 18:13:38.353	NOTICIA_VIEW
-cmrxue5c40000uovf4flwlg7u	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-23 18:25:57.398	SERVICO_VIEW
-cmrxukpe400003kynht2kt7jk	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 18:31:11.492	NOTICIA_VIEW
-cmrxuuew60000v50tan0cf1ki	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 18:38:44.447	SERVICO_VIEW
 cmrxv0iyg0003v50t6yy87jz8	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-23 18:43:29.624	PORTAL_VIEW
 cmrxv0iyi0004v50tu6quuwr9	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-23 18:43:29.626	PORTAL_VIEW
-cmrxv0k5t0005v50tunr52ryl	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-23 18:43:31.214	NOTICIA_VIEW
-cmrxv0l1u0006v50tfi2vr3hi	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-23 18:43:32.368	NOTICIA_VIEW
-cmrxv0lg20007v50tr9vcqtrn	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-23 18:43:32.88	NOTICIA_VIEW
-cmrxv1bdh0008v50ttqs7ui3s	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 18:44:06.481	NOTICIA_VIEW
-cmrxvb1oc0009v50tqicdcgrz	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 18:51:40.472	NOTICIA_VIEW
-cmrxvb5od000av50tprw1brnm	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 18:51:45.656	NOTICIA_VIEW
-cmrxw8z5g0000fyqbam6st2b4	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-23 19:18:03.437	PORTAL_VIEW
-cmrxw9b2s0001fyqbe4d8j0n7	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-07-23 19:18:19.051	PORTAL_VIEW
+cmrxv0k5t0005v50tunr52ryl	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-23 18:43:31.214	NOTICIA_VIEW
+cmrxv0l1u0006v50tfi2vr3hi	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-23 18:43:32.368	NOTICIA_VIEW
+cmrxv0lg20007v50tr9vcqtrn	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-23 18:43:32.88	NOTICIA_VIEW
+cmrxw9b2s0001fyqbe4d8j0n7	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-07-23 19:18:19.051	PORTAL_VIEW
 cmrxw9b400002fyqbxzgacav4	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-07-23 19:18:19.053	PORTAL_VIEW
 cmrxw9b430003fyqbuazmqvzi	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-07-23 19:18:19.054	PORTAL_VIEW
-cmrxwb53l0000w8indj4of5sn	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-23 19:19:44.63	NOTICIA_VIEW
-cmrxwermh0002w8in70vlsgvi	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 19:22:33.684	NOTICIA_VIEW
-cmrxwew2j0003w8inq4c8qk5q	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-23 19:22:39.55	SERVICO_VIEW
-cmrxwezwb0004w8in8ie4n8cl	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-23 19:22:44.52	SERVICO_VIEW
-cmrxwfnml0005w8in6wt9tmxs	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 19:23:15.16	NOTICIA_VIEW
-cmrxwh7d60006w8in7p7f46rq	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-23 19:24:27.509	SERVICO_VIEW
 cmrxwm2710007w8in7r8u7kca	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-23 19:28:13.918	PORTAL_VIEW
 cmrxwm2720008w8ino35hktp5	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-07-23 19:28:13.921	PORTAL_VIEW
-cmrxwri31000fw8inuxrigb61	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 19:32:27.85	NOTICIA_VIEW
-cmrxwvgvq000kw8inktvlkgj6	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 19:35:32.916	NOTICIA_VIEW
 cmrxx17n8000nw8inrfym1bbe	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-07-23 19:40:00.985	PORTAL_VIEW
 cmrxx17nm000ow8inii950d7y	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-07-23 19:40:00.986	PORTAL_VIEW
-cmrxxdax9000pw8infzfsc6i7	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-23 19:49:16.417	PORTAL_VIEW
-cmrxxdt0h0000113lxktnguz6	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-23 19:49:40.267	SERVICO_VIEW
-cmrxxfpew00003oi2zvjc3alg	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 19:51:17.089	NOTICIA_VIEW
-cmrxxfqav00013oi2e8plrlf7	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 19:51:18.242	NOTICIA_VIEW
-cmrxxfqmz00023oi2jakwta36	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 19:51:18.679	NOTICIA_VIEW
-cmrxxfrg100033oi2xco4nm75	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 19:51:19.726	NOTICIA_VIEW
-cmrxxlb43000011nr98dd86pc	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 19:55:38.488	SERVICO_VIEW
-cmrxxlc2t000111nrvnn9kjjo	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 19:55:39.746	SERVICO_VIEW
-cmrxxlccy000211nrn2cpwlsq	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 19:55:40.11	SERVICO_VIEW
-cmrxxlcom000311nre876dd4l	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 19:55:40.531	SERVICO_VIEW
-cmrxxlcya000411nr741k8l30	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 19:55:40.879	SERVICO_VIEW
-cmrxxldeg000511nr2eous938	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 19:55:41.461	SERVICO_VIEW
-cmrxxldv7000611nr302tn56q	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-23 19:55:42.063	SERVICO_VIEW
-cmryufphv000066t61impgja3	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-24 11:15:04.123	PORTAL_VIEW
-cmryugbr3000166t6fk880spq	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-24 11:15:32.989	SERVICO_VIEW
-cmryuocqm000366t6h7wejscs	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-24 11:21:47.519	SERVICO_VIEW
-cmryv7ed1000566t6cp27vbru	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-07-24 11:36:36.466	NOTICIA_VIEW
-cmryvmkqe000966t6k9iy51i4	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-24 11:48:24.198	SERVICO_VIEW
-cmryvn3y9000a66t6x3ur9b8u	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-24 11:48:49.104	SERVICO_VIEW
-cmryvuakg000e66t6ph39ikak	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-24 11:54:24.276	SERVICO_VIEW
-cmryxc0km0001eveoyt0ubr3t	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-24 12:36:10.757	PORTAL_VIEW
-cmryxfsjy0002eveoxqy89gqu	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-07-24 12:39:07.399	PORTAL_VIEW
-cmryxh52o0003eveokzofhjms	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-24 12:40:10.269	PORTAL_VIEW
-cmryz60w1000geveo6mwm3z7v	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-24 13:27:30.913	SERVICO_VIEW
-cmryza6tf000oeveoljpzbczu	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-24 13:30:44.8	SERVICO_VIEW
-cmryzad7u000peveoqqdu7ust	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-24 13:30:53.095	SERVICO_VIEW
-cmryzapej000qeveox25ye5it	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-24 13:31:08.892	SERVICO_VIEW
-cmrz1qi55000reveopp6xrcuc	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-24 14:39:25.652	NOTICIA_VIEW
-cmrz88p7w000seveo65s8snhh	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-24 17:41:32.294	SERVICO_VIEW
-cmrz8yfor000teveo8es68338	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-07-24 18:01:32.863	SERVICO_VIEW
-cmrzbadq5000ueveoitn16s89	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.31	2026-07-24 19:06:48.824	PORTAL_VIEW
-cms35b6t700002ggin3bp9x6m	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.69	2026-07-27 11:30:34.231	PORTAL_VIEW
+cms35b6t700002ggin3bp9x6m	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-07-27 11:30:34.231	PORTAL_VIEW
 cms35b6tz00012ggitz9tlr8b	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-07-27 11:30:34.233	PORTAL_VIEW
 cms35b6u000022ggifbd1encd	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-07-27 11:30:34.234	PORTAL_VIEW
 cms35b8gu00032ggichjohllj	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-07-27 11:30:36.391	PORTAL_VIEW
-cms35bcv700042ggij36vk17q	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-07-27 11:30:42.074	PORTAL_VIEW
 cms35bncs00052ggiw7ppw4a6	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-07-27 11:30:55.681	PORTAL_VIEW
-cms35bruf00062ggiidbk9dng	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-27 11:31:01.502	SERVICO_VIEW
-cms36i48n000j2ggir63y0bfo	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-27 12:03:57.103	NOTICIA_VIEW
-cms36nve2000k2ggi5a41owr4	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-27 12:08:25.566	SERVICO_VIEW
-cms36nwrc000l2ggivxa0f6e3	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-27 12:08:27.352	SERVICO_VIEW
-cms36w17l000q2ggioj9a93kh	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-27 12:14:46.367	NOTICIA_VIEW
-cms3fgrt900102ggiuw74bsmo	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-27 16:14:50.338	PORTAL_VIEW
-cms3fksl000112ggijggzn80u	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-27 16:17:58.399	SERVICO_VIEW
-cms3fmnko00122ggikgg8m1n7	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-27 16:19:25.217	SERVICO_VIEW
-cms3jab0o00162ggicnxuu7qk	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-07-27 18:01:47.626	SERVICO_VIEW
-cms4lgwtr00172ggifya5g6yw	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-07-28 11:50:41.213	SERVICO_VIEW
-cms4pbw5j00182ggir51qenn2	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.146	2026-07-28 13:34:52.481	PORTAL_VIEW
-cms4pchd500192ggibq0kngoe	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.146	2026-07-28 13:35:22.607	SERVICO_VIEW
-cms4pdlx4001a2ggio31eq7vu	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.146	2026-07-28 13:36:15.104	PORTAL_VIEW
+cms4pdlx4001a2ggio31eq7vu	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.146	2026-07-28 13:36:15.104	PORTAL_VIEW
 cms4pdlyo001b2ggicyqlk5g9	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.146	2026-07-28 13:36:15.107	PORTAL_VIEW
 cms4pdlyq001c2gginavjedp9	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.146	2026-07-28 13:36:15.115	PORTAL_VIEW
-cms4pe4h2001d2ggibgcogbgi	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.146	2026-07-28 13:36:39.213	SERVICO_VIEW
+cms4pe4h2001d2ggibgcogbgi	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.146	2026-07-28 13:36:39.213	SERVICO_VIEW
 cms4pe75z001e2ggiu6ok5fgi	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.146	2026-07-28 13:36:42.603	PORTAL_VIEW
 cms4pe764001f2ggin6cue4c2	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.146	2026-07-28 13:36:42.604	PORTAL_VIEW
 cms4peg0p001g2ggi6hsp6lia	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.146	2026-07-28 13:36:54.073	PORTAL_VIEW
 cms4peg0t001h2ggim45n0eaw	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.146	2026-07-28 13:36:54.074	PORTAL_VIEW
-cms4peqqa001i2ggi0mhv8ds1	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.146	2026-07-28 13:37:08.025	PORTAL_VIEW
-cms4petes001j2ggi2voyesf9	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.146	2026-07-28 13:37:11.536	SERVICO_VIEW
 cms4pfg1o001k2ggiohqnmzz3	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.146	2026-07-28 13:37:40.784	PORTAL_VIEW
 cms4pfg2a001l2ggikdrk0a68	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.146	2026-07-28 13:37:40.786	PORTAL_VIEW
-cms4ruj8x001m2ggi3zs6yly5	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.146	2026-07-28 14:45:24.081	NOTICIA_VIEW
-cms4t4q56001n2ggivxj9vjm5	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.59	2026-07-28 15:23:12.874	PORTAL_VIEW
-cms4t4s29001o2ggighfpx0wg	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.59	2026-07-28 15:23:15.919	PORTAL_VIEW
-cms4taybt001p2ggir2drdv3o	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.59	2026-07-28 15:28:01.656	PORTAL_VIEW
-cms4tayce001q2ggics421c4h	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.59	2026-07-28 15:28:04.021	SERVICO_VIEW
-cms4x2mpi001r2ggispzr7kq0	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-28 17:15:27.819	PORTAL_VIEW
-cms4x56t3001s2ggieo1kl6jg	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-28 17:17:27.567	SERVICO_VIEW
-cms4x6x8p001u2ggibnx5jcde	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-07-28 17:18:50.679	SERVICO_VIEW
-cms4x9657001v2ggin7mgljt3	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-28 17:20:33.33	SERVICO_VIEW
-cms4z0639001x2ggiygza3l0h	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-07-28 18:09:32.576	SERVICO_VIEW
-cms4zunz4001y2ggio1u2ge5t	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-28 18:33:17.793	PORTAL_VIEW
-cms500e6g001z2ggifv24zbep	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-28 18:37:45.052	SERVICO_VIEW
-cms50v90u00202ggigml13rmj	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-28 19:01:44.714	SERVICO_VIEW
-cms50vcke00212ggign2aq7wv	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-28 19:01:49.321	SERVICO_VIEW
-cms510jir00222ggimqnplqfo	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-28 19:05:51.609	SERVICO_VIEW
-cms51872400232ggica748pbz	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-28 19:11:48.715	SERVICO_VIEW
-cms518oql00242ggib0npsof1	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-28 19:12:11.627	SERVICO_VIEW
-cms7fr7ko00252gginhqr67ng	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-30 11:34:02.23	PORTAL_VIEW
-cms7fraoc00262ggiuuzfpo9y	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-07-30 11:34:06.535	PORTAL_VIEW
-cms7qhqo600272ggibcgn6tg2	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-30 16:34:36.364	PORTAL_VIEW
-cms7qkqif00282ggiatc4ng9t	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-30 16:36:56.396	SERVICO_VIEW
-cms7qyunl00292ggiiecry329	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-30 16:47:54.934	SERVICO_VIEW
-cms7tduh9002a2ggimrg96p1i	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-30 17:55:33.42	SERVICO_VIEW
-cms90ax1d002b2ggix40vywnk	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-31 13:57:00.554	NOTICIA_VIEW
-cms90ayae002c2ggi621kt9m7	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-07-31 13:57:02.179	NOTICIA_VIEW
-cmsd67xgs002d2ggisbexwg3n	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.59	2026-08-03 11:51:41.106	SERVICO_VIEW
-cmsd67xw7002e2ggirau6ovek	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.59	2026-08-03 11:51:40.163	PORTAL_VIEW
-cmsd7qfrr002f2ggixgs7qtzb	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-08-03 12:36:06.333	PORTAL_VIEW
-cmsd7qo8k002g2ggiavtia2bn	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-03 12:36:17.575	PORTAL_VIEW
+cmsd7qo8k002g2ggiavtia2bn	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-03 12:36:17.575	PORTAL_VIEW
 cmsd7qo9n002h2ggi6jx0qozi	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-03 12:36:17.578	PORTAL_VIEW
 cmsd7qo9r002i2ggihudrb9ek	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-03 12:36:17.579	PORTAL_VIEW
 cmsd7qt47002k2ggil03acuwl	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-03 12:36:23.892	PORTAL_VIEW
@@ -993,18 +1169,15 @@ cmsd7r6ki002s2ggitw6v1goe	Engenharia e Arquitetura	Engenharia e Arquitetura		::f
 cmsd7rd63002t2ggipz570f1a	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-03 12:36:49.897	PORTAL_VIEW
 cmsd7rd6g002u2ggifa4apfez	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-03 12:36:49.898	PORTAL_VIEW
 cmsd7rko3002v2ggiyba9tgi7	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-03 12:36:59.615	PORTAL_VIEW
-cmsd7xnsw002w2ggiou3o410o	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-03 12:41:43.555	PORTAL_VIEW
+cmsd7xnsw002w2ggiou3o410o	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-03 12:41:43.555	PORTAL_VIEW
 cmsd7xnun002x2ggiwts37qs6	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-03 12:41:43.557	PORTAL_VIEW
 cmsd7xnus002y2ggi35m01kf0	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-03 12:41:43.559	PORTAL_VIEW
 cmsd7xq41002z2ggi9dzclz2m	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-03 12:41:46.606	PORTAL_VIEW
 cmsd7xq4g00302ggiyctwhvyo	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-03 12:41:46.606	PORTAL_VIEW
-cmsd8bipw00312ggi8p2xrsla	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-08-03 12:52:28.358	PORTAL_VIEW
-cmsd8e1wy00322ggih05m9mio	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.64	2026-08-03 12:54:26.792	PORTAL_VIEW
 cmsd8id8k00332ggi4qnpyf7s	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-03 12:57:49.694	PORTAL_VIEW
 cmsd8id8r00342ggi6xbsaf2i	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-03 12:57:49.694	PORTAL_VIEW
 cmsd8izww00352ggilq3gflnp	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-03 12:58:19.075	PORTAL_VIEW
 cmsd8izwy00362ggi9b0jd5w7	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-03 12:58:19.076	PORTAL_VIEW
-cmsda120h00372ggig7nfracf	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-03 13:40:14.549	PORTAL_VIEW
 cmsdb1m28003d2ggifq66hlxq	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-03 14:08:46.818	PORTAL_VIEW
 cmsdb1m29003e2gginmaipvge	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-03 14:08:46.819	PORTAL_VIEW
 cmsdb2ugh003f2ggix496jzvd	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-03 14:09:44.335	PORTAL_VIEW
@@ -1113,143 +1286,32 @@ cmsdd47bw00692ggip9lapqjj	Engenharia e Arquitetura	Engenharia e Arquitetura		::f
 cmsdd47bx006a2gginobhetpv	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-03 15:06:46.944	PORTAL_VIEW
 cmsdd4ntb006b2ggi17knd6ft	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-03 15:07:08.291	PORTAL_VIEW
 cmsdd4ntc006c2ggibjrap07x	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-03 15:07:08.29	PORTAL_VIEW
-cmsdhr0gm006g2ggipwu4o3yt	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-03 17:16:23.201	NOTICIA_VIEW
-cmselkezu006i2ggi5nw5esyq	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.66	2026-08-04 11:51:06.611	PORTAL_VIEW
-cmsell1p4006j2ggic1gij1oa	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.66	2026-08-04 11:51:36.251	SERVICO_VIEW
-cmsempod0006k2ggi1cgwbgg3	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.62	2026-08-04 12:23:11.185	PORTAL_VIEW
-cmsemq7dm006l2ggigy27akw3	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.62	2026-08-04 12:23:36.175	SERVICO_VIEW
-cmsen0tk0006m2ggiugnlidke	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.62	2026-08-04 12:31:51.48	SERVICO_VIEW
-cmsen0zut006n2ggig9h4j64n	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.62	2026-08-04 12:31:59.644	SERVICO_VIEW
-cmsen161b006o2ggisnsl3pwo	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.62	2026-08-04 12:32:07.656	SERVICO_VIEW
-cmsen3ctf006p2ggijfyttvtp	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.62	2026-08-04 12:33:49.757	SERVICO_VIEW
-cmseph8wu006q2ggidaatamwo	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-08-04 13:40:36.478	PORTAL_VIEW
-cmsephl5a006r2ggie0gtacfd	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-08-04 13:40:52.631	SERVICO_VIEW
-cmsephpyx006s2ggi256c97qq	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-08-04 13:40:58.878	SERVICO_VIEW
-cmsephysc006t2ggirr2g9r6r	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-08-04 13:41:10.311	SERVICO_VIEW
-cmseqosmr006u2ggijqc1kruj	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.66	2026-08-04 14:14:28.869	PORTAL_VIEW
-cmseqove8006v2ggignbwz9dn	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.66	2026-08-04 14:14:32.726	SERVICO_VIEW
-cmsevkmla006w2ggipmvsxt0j	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.66	2026-08-04 16:31:12.662	SERVICO_VIEW
-cmsevms9t006x2ggi7e9i39i1	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.64	2026-08-04 16:32:52.746	PORTAL_VIEW
-cmseyeg24006y2ggik10utld7	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.64	2026-08-04 17:50:22.581	SERVICO_VIEW
-cmseygsxd006z2ggidgqmmprd	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-08-04 17:52:12.571	SERVICO_VIEW
-cmseykt3k00702ggik318t5uc	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-04 17:55:16.294	PORTAL_VIEW
-cmsezhhyj00712ggitfir8vb1	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-04 18:20:44.133	SERVICO_VIEW
-cmsezhpst00722ggiii7s8vzr	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-04 18:20:54.311	SERVICO_VIEW
-cmsgbpyyw007b2ggi1saj8dxg	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-05 16:50:59.499	PORTAL_VIEW
-cmsgbq2m7007c2ggi1smwje8e	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-05 16:51:04.506	SERVICO_VIEW
-cmsgbqaf5007d2ggife8hyl7g	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-05 16:51:14.614	SERVICO_VIEW
-cmsgez8yf007f2ggif3itd61a	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-05 18:22:11.469	SERVICO_VIEW
-cmshgi6xs007i2ggi3v00g8m4	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-06 11:52:39.071	PORTAL_VIEW
-cmshgjl6b007j2ggi95haqynj	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-06 11:53:44.601	NOTICIA_VIEW
-cmshjwohm007k2ggihmtyd9zc	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-06 13:27:54.242	SERVICO_VIEW
-cmshjx4na007l2ggiynykdrby	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-06 13:28:15.185	SERVICO_VIEW
-cmshqeoxg007v2gginmrwv0t0	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-06 16:29:52.282	NOTICIA_VIEW
-cmshrsdiu008a2ggi3frmwhix	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-06 17:08:30.294	NOTICIA_VIEW
-cmshsjiei008b2ggiz3gcrhdj	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-08-06 17:29:40.072	SERVICO_VIEW
-cmshx09g6008c2ggiwqafn297	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.31	2026-08-06 19:34:39.329	PORTAL_VIEW
-cmsiwvcuk008f2ggikv7qaw0w	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.31	2026-08-07 12:18:37.044	PORTAL_VIEW
-cmsj5wxim009z2ggio20g804l	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.31	2026-08-07 16:31:47.168	SERVICO_VIEW
-cmsj61zfq00a12ggimr1cp3ui	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.31	2026-08-07 16:35:42.924	SERVICO_VIEW
-cmsj65g6p00a22ggicbp9ijp4	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.31	2026-08-07 16:38:24.603	SERVICO_VIEW
-cmsj6bicj00a32ggi5n7ybhoj	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.31	2026-08-07 16:43:07.338	SERVICO_VIEW
-cmsj6i5v600a42ggib97jbpls	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.31	2026-08-07 16:48:17.751	SERVICO_VIEW
-cmsj6mcug00a52ggixl403g1u	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.31	2026-08-07 16:51:33.423	SERVICO_VIEW
-cmsj6p3hq00a72ggi2ucbda1t	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.31	2026-08-07 16:53:41.258	SERVICO_VIEW
-cmsj714lw00ab2ggij3vlnhop	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.29	2026-08-07 17:03:09.997	PORTAL_VIEW
-cmsn7atiq00ac2ggiz4vyurcm	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-08-10 12:21:39.391	PORTAL_VIEW
-cmsn7axeq00ad2ggiz2go54ro	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-08-10 12:21:44.754	SERVICO_VIEW
-cmsn7skyd00ae2ggiap38ks60	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.31	2026-08-10 12:35:27.795	PORTAL_VIEW
-cmsn82p6y00ah2ggi7amapsqy	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-08-10 12:43:20.486	SERVICO_VIEW
-cmsn888k400ak2ggiw5fj6g24	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-08-10 12:47:38.859	SERVICO_VIEW
-cmsn8cqa100an2ggimfc7nzm5	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-08-10 12:51:08.455	SERVICO_VIEW
-cmsn9jhvf00as2ggib1jh0mh5	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-08-10 13:24:23.775	SERVICO_VIEW
-cmsnb9x4a00b12ggixbfkrfgv	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.29	2026-08-10 14:13:04.544	PORTAL_VIEW
-cmsnbb43m00b22ggiicgt9bi2	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.29	2026-08-10 14:14:00.541	SERVICO_VIEW
-cmsnbbk7t00b32ggiw1bmyq4w	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.29	2026-08-10 14:14:21.436	SERVICO_VIEW
-cmsnbbptk00b42ggihlvnfk7e	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.29	2026-08-10 14:14:28.687	SERVICO_VIEW
-cmsnbc5ls00b52ggiawq2os6c	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.29	2026-08-10 14:14:49.15	SERVICO_VIEW
-cmsnbcrxr00b62ggiow8djf18	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.29	2026-08-10 14:15:18.094	SERVICO_VIEW
-cmsnm3tcb00b92ggitg0jeimh	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.31	2026-08-10 19:16:06.156	PORTAL_VIEW
-cmsol3l1p00ba2ggim49v8c4f	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-11 11:35:42.558	PORTAL_VIEW
+cmsol3l1p00ba2ggim49v8c4f	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-11 11:35:42.558	PORTAL_VIEW
 cmsol3l1z00bb2ggiyfkqnyet	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-11 11:35:42.56	PORTAL_VIEW
 cmsol3l2n00bc2ggiah3gh2bv	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-11 11:35:42.562	PORTAL_VIEW
-cmsol3rzr00bd2gginwrroqmr	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-08-11 11:35:51.677	PORTAL_VIEW
-cmsolticm00be2ggii5096v47	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-11 11:55:52.875	PORTAL_VIEW
-cmsoniggi00bh2ggiipmkfzz0	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-11 12:43:16.39	SERVICO_VIEW
-cmsoniqex00bi2ggioomi0cvx	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-11 12:43:29.294	SERVICO_VIEW
-cmsonooua00bk2ggiu38z93ha	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-11 12:48:07.159	SERVICO_VIEW
-cmsonp0h800bl2ggihivaihb4	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-11 12:48:22.239	SERVICO_VIEW
-cmsoojha300bm2ggid35hx3dw	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-11 13:12:03.563	SERVICO_VIEW
-cmsookp6m00bn2ggivayhs6bp	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-11 13:13:00.455	SERVICO_VIEW
-cmsoyjsaz00bp2ggi0i48p1bg	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-08-11 17:52:13.871	SERVICO_VIEW
 cmssuzqge0001i6j3t2iifh1q	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-14 11:23:44.15	PORTAL_VIEW
 cmssuzqgd0000i6j3bwvs4vob	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-14 11:23:44.15	PORTAL_VIEW
-cmssv00820002i6j34gtomq2a	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-14 11:23:56.829	PORTAL_VIEW
+cmssv00820002i6j34gtomq2a	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-14 11:23:56.829	PORTAL_VIEW
 cmssv00880003i6j3xyjt6vgm	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-14 11:23:56.834	PORTAL_VIEW
 cmssv00890004i6j3oanqpjlz	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-14 11:23:56.837	PORTAL_VIEW
-cmssv1lhz0005i6j3bwvaa9b1	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-08-14 11:25:11.058	PORTAL_VIEW
-cmssx38fa0006i6j3n8c6bg2z	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-08-14 12:22:26.716	SERVICO_VIEW
-cmssxr4ey0007i6j3ytd55bm1	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-08-14 12:41:01.273	SERVICO_VIEW
-cmsszm5200008i6j3l8pm93zl	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.31	2026-08-14 13:33:07.665	PORTAL_VIEW
-cmst13xtr0009i6j3slvpwx7t	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-08-14 14:14:55.855	PORTAL_VIEW
-cmst1444v000ai6j3t5sy77x3	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.64	2026-08-14 14:15:04.191	PORTAL_VIEW
-cmst14mei000bi6j35suaia0k	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.64	2026-08-14 14:15:27.92	SERVICO_VIEW
-cmst176ah000ci6j320ebt3cl	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.64	2026-08-14 14:17:27.002	SERVICO_VIEW
-cmst17ydg000di6j31a8f0qkn	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.64	2026-08-14 14:18:03.404	SERVICO_VIEW
-cmst1jzsg000ei6j3slpqdj3x	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.64	2026-08-14 14:27:25.111	SERVICO_VIEW
-cmst7ldb5000fi6j3wi1c0l31	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-08-14 17:16:29.067	NOTICIA_VIEW
-cmst814r0000gi6j3t9opcp2s	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-08-14 17:28:44.47	NOTICIA_VIEW
-cmstd0vd5000hi6j3x0m72exl	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-08-14 19:48:30.449	NOTICIA_VIEW
-cmstd18ah000ii6j3zayl2vag	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-08-14 19:48:47.19	SERVICO_VIEW
 cmsx5zb7q000013zxgcvjc5ee	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-17 11:42:24.594	PORTAL_VIEW
 cmsx5zb9x000113zx4wricyav	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-17 11:42:24.595	PORTAL_VIEW
-cmsx60u0a000213zxjdi6k245	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-08-17 11:43:36.396	PORTAL_VIEW
-cmsx88mhy000313zxt9eq7w4b	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.31	2026-08-17 12:45:38.981	PORTAL_VIEW
-cmsxgvssf000413zxcgjcg85c	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-17 16:47:36.433	PORTAL_VIEW
-cmsxicodb000513zxzuqva3pm	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-17 17:28:43.814	SERVICO_VIEW
-cmsxidfrg000613zxha9lr0hs	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-17 17:29:19.31	SERVICO_VIEW
-cmsxj4ayt000713zxviwf7n6v	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-08-17 17:50:13.125	SERVICO_VIEW
-cmsxj4u28000813zx0so9tohb	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-08-17 17:50:37.874	SERVICO_VIEW
-cmsylbstw000g13zxkp27sfez	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-08-18 11:39:47.76	PORTAL_VIEW
-cmsyvqnjp000h13zxbhvotjfq	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-08-18 16:31:17.687	PORTAL_VIEW
-cmsywaqsz000i13zxg6xeia6b	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.42	2026-08-18 16:46:53.553	PORTAL_VIEW
-cmsyxsplx000j13zx0am9u18n	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.42	2026-08-18 17:28:51.527	NOTICIA_VIEW
-cmsyxu84n000k13zx9zle291y	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.42	2026-08-18 17:30:02.187	SERVICO_VIEW
-cmsyxw4hq000l13zxcn06ld7t	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.42	2026-08-18 17:31:30.786	SERVICO_VIEW
-cmsyy38qk000m13zxexof4yhd	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.42	2026-08-18 17:37:02.877	PORTAL_VIEW
+cmsyy38qk000m13zxexof4yhd	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.42	2026-08-18 17:37:02.877	PORTAL_VIEW
 cmsyy38rx000n13zx90guu31l	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.42	2026-08-18 17:37:02.88	PORTAL_VIEW
 cmsyy38sa000o13zx88o9c8ss	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.42	2026-08-18 17:37:02.882	PORTAL_VIEW
-cmsyy3il8000p13zxm1clvdex	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.42	2026-08-18 17:37:15.644	PORTAL_VIEW
-cmsyy4b5b000q13zxlelc1spq	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.42	2026-08-18 17:37:52.658	SERVICO_VIEW
-cmsyy854j000r13zxjif3qa36	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.42	2026-08-18 17:40:51.482	SERVICO_VIEW
-cmsz1dtko000s13zxdyrabx6m	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.31	2026-08-18 19:09:15.998	PORTAL_VIEW
-cmt048wjo000t13zx4ch2jof7	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-08-19 13:17:11.395	PORTAL_VIEW
-cmt048zyq000u13zxzrl23kj9	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-19 13:17:16.129	PORTAL_VIEW
+cmsyy4b5b000q13zxlelc1spq	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.42	2026-08-18 17:37:52.658	SERVICO_VIEW
+cmt048zyq000u13zxzrl23kj9	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-19 13:17:16.129	PORTAL_VIEW
 cmt048zyt000v13zxxm3kvit3	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-19 13:17:16.133	PORTAL_VIEW
 cmt048zyu000w13zx32mynbyq	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-19 13:17:16.136	PORTAL_VIEW
-cmt04hzb2000x13zxus0729pl	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-19 13:24:14.521	PORTAL_VIEW
-cmt05ctbt000z13zxjud7fx1j	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-19 13:48:13.378	SERVICO_VIEW
-cmt1m0a97001013zx9vr66ygp	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.31	2026-08-20 14:22:08.292	PORTAL_VIEW
-cmt1mh8vi001113zxwocmp2kd	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-20 14:35:17.262	PORTAL_VIEW
-cmt1mjeft001213zx0un0ndpt	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-20 14:36:58.23	SERVICO_VIEW
-cmt1tcpwe001313zxklas3u51	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-20 17:47:44.98	PORTAL_VIEW
+cmt1tcpwe001313zxklas3u51	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-20 17:47:44.98	PORTAL_VIEW
 cmt1tcqnh001413zxc5upfxqx	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-20 17:47:44.982	PORTAL_VIEW
 cmt1tcqon001513zxowjhz8yf	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-20 17:47:44.982	PORTAL_VIEW
-cmt1tdtlm001613zxxasrzp9w	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-20 17:48:36.673	SERVICO_VIEW
-cmt1tf6jq001713zxz0sz9ec8	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-08-20 17:49:40.071	PORTAL_VIEW
-cmt1tfbpg001813zxbcrucady	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-20 17:49:46.787	PORTAL_VIEW
+cmt1tdtlm001613zxxasrzp9w	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-20 17:48:36.673	SERVICO_VIEW
+cmt1tfbpg001813zxbcrucady	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-20 17:49:46.787	PORTAL_VIEW
 cmt1tfbq3001913zxxsbdgjrz	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-20 17:49:46.789	PORTAL_VIEW
 cmt1tfbq8001a13zx2sadwye1	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-20 17:49:46.79	PORTAL_VIEW
-cmt1vdzm6001b13zxjado33u3	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.31	2026-08-20 18:44:44.061	PORTAL_VIEW
 cmt1wrt0i001s13zx5e6r4qwg	Engenharia e Arquitetura	Engenharia e Arquitetura		fe80::f73b:f849:569b:4f35%21	2026-08-20 19:23:27.173	PORTAL_VIEW
 cmt1wrt5j001t13zxfihghz0h	Engenharia e Arquitetura	Engenharia e Arquitetura		fe80::f73b:f849:569b:4f35%21	2026-08-20 19:23:27.172	PORTAL_VIEW
-cmt2vhde8001u13zx0hgyw6d7	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-08-21 11:35:08.531	PORTAL_VIEW
-cmt2xc19z001v13zx3zr1df9g	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.31	2026-08-21 12:26:58.389	PORTAL_VIEW
-cmt2xcaf8001w13zxys0vo0s8	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.31	2026-08-21 12:27:10.504	PORTAL_VIEW
-cmt2xf153001x13zxgbb4jrlt	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-08-21 12:29:18.683	PORTAL_VIEW
-cmt2xf4uq001y13zxy9gotl3d	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-08-21 12:29:23.696	PORTAL_VIEW
-cmt2zqd41001z13zxd5gmvrs5	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.66	2026-08-21 13:34:06.836	PORTAL_VIEW
-cmt2zt2np002013zxquqamc7n	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.66	2026-08-21 13:36:13.634	SERVICO_VIEW
 cmt30f3u6002113zxryzv7gd8	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-21 13:53:21.012	PORTAL_VIEW
 cmt30f3u8002213zxuebve3ll	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-21 13:53:21.013	PORTAL_VIEW
 cmt31y770002313zx3in6zh2p	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-21 14:36:11.677	PORTAL_VIEW
@@ -1297,27 +1359,20 @@ cmt391lwz003413zxenl2sr7t	Engenharia e Arquitetura	Engenharia e Arquitetura		::f
 cmt391m5l003713zxcdu2ibg1	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-21 17:54:48.41	PORTAL_VIEW
 cmt391mhs003813zxik1wpums	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-21 17:54:48.852	PORTAL_VIEW
 cmt391wzf003b13zxhiuod6rc	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-21 17:55:02.432	PORTAL_VIEW
-cmt75l1zw0000d7vzdeey4nok	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-08-24 11:29:01.26	PORTAL_VIEW
-cmt75l2180001d7vzlomvnntz	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-08-24 11:29:01.462	PORTAL_VIEW
-cmt75l5yu0002d7vzp9h7c5i2	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-08-24 11:29:06.674	PORTAL_VIEW
-cmt75l6n30003d7vzjhxw4m7f	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-24 11:29:07.547	PORTAL_VIEW
+cmt75l6n30003d7vzjhxw4m7f	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-24 11:29:07.547	PORTAL_VIEW
 cmt75l6nn0004d7vzf1db3p0x	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-24 11:29:07.551	PORTAL_VIEW
 cmt75l6np0005d7vz4a56ib7j	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-24 11:29:07.569	PORTAL_VIEW
-cmt75l9da0006d7vz58s8ixl6	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.27	2026-08-24 11:29:11.078	PORTAL_VIEW
 cmt771lgf0007d7vz0v4xwi48	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-24 12:09:51.102	PORTAL_VIEW
 cmt771lgf0008d7vz8g9rr1sa	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-24 12:09:51.103	PORTAL_VIEW
 cmt771pwe0009d7vzlnwzgz4s	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-24 12:09:57.214	PORTAL_VIEW
 cmt771pwf000ad7vz4gu94t6f	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-24 12:09:57.215	PORTAL_VIEW
-cmt78z1mn000bd7vz0p97u9cd	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-08-24 13:03:51.4	PORTAL_VIEW
 cmt790r4w000cd7vze031ei5y	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-24 13:05:11.41	PORTAL_VIEW
 cmt790r4x000dd7vzmdpz28qt	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-24 13:05:11.411	PORTAL_VIEW
 cmt79bh4q000ed7vzcd3ibfi9	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-24 13:13:31.63	PORTAL_VIEW
 cmt79bh4s000fd7vz6nx048zw	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-24 13:13:31.632	PORTAL_VIEW
-cmt7g49mb000gd7vzr5z42oow	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.98	2026-08-24 16:23:53.991	PORTAL_VIEW
-cmt7g4ebj000hd7vzdgak0exq	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.98	2026-08-24 16:24:00.365	PORTAL_VIEW
+cmt7g4ebj000hd7vzdgak0exq	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.98	2026-08-24 16:24:00.365	PORTAL_VIEW
 cmt7g4ebq000id7vzsqbcbvzn	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.98	2026-08-24 16:24:00.367	PORTAL_VIEW
 cmt7g4ed1000jd7vzmd79xzdu	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.98	2026-08-24 16:24:00.368	PORTAL_VIEW
-cmt7g4ji8000kd7vzrn5ciqsv	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.98	2026-08-24 16:24:07.086	PORTAL_VIEW
 cmt7ltu5a000md7vztz7zf0xv	Engenharia e Arquitetura	Engenharia e Arquitetura		::1	2026-08-24 19:03:45.113	PORTAL_VIEW
 cmt7ltu59000ld7vzgr82qi2e	Engenharia e Arquitetura	Engenharia e Arquitetura		::1	2026-08-24 19:03:45.112	PORTAL_VIEW
 cmt7ltun5000nd7vzljervdum	Engenharia e Arquitetura	Engenharia e Arquitetura		::1	2026-08-24 19:03:45.759	PORTAL_VIEW
@@ -1328,18 +1383,10 @@ cmt7ltv23000rd7vzlr5jjx0r	Engenharia e Arquitetura	Engenharia e Arquitetura		::1
 cmt7ltv2b000sd7vzj05lbqj4	Engenharia e Arquitetura	Engenharia e Arquitetura		::1	2026-08-24 19:03:46.297	PORTAL_VIEW
 cmt7ltv5z000td7vzxtrfl4ns	Engenharia e Arquitetura	Engenharia e Arquitetura		::1	2026-08-24 19:03:46.436	PORTAL_VIEW
 cmt7ltv66000ud7vzesmu8ywp	Engenharia e Arquitetura	Engenharia e Arquitetura		::1	2026-08-24 19:03:46.437	PORTAL_VIEW
-cmt7lwjnl000094za84wazoef	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::1	2026-08-24 19:05:51.276	PORTAL_VIEW
 cmt7lwr5d000194zaqfjv0mp2	Engenharia e Arquitetura	Engenharia e Arquitetura		::1	2026-08-24 19:06:01.171	PORTAL_VIEW
 cmt7lwr5e000294za6n9dwwel	Engenharia e Arquitetura	Engenharia e Arquitetura		::1	2026-08-24 19:06:01.172	PORTAL_VIEW
-cmt7lx96i000394za8kr4p0wr	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::1	2026-08-24 19:06:24.562	PORTAL_VIEW
-cmt7m2exg000694zay1is73t9	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::1	2026-08-24 19:10:25.297	SERVICO_VIEW
-cmt8rirx5000894za7l8ilzvn	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-08-25 14:30:52.524	PORTAL_VIEW
 cmt8wj8780001ocopy9mdw2ql	Engenharia e Arquitetura	Engenharia e Arquitetura		::1	2026-08-25 16:50:56.321	PORTAL_VIEW
 cmt8wj8750000ocop9iy9a5m4	Engenharia e Arquitetura	Engenharia e Arquitetura		::1	2026-08-25 16:50:56.32	PORTAL_VIEW
-cmt8wn7ab0002ocops1wnqw60	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::1	2026-08-25 16:54:17.502	NOTICIA_VIEW
-cmt8wn9cj0003ocop75eronko	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::1	2026-08-25 16:54:20.175	SERVICO_VIEW
-cmta59cdk0000qc8pxr0jjy61	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-26 13:43:04.43	PORTAL_VIEW
-cmta59vei0001qc8pn1c01nni	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-08-26 13:43:29.577	SERVICO_VIEW
 cmtahidye0000lvies8czdmzg	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-26 19:26:10.945	PORTAL_VIEW
 cmtahidyf0001lviegvgj49mi	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-26 19:26:10.946	PORTAL_VIEW
 cmtahie4t0005lviebbuftjfh	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-26 19:26:11.197	PORTAL_VIEW
@@ -1350,11 +1397,7 @@ cmtahj6f50006lviej9atpb1n	Engenharia e Arquitetura	Engenharia e Arquitetura		::f
 cmtahj6fb0007lvie7jilffy8	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-26 19:26:40.384	PORTAL_VIEW
 cmtahj6gu0008lvie3hxtu2uo	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-26 19:26:43.065	PORTAL_VIEW
 cmtahj6gy0009lvie32cqpin3	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-08-26 19:26:43.066	PORTAL_VIEW
-cmtahlasp000alvieytxi54g3	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.45	2026-08-26 19:28:26.043	PORTAL_VIEW
-cmtahlsaf000blvie8zja25nr	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.45	2026-08-26 19:28:48.743	NOTICIA_VIEW
-cmtahm06g000clviekrqi9mm7	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.45	2026-08-26 19:28:58.967	SERVICO_VIEW
-cmtahmkts000dlviey04ygm08	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.45	2026-08-26 19:29:25.728	SERVICO_VIEW
-cmtbgg2jv000elvie92pvipvb	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 11:44:07.792	PORTAL_VIEW
+cmtbgg2jv000elvie92pvipvb	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 11:44:07.792	PORTAL_VIEW
 cmtbgg2kg000flvie7uczoasu	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 11:44:07.795	PORTAL_VIEW
 cmtbgg3e0000glvies6bxlnc1	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 11:44:07.796	PORTAL_VIEW
 cmtbgu5bh000hlviedv9n26n7	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-27 11:55:06.007	PORTAL_VIEW
@@ -1372,32 +1415,23 @@ cmtbiyym7000slvie233zvlkf	Engenharia e Arquitetura	Engenharia e Arquitetura		::f
 cmtbj6qal000tlviez6123eyl	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-27 13:00:52.524	PORTAL_VIEW
 cmtbj6qal000ulvie5w2kkcxt	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-27 13:00:52.525	PORTAL_VIEW
 cmtbj72oq000vlvierfqf5trg	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-27 13:01:08.634	PORTAL_VIEW
-cmtbrvt20000wlvie1po5j7i0	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 17:04:19.363	PORTAL_VIEW
+cmtbrvt20000wlvie1po5j7i0	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 17:04:19.363	PORTAL_VIEW
 cmtbrvt3j000xlvie9m3ufpnn	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 17:04:19.365	PORTAL_VIEW
 cmtbrvt40000ylviem16o3w7n	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 17:04:19.367	PORTAL_VIEW
-cmtbrvwlk000zlvie5zrk0twh	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 17:04:24.028	SERVICO_VIEW
-cmtbry02k0010lvieb31qhjof	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 17:06:01.831	SERVICO_VIEW
-cmtbry9f30011lviekr77yd7v	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 17:06:13.948	SERVICO_VIEW
-cmtbt5kyc0012lvie72o3qimh	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.31	2026-08-27 17:39:54.595	PORTAL_VIEW
-cmtbt7uem0013lviec1jxmuyo	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.31	2026-08-27 17:41:40.401	PORTAL_VIEW
-cmtbtgxhk0015lviemqt9v02h	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 17:48:43.681	PORTAL_VIEW
+cmtbrvwlk000zlvie5zrk0twh	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 17:04:24.028	SERVICO_VIEW
+cmtbry02k0010lvieb31qhjof	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 17:06:01.831	SERVICO_VIEW
+cmtbry9f30011lviekr77yd7v	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 17:06:13.948	SERVICO_VIEW
+cmtbtgxhk0015lviemqt9v02h	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 17:48:43.681	PORTAL_VIEW
 cmtbtgxhm0016lviejh1nlez4	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 17:48:43.683	PORTAL_VIEW
 cmtbtgxib0017lvie98vjiznt	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 17:48:43.684	PORTAL_VIEW
-cmtbthq650018lviekpaz1357	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-08-27 17:49:20.957	PORTAL_VIEW
-cmtbtji750019lviek6zzy891	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.64	2026-08-27 17:50:43.939	PORTAL_VIEW
 cmtbtxjiz001alviexwjc4qno	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 18:01:38.735	PORTAL_VIEW
 cmtbtxjjk001blvieriyj38ur	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 18:01:38.738	PORTAL_VIEW
 cmtbu63wp001clviemsst148f	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 18:08:18.476	PORTAL_VIEW
-cmtbuplpi001dlviey147w6gi	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-08-27 18:23:28.055	SERVICO_VIEW
-cmtbvxig2001elvief0qvhzhk	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 18:57:36.704	SERVICO_VIEW
-cmtbvya0w001flviefeztihfj	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 18:58:12.443	SERVICO_VIEW
-cmtbw0wy7001glvieoppns37s	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-08-27 19:00:15.469	SERVICO_VIEW
-cmtbw3vsc001hlvie5c9hnlaj	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 19:02:33.926	SERVICO_VIEW
-cmtbw6xxz001ilviez7pgz4nq	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-08-27 19:04:56.694	SERVICO_VIEW
-cmtbw8b6j001jlviegteuhlbz	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 19:06:00.503	SERVICO_VIEW
-cmtbwq9a7001klviesew58ny3	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-08-27 19:19:58.13	PORTAL_VIEW
-cmtbwqcg5001llviex63hj69e	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.64	2026-08-27 19:20:02.239	PORTAL_VIEW
-cmtbwqg77001mlvieychmt434	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 19:20:07.095	PORTAL_VIEW
+cmtbvxig2001elvief0qvhzhk	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 18:57:36.704	SERVICO_VIEW
+cmtbvya0w001flviefeztihfj	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 18:58:12.443	SERVICO_VIEW
+cmtbw3vsc001hlvie5c9hnlaj	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 19:02:33.926	SERVICO_VIEW
+cmtbw8b6j001jlviegteuhlbz	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 19:06:00.503	SERVICO_VIEW
+cmtbwqg77001mlvieychmt434	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 19:20:07.095	PORTAL_VIEW
 cmtbwqg86001nlviebg7ujioh	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 19:20:07.098	PORTAL_VIEW
 cmtbwqg87001olvieliywf0ym	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 19:20:07.097	PORTAL_VIEW
 cmtbwsbxe001plviefydpqdb7	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-27 19:21:34.858	PORTAL_VIEW
@@ -1406,7 +1440,7 @@ cmtd73wui001rlviej4tkruil	Engenharia e Arquitetura	Engenharia e Arquitetura		::f
 cmtd73wuj001slvieecy42i1y	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-28 16:58:17.131	PORTAL_VIEW
 cmtd74l76001tlvier769pndy	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-28 16:58:48.957	PORTAL_VIEW
 cmtd74l77001ulvie1qs58ofp	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-28 16:58:48.958	PORTAL_VIEW
-cmtd75qrv001vlvie1sdal2ol	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-28 16:59:41.838	PORTAL_VIEW
+cmtd75qrv001vlvie1sdal2ol	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-28 16:59:41.838	PORTAL_VIEW
 cmtd75qvs001wlvie0lfz7v30	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-28 16:59:41.841	PORTAL_VIEW
 cmtd75qvu001xlvie4u1i2q35	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-08-28 16:59:41.84	PORTAL_VIEW
 cmtd76jw1001zlvie8t2vgcxp	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-28 17:00:20.572	PORTAL_VIEW
@@ -1445,21 +1479,9 @@ cmtd9k8jx002ulvies24nqqt6	Engenharia e Arquitetura	Engenharia e Arquitetura		::f
 cmtd9k8jy002vlviea6jpg6ji	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-28 18:06:58.754	PORTAL_VIEW
 cmtdbwa0d002wlvie4jmjlc4k	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-28 19:12:19.711	PORTAL_VIEW
 cmtdbwa20002xlvie0quf89pg	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-28 19:12:19.712	PORTAL_VIEW
-cmthb7w5g002ylvieqkm11wpw	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-08-31 14:04:26.928	PORTAL_VIEW
-cmthb8l49002zlvie65cojuak	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-08-31 14:04:59.551	SERVICO_VIEW
-cmthba1ik0030lvie1r4j40us	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-08-31 14:06:07.461	SERVICO_VIEW
-cmthbn1jr0031lvie05cb37vr	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-08-31 14:16:14.048	SERVICO_VIEW
-cmthbn8t40032lvielfgb0nt7	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-08-31 14:16:23.457	SERVICO_VIEW
-cmthbo9vy0033lviempljrufx	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-08-31 14:17:11.516	SERVICO_VIEW
-cmthbogeq0034lvieyldrjcyw	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-08-31 14:17:19.964	SERVICO_VIEW
-cmthbp7mn0035lvieuipf6mah	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-08-31 14:17:55.242	SERVICO_VIEW
-cmthg97d40036lvieprkoquz6	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-08-31 16:25:25.927	PORTAL_VIEW
-cmthg99h10037lviebzv1ho21	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-08-31 16:25:28.933	PORTAL_VIEW
-cmthg9br40038lvieie9hiou9	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-31 16:25:31.86	PORTAL_VIEW
+cmthg9br40038lvieie9hiou9	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-31 16:25:31.86	PORTAL_VIEW
 cmthg9bse003alvieo0pdev7b	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-31 16:25:31.862	PORTAL_VIEW
 cmthg9bsd0039lvieo3wo3s3m	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-31 16:25:31.863	PORTAL_VIEW
-cmthg9ejb003blvie2xera073	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-08-31 16:25:35.489	PORTAL_VIEW
-cmthg9idz003clvier0qecig7	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-08-31 16:25:40.449	PORTAL_VIEW
 cmthge64h003dlvie1t7xde92	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-31 16:29:17.847	PORTAL_VIEW
 cmthge64v003elviebc1ijiwa	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-08-31 16:29:17.846	PORTAL_VIEW
 cmtil1fey003hlvieknb4umjx	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-09-01 11:27:07.492	PORTAL_VIEW
@@ -1471,219 +1493,112 @@ cmtilzdn0003llviei4q6dp41	Engenharia e Arquitetura	Engenharia e Arquitetura		::f
 cmtilzdn0003mlvied8woaznu	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-09-01 11:53:31.592	PORTAL_VIEW
 cmtim1k1c003nlvie6bwllump	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-09-01 11:55:13.185	PORTAL_VIEW
 cmtim1k1f003olvieajcwxfxs	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-09-01 11:55:13.185	PORTAL_VIEW
-cmtim2up3003plviehmgazjxj	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-09-01 11:56:13.525	PORTAL_VIEW
-cmtim4sk4003qlvien1eis2pz	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-09-01 11:57:44.3	SERVICO_VIEW
-cmtip0b07003rlviezjjgsf6c	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.42	2026-09-01 13:18:13.616	PORTAL_VIEW
-cmtip8aqu003slvierphadpbx	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.42	2026-09-01 13:24:26.638	SERVICO_VIEW
-cmtiq2d52003vlvie6y5a4pc4	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.119	2026-09-01 13:47:49.361	PORTAL_VIEW
-cmtiq2r3g003wlviezqs7i21z	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.119	2026-09-01 13:48:07.453	PORTAL_VIEW
-cmtiq4fnq003ylviejpf3gjvn	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.119	2026-09-01 13:49:25.936	PORTAL_VIEW
+cmtiq4fnq003ylviejpf3gjvn	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.119	2026-09-01 13:49:25.936	PORTAL_VIEW
 cmtiq4foy003zlvie0lho2rgb	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.119	2026-09-01 13:49:25.941	PORTAL_VIEW
 cmtiq4fp00040lvie7wpspeaa	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.119	2026-09-01 13:49:25.939	PORTAL_VIEW
-cmtiq4mw30041lviexljwhsh1	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-09-01 13:49:35.324	PORTAL_VIEW
 cmtiq59wr0042lvie36rh29gj	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-09-01 13:50:05.142	PORTAL_VIEW
 cmtiq59xc0043lvie05b373a2	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-09-01 13:50:05.143	PORTAL_VIEW
-cmtiq5vn20044lvienkppkf99	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.27	2026-09-01 13:50:33.321	SERVICO_VIEW
-cmtiq93xd0045lviee9yby6ko	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.157	2026-09-01 13:53:04.282	PORTAL_VIEW
+cmtiq5vn20044lvienkppkf99	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-09-01 13:50:33.321	SERVICO_VIEW
+cmtiq93xd0045lviee9yby6ko	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.157	2026-09-01 13:53:04.282	PORTAL_VIEW
 cmtiq93ys0046lviet2kqawvm	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.157	2026-09-01 13:53:04.289	PORTAL_VIEW
 cmtiq93yw0047lvie7yowvmdn	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.157	2026-09-01 13:53:04.286	PORTAL_VIEW
-cmtiqbk2n0048lviesmzh3176	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.155	2026-09-01 13:54:59.908	PORTAL_VIEW
-cmtiqctvw0049lvieylae0st6	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-01 13:55:59.461	PORTAL_VIEW
+cmtiqctvw0049lvieylae0st6	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-01 13:55:59.461	PORTAL_VIEW
 cmtiqctx7004alvieayfii7hx	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-01 13:55:59.47	PORTAL_VIEW
 cmtiqctxb004blvieaxy878rg	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-01 13:55:59.475	PORTAL_VIEW
-cmtiqdot9004clvie0ymh6dha	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-01 13:56:39.588	SERVICO_VIEW
+cmtiqdot9004clvie0ymh6dha	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-01 13:56:39.588	SERVICO_VIEW
 cmtmuduww00allvie95i8l385	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-04 10:59:50.612	PORTAL_VIEW
-cmtis1wux004dlviewd8r6zia	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-09-01 14:43:27.511	PORTAL_VIEW
 cmtivu65b004elvieq92v0ayb	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-01 16:29:26.767	PORTAL_VIEW
 cmtivu66p004flvieold7bbiw	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-01 16:29:26.768	PORTAL_VIEW
-cmtivxybt004glvie4d1958gz	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-09-01 16:32:21.393	PORTAL_VIEW
-cmtivy17n004hlvieuy7cz3tk	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-09-01 16:32:25.293	PORTAL_VIEW
-cmtivy4qx004ilviewcimmsh9	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-01 16:32:29.878	PORTAL_VIEW
+cmtivy4qx004ilviewcimmsh9	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-01 16:32:29.878	PORTAL_VIEW
 cmtivy4r7004jlviedglfx65i	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-01 16:32:29.88	PORTAL_VIEW
 cmtivy4sy004klviep7renyde	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-01 16:32:29.881	PORTAL_VIEW
 cmtivys77004llviem18ocw8a	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-01 16:33:02.13	PORTAL_VIEW
 cmtivys78004mlvieoxd56ujm	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-01 16:33:02.131	PORTAL_VIEW
-cmtiw49i4004nlvieg8plnlbr	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-09-01 16:36:59.609	PORTAL_VIEW
-cmtiwgba9004olvievmhy938e	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-01 16:46:40.173	SERVICO_VIEW
-cmtiwo37i004plviezppea9la	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.157	2026-09-01 16:52:40.983	PORTAL_VIEW
+cmtiwgba9004olvievmhy938e	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-01 16:46:40.173	SERVICO_VIEW
+cmtiwo37i004plviezppea9la	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.157	2026-09-01 16:52:40.983	PORTAL_VIEW
 cmtiwo38i004qlvie0l0fx3mq	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.157	2026-09-01 16:52:40.988	PORTAL_VIEW
 cmtiwo3h5004rlvieiue0ao6v	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.157	2026-09-01 16:52:40.99	PORTAL_VIEW
-cmtiwucsb004slvievn0zuwmn	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.157	2026-09-01 16:57:33.626	SERVICO_VIEW
-cmtixbpeh004tlvie80h395yx	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-09-01 17:10:46.653	SERVICO_VIEW
-cmtixf8zk004ulviet0zw0lq9	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-09-01 17:13:32.003	SERVICO_VIEW
-cmtiynvs9004wlviei8qi1m9v	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		fe80::63bc:1e34:52f9:4365%21	2026-09-01 17:48:29.975	PORTAL_VIEW
-cmtiytobx004ylviec516o6j5	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		fe80::63bc:1e34:52f9:4365%21	2026-09-01 17:53:00.478	PORTAL_VIEW
-cmtiyvswv004zlvienaq5ercu	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		fe80::63bc:1e34:52f9:4365%21	2026-09-01 17:54:39.754	SERVICO_VIEW
-cmtiz21al0050lviewa66yy2d	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-09-01 17:59:30.628	SERVICO_VIEW
-cmtiz28kj0051lvielg5o306m	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-09-01 17:59:40.057	SERVICO_VIEW
-cmtiz2e6y0052lvie4wu3mj5j	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-09-01 17:59:47.335	SERVICO_VIEW
-cmtiz35340053lviefwxhdgtg	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-09-01 18:00:22.2	SERVICO_VIEW
-cmtj1ahwo0054lvie58bp270p	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		fe80::63bc:1e34:52f9:4365%21	2026-09-01 19:02:04.51	PORTAL_VIEW
-cmtj2q41r0055lviezleikyzy	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-01 19:42:15.406	SERVICO_VIEW
-cmtj2qfqw0056lvieakbkh0bh	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-01 19:42:30.565	SERVICO_VIEW
-cmtjzsgqn0057lviecscgy1j7	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.155	2026-09-02 11:07:54.166	PORTAL_VIEW
-cmtjzsgs30058lviez0rrueha	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-02 11:07:54.173	PORTAL_VIEW
-cmtk04bbm0059lvietpsrihfi	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-02 11:17:07.327	SERVICO_VIEW
-cmtk06qjf005alvie27wdpu44	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.155	2026-09-02 11:19:00.346	PORTAL_VIEW
-cmtk1698u005blvieupgp4o5d	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.157	2026-09-02 11:46:33.024	PORTAL_VIEW
-cmtk17716005clviebjh7dh4l	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.157	2026-09-02 11:47:17.046	PORTAL_VIEW
+cmtiwucsb004slvievn0zuwmn	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.157	2026-09-01 16:57:33.626	SERVICO_VIEW
+cmtj2q41r0055lviezleikyzy	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-01 19:42:15.406	SERVICO_VIEW
+cmtj2qfqw0056lvieakbkh0bh	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-01 19:42:30.565	SERVICO_VIEW
+cmtjzsgs30058lviez0rrueha	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-02 11:07:54.173	PORTAL_VIEW
+cmtk04bbm0059lvietpsrihfi	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-02 11:17:07.327	SERVICO_VIEW
+cmtk17716005clviebjh7dh4l	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.157	2026-09-02 11:47:17.046	PORTAL_VIEW
 cmtk1771b005dlvieiilmke2k	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.157	2026-09-02 11:47:17.049	PORTAL_VIEW
 cmtk1772o005elvie65uachhs	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.157	2026-09-02 11:47:17.051	PORTAL_VIEW
-cmtk19exx005flvie6uye2lla	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.157	2026-09-02 11:49:00.617	PORTAL_VIEW
-cmtk1shro005glviedye60azn	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-09-02 12:03:49.291	PORTAL_VIEW
-cmtk1xnjq005hlvie4736sfqw	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-09-02 12:07:50.345	PORTAL_VIEW
-cmtk2316u005ilviewwsk9qt6	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-09-02 12:12:01.311	SERVICO_VIEW
-cmtk2gxju005jlviei0tc5z7d	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.157	2026-09-02 12:22:51.31	SERVICO_VIEW
-cmtk2kmio005klvieyiadnxtx	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-09-02 12:25:41.414	PORTAL_VIEW
-cmtk2kwt6005llvie0peu5snl	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.69	2026-09-02 12:25:55.092	SERVICO_VIEW
-cmtk2tb2n005mlviesi38m1qq	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-09-02 12:32:27.845	PORTAL_VIEW
-cmtk2u7hn005nlvie53iq99ze	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-09-02 12:33:10.099	PORTAL_VIEW
-cmtk2v9yi005olvie8i2rklsm	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-09-02 12:33:59.987	SERVICO_VIEW
-cmtk4fu9c005plview5qkmoot	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-09-02 13:17:58.079	SERVICO_VIEW
-cmtkakbzh005qlvie9u79zc80	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-09-02 16:09:25.348	SERVICO_VIEW
-cmtkaleah005rlviefdlg0nu0	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-09-02 16:10:16.337	SERVICO_VIEW
-cmtkalpoy005slviezxznwld2	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-09-02 16:10:31.116	SERVICO_VIEW
-cmtkam5u8005tlviegyldk4g2	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-09-02 16:10:50.696	SERVICO_VIEW
-cmtkamfju005ulvie0ltk0iys	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-09-02 16:11:04.624	SERVICO_VIEW
-cmtkcbae2005vlvieupupp3mu	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-09-02 16:58:24.043	SERVICO_VIEW
-cmtkfjjbf005wlviefiml0dkd	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.69	2026-09-02 18:28:47.1	PORTAL_VIEW
-cmtkfnvhz005xlviesayrnsd7	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-02 18:32:09.604	PORTAL_VIEW
+cmtk2gxju005jlviei0tc5z7d	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.157	2026-09-02 12:22:51.31	SERVICO_VIEW
+cmtkfnvhz005xlviesayrnsd7	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-02 18:32:09.604	PORTAL_VIEW
 cmtkfnvi1005ylviemndre6ay	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-02 18:32:09.607	PORTAL_VIEW
 cmtkfnvi5005zlvie660c85ax	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-02 18:32:09.613	PORTAL_VIEW
 cmtkfnzki0060lvie47np2mnl	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-02 18:32:14.875	PORTAL_VIEW
 cmtkfnzlp0061lvieyqlz9az8	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-02 18:32:14.876	PORTAL_VIEW
-cmtkfo3ib0062lvielzpyj8ax	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-02 18:32:19.943	PORTAL_VIEW
+cmtkfo3ib0062lvielzpyj8ax	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-02 18:32:19.943	PORTAL_VIEW
 cmtkfo3iy0063lvie2ax46n5d	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-02 18:32:19.945	PORTAL_VIEW
 cmtkfo3j20064lviel3ovigo6	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-02 18:32:19.944	PORTAL_VIEW
 cmtkfoary0065lviepe9wr9e7	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-02 18:32:29.365	PORTAL_VIEW
 cmtkfoas10066lvieks4n636n	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-02 18:32:29.366	PORTAL_VIEW
-cmtkfovkw0067lviefjj04r44	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-09-02 18:32:55.673	PORTAL_VIEW
-cmtkfp3jr0068lvie3qm2thr5	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-02 18:33:06.247	PORTAL_VIEW
+cmtkfp3jr0068lvie3qm2thr5	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-02 18:33:06.247	PORTAL_VIEW
 cmtkfp3kt0069lvie78mlo50q	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-02 18:33:06.25	PORTAL_VIEW
 cmtkfp3l4006alvieiihxcwi3	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-02 18:33:06.249	PORTAL_VIEW
-cmtkfpags006blviejyloy9o4	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.64	2026-09-02 18:33:15.202	PORTAL_VIEW
-cmtkfrfon006clviectlrwxru	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-02 18:34:55.221	PORTAL_VIEW
+cmtkfrfon006clviectlrwxru	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-02 18:34:55.221	PORTAL_VIEW
 cmtkfrfpd006dlvieeokpmh31	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-02 18:34:55.222	PORTAL_VIEW
 cmtkfrfqe006elvie03rggvx5	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-02 18:34:55.223	PORTAL_VIEW
-cmtkfshrw006flvie8b3fajhd	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.64	2026-09-02 18:35:44.659	PORTAL_VIEW
-cmtkftfep006glviepwa3karu	Portal de Serviços Corporativos	Portal de Serviços Corporativos		fe80::960d:7fa3:9c61:cde9%21	2026-09-02 18:34:00.568	PORTAL_VIEW
-cmtkfy402006hlviexda9zhut	Portal de Serviços Corporativos	Portal de Serviços Corporativos		fe80::960d:7fa3:9c61:cde9%21	2026-09-02 18:37:39.258	SERVICO_VIEW
-cmtkht4mc006ilvieuh6eh5rw	Portal de Serviços Corporativos	Portal de Serviços Corporativos		fe80::960d:7fa3:9c61:cde9%21	2026-09-02 19:29:46.046	SERVICO_VIEW
-cmtkiagwn006jlvie71k3sgv8	Portal de Serviços Corporativos	Portal de Serviços Corporativos		fe80::960d:7fa3:9c61:cde9%21	2026-09-02 19:43:15.127	SERVICO_VIEW
-cmtlfj6vs006klviek01azrxt	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-03 11:16:17.786	PORTAL_VIEW
-cmtlfj74g006llvielop0ji50	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.155	2026-09-03 11:16:18.425	PORTAL_VIEW
-cmtlfl94a006mlviekkpn2zcq	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.159	2026-09-03 11:17:53.205	PORTAL_VIEW
-cmtlflqqj006nlvies5s2urd1	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.59	2026-09-03 11:15:46.801	PORTAL_VIEW
-cmtlflqvw006olviestecnze9	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.59	2026-09-03 11:15:47.266	SERVICO_VIEW
-cmtlfz36b006plvietrduwksp	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.159	2026-09-03 11:28:38.91	SERVICO_VIEW
-cmtlg4eo0006qlvief45fx2i2	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.159	2026-09-03 11:32:47.093	SERVICO_VIEW
-cmtlgb5kk006rlviev31ouj4e	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.159	2026-09-03 11:38:01.909	SERVICO_VIEW
-cmtlgc8r4006slvietldoozr8	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.159	2026-09-03 11:38:52.69	SERVICO_VIEW
-cmtlgj2ef006tlvievbn8orxl	Portal de Serviços Corporativos	Portal de Serviços Corporativos		fe80::960d:7fa3:9c61:cde9%21	2026-09-03 11:41:41.76	PORTAL_VIEW
-cmtlgkbok006ulvie9t1wjtt6	Portal de Serviços Corporativos	Portal de Serviços Corporativos		fe80::960d:7fa3:9c61:cde9%21	2026-09-03 11:42:40.532	SERVICO_VIEW
-cmtlglgi8006vlviey09ipimp	Portal de Serviços Corporativos	Portal de Serviços Corporativos		fe80::960d:7fa3:9c61:cde9%21	2026-09-03 11:43:33.446	SERVICO_VIEW
-cmtlgmusi006wlviejvyqhahd	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.131	2026-09-03 11:47:09.213	PORTAL_VIEW
-cmtlgo2vm006xlvie9ptsjsuc	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.131	2026-09-03 11:48:06.551	SERVICO_VIEW
-cmtlgol4w006ylviete0in5ac	Portal de Serviços Corporativos	Portal de Serviços Corporativos		fe80::960d:7fa3:9c61:cde9%21	2026-09-03 11:45:59.413	SERVICO_VIEW
-cmtlgsuo7006zlvie7fbmboev	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.159	2026-09-03 11:51:47.613	SERVICO_VIEW
-cmtlgtcny0070lvie2ltvio6l	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-09-03 11:52:07.841	PORTAL_VIEW
-cmtlgv2wm0071lviefoyxmurd	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.65	2026-09-03 11:53:29.515	PORTAL_VIEW
-cmtlh1wri0072lvie1vurysdh	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.65	2026-09-03 11:58:48.337	SERVICO_VIEW
-cmtlh3z7x0075lvieuwxauyxw	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.65	2026-09-03 12:00:24.825	PORTAL_VIEW
+cmtlfj6vs006klviek01azrxt	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-03 11:16:17.786	PORTAL_VIEW
+cmtlh3z7x0075lvieuwxauyxw	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.65	2026-09-03 12:00:24.825	PORTAL_VIEW
 cmtlh3z800076lvieoz14rae1	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.65	2026-09-03 12:00:24.828	PORTAL_VIEW
 cmtlh3z9d0077lvie88efpgqf	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.65	2026-09-03 12:00:24.83	PORTAL_VIEW
-cmtlh468m0078lvieyijzx4b6	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.65	2026-09-03 12:00:33.933	SERVICO_VIEW
-cmtlhf2dq007blvie6w9yf5ky	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.65	2026-09-03 12:09:02.143	SERVICO_VIEW
+cmtlh468m0078lvieyijzx4b6	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.65	2026-09-03 12:00:33.933	SERVICO_VIEW
 cmtlhke9w007clvieqobb2zwt	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 12:13:12.067	PORTAL_VIEW
-cmtlhkeb3007dlvie40p9q8j4	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 12:13:12.064	PORTAL_VIEW
+cmtlhkeb3007dlvie40p9q8j4	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 12:13:12.064	PORTAL_VIEW
 cmtlhkec6007elvieaod7r075	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 12:13:12.066	PORTAL_VIEW
-cmtlhnjf2007flviefok572mh	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.65	2026-09-03 12:15:37.469	SERVICO_VIEW
-cmtlho9j6007glviezalriq9y	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.65	2026-09-03 12:16:11.289	PORTAL_VIEW
-cmtlhoedh007hlviejmd1hljc	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.65	2026-09-03 12:16:17.586	SERVICO_VIEW
-cmtlhoro2007ilvien3v3qrxw	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.65	2026-09-03 12:16:34.81	SERVICO_VIEW
-cmtlhouuv007jlvievooq7c2m	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-09-03 12:16:40.37	PORTAL_VIEW
-cmtlhp2rr007klviernu8cn3x	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.65	2026-09-03 12:16:49.203	SERVICO_VIEW
-cmtlhqn34007llviepoj9s23d	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.65	2026-09-03 12:18:02.188	SERVICO_VIEW
-cmtlhupuz007mlviegs0b73tp	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.65	2026-09-03 12:21:12.402	SERVICO_VIEW
-cmtlhxa61007nlvienpanonpj	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.65	2026-09-03 12:23:12.041	SERVICO_VIEW
-cmtlhykp8007olviejzt78ram	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.65	2026-09-03 12:24:12.341	SERVICO_VIEW
+cmtlhnjf2007flviefok572mh	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.65	2026-09-03 12:15:37.469	SERVICO_VIEW
+cmtlhupuz007mlviegs0b73tp	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.65	2026-09-03 12:21:12.402	SERVICO_VIEW
 cmtlifxt4007tlvievs01stc2	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 12:37:43.813	PORTAL_VIEW
 cmtlifxt4007ulviez5suzrst	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 12:37:43.814	PORTAL_VIEW
 cmtliqk39007xlviek4oudw0a	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 12:45:59.335	PORTAL_VIEW
 cmtliqk4d007ylvieagocckt2	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 12:45:59.336	PORTAL_VIEW
 cmtlirbow0080lviekodc3h16	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 12:46:35.118	PORTAL_VIEW
 cmtlirbpf0081lvieji422emo	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 12:46:35.119	PORTAL_VIEW
-cmtlkb9ej0082lvied5e4r8t7	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.159	2026-09-03 13:30:05.58	SERVICO_VIEW
 cmtlked4z0083lvieszaa1tt4	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 13:32:29.598	PORTAL_VIEW
 cmtlked5n0084lviebdc0ysp2	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 13:32:29.599	PORTAL_VIEW
 cmtlkem9r0086lvie1ec64fz7	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 13:32:41.406	PORTAL_VIEW
 cmtlkem9q0085lvieym3lftep	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 13:32:41.406	PORTAL_VIEW
-cmtlkiipm0087lvieaget1h53	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-09-03 13:35:43.893	PORTAL_VIEW
-cmtlkmybo0088lviehuee7tlb	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.165	2026-09-03 13:39:11.073	SERVICO_VIEW
-cmtlksr3c0089lvie8xu6flih	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.65	2026-09-03 13:43:39.495	SERVICO_VIEW
-cmtll008c008alviehh9p5e7l	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.65	2026-09-03 13:49:17.925	SERVICO_VIEW
-cmtll082o008blviebehynyb2	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.165	2026-09-03 13:49:30.223	PORTAL_VIEW
+cmtll082o008blviebehynyb2	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.165	2026-09-03 13:49:30.223	PORTAL_VIEW
 cmtll084p008clvievaujkbb4	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.165	2026-09-03 13:49:30.231	PORTAL_VIEW
 cmtll086b008dlvietnlrzp7a	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.165	2026-09-03 13:49:30.235	PORTAL_VIEW
-cmtll0oxd008elvie76lyqter	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.165	2026-09-03 13:49:52.048	PORTAL_VIEW
-cmtll1531008flvieikw4lnxl	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.165	2026-09-03 13:50:13.037	SERVICO_VIEW
-cmtlloxxw008glvievig1vckb	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.65	2026-09-03 14:08:41.348	SERVICO_VIEW
-cmtlm6nfs008hlviefxujm949	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.65	2026-09-03 14:22:27.539	SERVICO_VIEW
-cmtlma0cj008ilvie1rdu2kv8	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.39	2026-09-03 14:25:05.637	PORTAL_VIEW
-cmtlmglfn008jlvieqfzx9kbk	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.39	2026-09-03 14:30:13.151	SERVICO_VIEW
-cmtlmm4ec008klviewci8zw54	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.65	2026-09-03 14:34:29.355	SERVICO_VIEW
-cmtlmnn5z008llvieg7ffh4i3	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.159	2026-09-03 14:35:42.659	PORTAL_VIEW
-cmtlmodff008mlviekdiiditu	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.159	2026-09-03 14:36:16.652	PORTAL_VIEW
+cmtlmodff008mlviekdiiditu	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.159	2026-09-03 14:36:16.652	PORTAL_VIEW
 cmtlmodgp008nlvie3laqx4nd	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.159	2026-09-03 14:36:16.659	PORTAL_VIEW
 cmtlmodgr008olvie41mwa7eo	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.159	2026-09-03 14:36:16.67	PORTAL_VIEW
-cmtlmr4i9008plvieo0ttw5vt	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.139	2026-09-03 14:38:32.591	PORTAL_VIEW
-cmtlmrnkp008qlviejrm3l8dj	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.139	2026-09-03 14:38:57.548	NOTICIA_VIEW
 cmtlmujtc008slvie15w42jsh	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-03 14:41:04.524	PORTAL_VIEW
 cmtlmujte008tlviexwq56o2i	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-03 14:41:04.527	PORTAL_VIEW
-cmtlmuw6h008ulviecjp8zcbe	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.139	2026-09-03 14:41:28.667	SERVICO_VIEW
-cmtln9mrg008vlviesagzs59d	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.139	2026-09-03 14:52:56.3	SERVICO_VIEW
-cmtlnnx2t008wlvier7ohh064	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.139	2026-09-03 15:04:02.849	SERVICO_VIEW
-cmtlnxgp4008xlviesxkiguc1	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.139	2026-09-03 15:11:28.172	SERVICO_VIEW
 cmtlr1mhh008ylviehu2mq1ti	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.65	2026-09-03 16:38:30.977	PORTAL_VIEW
 cmtlr1mhh008zlvieirhonbsy	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.65	2026-09-03 16:38:30.978	PORTAL_VIEW
-cmtlr7al40090lvie4tvl190i	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.65	2026-09-03 16:42:55.57	SERVICO_VIEW
 cmtlroy6z0091lviexrt42ija	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 16:56:40.903	PORTAL_VIEW
-cmtlroy710092lviehypps1cm	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 16:56:40.901	PORTAL_VIEW
+cmtlroy710092lviehypps1cm	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 16:56:40.901	PORTAL_VIEW
 cmtlroy860093lvieth3y2wut	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 16:56:40.904	PORTAL_VIEW
-cmtlrr9d20094lvievob9foyc	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-09-03 16:58:28.685	PORTAL_VIEW
-cmtlrsgsb0095lviel5t87xxe	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 16:59:24.979	SERVICO_VIEW
+cmtlrsgsb0095lviel5t87xxe	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 16:59:24.979	SERVICO_VIEW
 cmtlrsnoo0096lviewloknxzd	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 16:59:33.875	PORTAL_VIEW
 cmtlrsnos0097lvieppfrfnxa	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 16:59:33.876	PORTAL_VIEW
 cmtlsyf3x0098lvief4sast2s	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 17:32:02.403	PORTAL_VIEW
 cmtlsyf4i0099lvier8v9oec5	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 17:32:02.403	PORTAL_VIEW
 cmtltbk34009alviemxndathn	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 17:42:15.476	PORTAL_VIEW
 cmtltbk44009blviecgznsz5d	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 17:42:15.477	PORTAL_VIEW
-cmtltdj25009clvie8s57p8gf	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		fe80::f73b:f849:569b:4f35%21	2026-09-03 17:43:47.471	SERVICO_VIEW
+cmtltdj25009clvie8s57p8gf	Engenharia e Arquitetura	Engenharia e Arquitetura		fe80::f73b:f849:569b:4f35%21	2026-09-03 17:43:47.471	SERVICO_VIEW
 cmtltsz9e009elvieq4c3w0kc	Engenharia e Arquitetura	Engenharia e Arquitetura		fe80::f73b:f849:569b:4f35%21	2026-09-03 17:55:48.243	PORTAL_VIEW
 cmtltsz9g009flvieuv0ld04i	Engenharia e Arquitetura	Engenharia e Arquitetura		fe80::f73b:f849:569b:4f35%21	2026-09-03 17:55:48.247	PORTAL_VIEW
-cmtltv79n009glvie0vlfl7xc	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-09-03 17:57:31.999	SERVICO_VIEW
 cmtltvguo009hlviefehug2c5	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 17:57:44.391	PORTAL_VIEW
 cmtltvgup009ilvie2zphnoi7	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-03 17:57:44.391	PORTAL_VIEW
-cmtltwyj6009jlvied8sodfug	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		fe80::f73b:f849:569b:4f35%21	2026-09-03 17:58:53.991	NOTICIA_VIEW
-cmtluai72009mlviexml1lkeb	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.157	2026-09-03 18:09:27.405	PORTAL_VIEW
+cmtltwyj6009jlvied8sodfug	Engenharia e Arquitetura	Engenharia e Arquitetura		fe80::f73b:f849:569b:4f35%21	2026-09-03 17:58:53.991	NOTICIA_VIEW
+cmtluai72009mlviexml1lkeb	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.157	2026-09-03 18:09:27.405	PORTAL_VIEW
 cmtluai7k009nlvieslzx7zmd	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.157	2026-09-03 18:09:27.408	PORTAL_VIEW
 cmtluai7p009olvie7zajqe90	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.157	2026-09-03 18:09:27.41	PORTAL_VIEW
-cmtlub9bm009plvie6ypx2fhd	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.157	2026-09-03 18:10:02.58	SERVICO_VIEW
-cmtlvoc7b009tlvieptseoxyw	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.131	2026-09-03 18:48:13.901	PORTAL_VIEW
-cmtlvperw009ulviewcmrfdo7	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.131	2026-09-03 18:49:03.908	SERVICO_VIEW
-cmtlvra11009vlvielc7rq997	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.159	2026-09-03 18:50:29.215	PORTAL_VIEW
-cmtlvrshb009wlvieskk59fdz	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.159	2026-09-03 18:50:53.33	SERVICO_VIEW
-cmtlx29fm00a4lvie170jkofz	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		fe80::f73b:f849:569b:4f35%21	2026-09-03 19:26:59.583	PORTAL_VIEW
+cmtlub9bm009plvie6ypx2fhd	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.157	2026-09-03 18:10:02.58	SERVICO_VIEW
+cmtlx29fm00a4lvie170jkofz	Engenharia e Arquitetura	Engenharia e Arquitetura		fe80::f73b:f849:569b:4f35%21	2026-09-03 19:26:59.583	PORTAL_VIEW
 cmtlx29fw00a5lvie8cwat8ds	Engenharia e Arquitetura	Engenharia e Arquitetura		fe80::f73b:f849:569b:4f35%21	2026-09-03 19:26:59.585	PORTAL_VIEW
 cmtlx29gv00a6lvieesfoa0ds	Engenharia e Arquitetura	Engenharia e Arquitetura		fe80::f73b:f849:569b:4f35%21	2026-09-03 19:26:59.586	PORTAL_VIEW
-cmtlx4ccr00aalvietjwmkmna	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		fe80::a56f:5e46:21ba:26da%21	2026-09-03 19:28:37.922	PORTAL_VIEW
-cmtlx4m1i00ablvie5lks1nq6	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		fe80::a56f:5e46:21ba:26da%21	2026-09-03 19:28:50.678	SERVICO_VIEW
-cmtlx4u2f00aclvieoomv2dwu	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-03 19:29:00.73	SERVICO_VIEW
-cmtlx592e00adlviezqxtmo2u	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-03 19:29:20.168	SERVICO_VIEW
-cmtly431b00aglvie7cyd3488	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.39	2026-09-03 19:56:24.717	PORTAL_VIEW
-cmtly4g0i00ahlvie3ldl3qfw	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.39	2026-09-03 19:56:41.634	PORTAL_VIEW
-cmtmu01zn00ajlvieu4koi232	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-04 10:49:06.411	PORTAL_VIEW
-cmtmu02cb00aklviepbog1pbn	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.155	2026-09-04 10:49:07.122	PORTAL_VIEW
+cmtlx4u2f00aclvieoomv2dwu	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-03 19:29:00.73	SERVICO_VIEW
+cmtlx592e00adlviezqxtmo2u	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-03 19:29:20.168	SERVICO_VIEW
+cmtmu01zn00ajlvieu4koi232	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-04 10:49:06.411	PORTAL_VIEW
 cmtmuduxr00amlviesgamx45p	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-04 10:59:50.614	PORTAL_VIEW
 cmtmufzxe00anlvie6ed6jw8e	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-04 11:01:30.513	PORTAL_VIEW
 cmtmufzyq00aolvie2gvgku9x	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-04 11:01:30.584	PORTAL_VIEW
@@ -1693,24 +1608,15 @@ cmtmugvsg00arlviee4b1kedf	Engenharia e Arquitetura	Engenharia e Arquitetura		::f
 cmtmugxdg00aslvierug34hlu	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.155	2026-09-04 11:02:13.882	PORTAL_VIEW
 cmtmvatnb00atlviek17lgc0t	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-04 11:25:25.453	PORTAL_VIEW
 cmtmvatqw00aulvie96a4w7v9	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-04 11:25:25.45	PORTAL_VIEW
-cmtmvatqy00avlvieo7ne5hfl	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-04 11:25:25.444	PORTAL_VIEW
-cmtmvgbbn00azlvieiscjuwcd	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-04 11:29:42.04	PORTAL_VIEW
+cmtmvatqy00avlvieo7ne5hfl	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-04 11:25:25.444	PORTAL_VIEW
+cmtmvgbbn00azlvieiscjuwcd	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-04 11:29:42.04	PORTAL_VIEW
 cmtmvgbbm00aylvie5hoc0huc	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-04 11:29:42.043	PORTAL_VIEW
 cmtmvgbca00b0lviemahkriby	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-04 11:29:42.044	PORTAL_VIEW
-cmtmvge5600b1lvied4z8ix3r	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-04 11:29:45.714	PORTAL_VIEW
+cmtmvge5600b1lvied4z8ix3r	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-04 11:29:45.714	PORTAL_VIEW
 cmtmvge5a00b2lvie0h0azo0s	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-04 11:29:45.718	PORTAL_VIEW
 cmtmvge5c00b3lviettopxu3n	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-04 11:29:45.721	PORTAL_VIEW
-cmtmvgijc00b4lvie7mk09lth	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.64	2026-09-04 11:29:51.41	PORTAL_VIEW
 cmtmvk38t00b6lviewlmg9h54	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-04 11:32:38.203	PORTAL_VIEW
 cmtmvk39l00b7lview168vul6	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-04 11:32:38.203	PORTAL_VIEW
-cmtmvrmni00b8lvievb2otnxd	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-04 11:38:29.949	PORTAL_VIEW
-cmtmvrmpi00b9lvieagdgbi8b	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-04 11:38:29.951	PORTAL_VIEW
-cmtmvrmpz00balvie7z4uc37z	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.64	2026-09-04 11:38:29.953	PORTAL_VIEW
-cmtmvwj1700bblviex4pmkiyz	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.157	2026-09-04 11:42:19.425	PORTAL_VIEW
-cmtmw2wm800bdlviemyi7w44o	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-09-04 11:47:17.001	PORTAL_VIEW
-cmtmw2wmx00belviepg6hyyxh	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-09-04 11:47:17.003	PORTAL_VIEW
-cmtmw3hb300bglviexzruegft	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-09-04 11:47:43.821	PORTAL_VIEW
-cmtmw3hb200bflviefva74za6	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-09-04 11:47:43.821	PORTAL_VIEW
 cmtmw55xy00bilviepztco83v	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-09-04 11:49:02.403	PORTAL_VIEW
 cmtmw55xx00bhlviety9u59c5	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-09-04 11:49:02.403	PORTAL_VIEW
 cmtmw560y00bjlviej5ygi96t	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-09-04 11:49:02.527	PORTAL_VIEW
@@ -1723,11 +1629,9 @@ cmtmw56ml00bplvie7obh5ei2	Engenharia e Arquitetura	Engenharia e Arquitetura		::f
 cmtmw56n000bqlview5rsd9qd	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-09-04 11:49:03.306	PORTAL_VIEW
 cmtmw56x500brlvievdnbdp2a	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-09-04 11:49:03.687	PORTAL_VIEW
 cmtmw56x700bslvie8ysmwojc	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.27	2026-09-04 11:49:03.687	PORTAL_VIEW
-cmtmww5ee00004wlim6gftu3d	Portal do Patrimônio de Pernambuco	Portal do Patrimônio de Pernambuco		::ffff:172.31.104.27	2026-09-04 12:10:01.425	PORTAL_VIEW
-cmtmx5d6s00014wliphup2zlg	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-09-04 12:17:07.749	SERVICO_VIEW
 cmtmxew5o00024wliw42ixm15	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-04 12:24:34.991	PORTAL_VIEW
 cmtmxew5w00034wlic2r4hivd	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-04 12:24:34.947	PORTAL_VIEW
-cmtmxewfv00044wli6yt98ztv	Portal de Engenharia e Arquitetura	Portal de Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-04 12:24:34.943	PORTAL_VIEW
+cmtmxewfv00044wli6yt98ztv	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-04 12:24:34.943	PORTAL_VIEW
 cmtmxs8fq00054wliayxy96ga	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-04 12:34:57.706	PORTAL_VIEW
 cmtmxs8fq00064wliopt6h36a	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-04 12:34:57.705	PORTAL_VIEW
 cmtmy332h00074wli9z31qad1	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-04 12:43:23.937	PORTAL_VIEW
@@ -1746,7 +1650,103 @@ cmtmyam96000j4wlil104n52y	Engenharia e Arquitetura	Engenharia e Arquitetura		::f
 cmtmyam99000k4wliwasassx0	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-04 12:49:15.51	PORTAL_VIEW
 cmtmylbca000l4wliijaxn1sd	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-04 12:57:34.518	PORTAL_VIEW
 cmtmylbcc000m4wlise2bgiva	Engenharia e Arquitetura	Engenharia e Arquitetura		::ffff:172.31.104.69	2026-09-04 12:57:34.518	PORTAL_VIEW
-cmtmyune3000n4wlipwka2u16	Portal de Serviços Corporativos	Portal de Serviços Corporativos		::ffff:172.31.104.92	2026-09-04 13:04:46.982	SERVICO_VIEW
+cmrxsmwu5000oa05rzijhdezs	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-23 17:36:55.272	NOTICIA_VIEW
+cmrxsp7t1000ra05rs92yefp8	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 17:38:42.754	NOTICIA_VIEW
+cmrxsvp7j000ta05rkxlolpd9	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-23 17:43:45.264	PORTAL_VIEW
+cmrxtihg70015a05r2rskvt0j	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 18:01:28.276	NOTICIA_VIEW
+cmrxtjy1t0017a05rhsdkn2u3	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 18:02:36.443	SERVICO_VIEW
+cmrxtk4cl0018a05r8sc1py03	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 18:02:44.608	NOTICIA_VIEW
+cmrxtrvl90000b70won1malof	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 18:08:46.454	NOTICIA_VIEW
+cmrxtxmyk0001b70wno8pjtwj	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 18:13:15.256	NOTICIA_VIEW
+cmrxty3wp0002b70wzt2rcwwk	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 18:13:37.221	NOTICIA_VIEW
+cmrxty4s40003b70w2gt2twjd	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 18:13:38.353	NOTICIA_VIEW
+cmrxukpe400003kynht2kt7jk	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 18:31:11.492	NOTICIA_VIEW
+cmrxuuew60000v50tan0cf1ki	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 18:38:44.447	SERVICO_VIEW
+cmrxxfqmz00023oi2jakwta36	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 19:51:18.679	NOTICIA_VIEW
+cmrxxfrg100033oi2xco4nm75	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 19:51:19.726	NOTICIA_VIEW
+cmrxxlb43000011nr98dd86pc	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 19:55:38.488	SERVICO_VIEW
+cmrxxlc2t000111nrvnn9kjjo	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 19:55:39.746	SERVICO_VIEW
+cmrxxlccy000211nrn2cpwlsq	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 19:55:40.11	SERVICO_VIEW
+cmrxxlcom000311nre876dd4l	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 19:55:40.531	SERVICO_VIEW
+cmrxxlcya000411nr741k8l30	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 19:55:40.879	SERVICO_VIEW
+cmrxxldeg000511nr2eous938	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 19:55:41.461	SERVICO_VIEW
+cmrxxldv7000611nr302tn56q	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-23 19:55:42.063	SERVICO_VIEW
+cmryufphv000066t61impgja3	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-24 11:15:04.123	PORTAL_VIEW
+cmryugbr3000166t6fk880spq	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-24 11:15:32.989	SERVICO_VIEW
+cmryuocqm000366t6h7wejscs	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-24 11:21:47.519	SERVICO_VIEW
+cmryv7ed1000566t6cp27vbru	Patrimônio	Patrimônio		::ffff:172.31.104.27	2026-07-24 11:36:36.466	NOTICIA_VIEW
+cmryvmkqe000966t6k9iy51i4	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-24 11:48:24.198	SERVICO_VIEW
+cmryvn3y9000a66t6x3ur9b8u	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-24 11:48:49.104	SERVICO_VIEW
+cmryvuakg000e66t6ph39ikak	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-24 11:54:24.276	SERVICO_VIEW
+cmryxc0km0001eveoyt0ubr3t	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-24 12:36:10.757	PORTAL_VIEW
+cmryxh52o0003eveokzofhjms	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-24 12:40:10.269	PORTAL_VIEW
+cmryz60w1000geveo6mwm3z7v	Patrimônio	Patrimônio		::ffff:172.31.104.69	2026-07-24 13:27:30.913	SERVICO_VIEW
+cmryza6tf000oeveoljpzbczu	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-07-24 13:30:44.8	SERVICO_VIEW
+cmsell1p4006j2ggic1gij1oa	Patrimônio	Patrimônio		::ffff:172.31.104.66	2026-08-04 11:51:36.251	SERVICO_VIEW
+cmsempod0006k2ggi1cgwbgg3	Patrimônio	Patrimônio		::ffff:172.31.104.62	2026-08-04 12:23:11.185	PORTAL_VIEW
+cmsemq7dm006l2ggigy27akw3	Patrimônio	Patrimônio		::ffff:172.31.104.62	2026-08-04 12:23:36.175	SERVICO_VIEW
+cmsen0tk0006m2ggiugnlidke	Patrimônio	Patrimônio		::ffff:172.31.104.62	2026-08-04 12:31:51.48	SERVICO_VIEW
+cmsen0zut006n2ggig9h4j64n	Patrimônio	Patrimônio		::ffff:172.31.104.62	2026-08-04 12:31:59.644	SERVICO_VIEW
+cmsen161b006o2ggisnsl3pwo	Patrimônio	Patrimônio		::ffff:172.31.104.62	2026-08-04 12:32:07.656	SERVICO_VIEW
+cmsen3ctf006p2ggijfyttvtp	Patrimônio	Patrimônio		::ffff:172.31.104.62	2026-08-04 12:33:49.757	SERVICO_VIEW
+cmseph8wu006q2ggidaatamwo	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-08-04 13:40:36.478	PORTAL_VIEW
+cmsephl5a006r2ggie0gtacfd	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-08-04 13:40:52.631	SERVICO_VIEW
+cmsephpyx006s2ggi256c97qq	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-08-04 13:40:58.878	SERVICO_VIEW
+cmsephysc006t2ggirr2g9r6r	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-08-04 13:41:10.311	SERVICO_VIEW
+cmseqosmr006u2ggijqc1kruj	Patrimônio	Patrimônio		::ffff:172.31.104.66	2026-08-04 14:14:28.869	PORTAL_VIEW
+cmseqove8006v2ggignbwz9dn	Patrimônio	Patrimônio		::ffff:172.31.104.66	2026-08-04 14:14:32.726	SERVICO_VIEW
+cmsevkmla006w2ggipmvsxt0j	Patrimônio	Patrimônio		::ffff:172.31.104.66	2026-08-04 16:31:12.662	SERVICO_VIEW
+cmseygsxd006z2ggidgqmmprd	Patrimônio	Patrimônio		::ffff:172.31.104.64	2026-08-04 17:52:12.571	SERVICO_VIEW
+cmshx09g6008c2ggiwqafn297	Patrimônio	Patrimônio		::ffff:172.31.104.31	2026-08-06 19:34:39.329	PORTAL_VIEW
+cmsiwvcuk008f2ggikv7qaw0w	Patrimônio	Patrimônio		::ffff:172.31.104.31	2026-08-07 12:18:37.044	PORTAL_VIEW
+cmsj5wxim009z2ggio20g804l	Patrimônio	Patrimônio		::ffff:172.31.104.31	2026-08-07 16:31:47.168	SERVICO_VIEW
+cmsj61zfq00a12ggimr1cp3ui	Patrimônio	Patrimônio		::ffff:172.31.104.31	2026-08-07 16:35:42.924	SERVICO_VIEW
+cmsj65g6p00a22ggicbp9ijp4	Patrimônio	Patrimônio		::ffff:172.31.104.31	2026-08-07 16:38:24.603	SERVICO_VIEW
+cmsj6bicj00a32ggi5n7ybhoj	Patrimônio	Patrimônio		::ffff:172.31.104.31	2026-08-07 16:43:07.338	SERVICO_VIEW
+cmsj6i5v600a42ggib97jbpls	Patrimônio	Patrimônio		::ffff:172.31.104.31	2026-08-07 16:48:17.751	SERVICO_VIEW
+cmsj6mcug00a52ggixl403g1u	Patrimônio	Patrimônio		::ffff:172.31.104.31	2026-08-07 16:51:33.423	SERVICO_VIEW
+cmsj6p3hq00a72ggi2ucbda1t	Patrimônio	Patrimônio		::ffff:172.31.104.31	2026-08-07 16:53:41.258	SERVICO_VIEW
+cmsn7skyd00ae2ggiap38ks60	Patrimônio	Patrimônio		::ffff:172.31.104.31	2026-08-10 12:35:27.795	PORTAL_VIEW
+cmrweec6r0001htwtgi7et8g3	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.27	2026-07-22 18:10:34.412	SERVICO_VIEW
+cmsnbcrxr00b62ggiow8djf18	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.29	2026-08-10 14:15:18.094	SERVICO_VIEW
+cmsolticm00be2ggii5096v47	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-11 11:55:52.875	PORTAL_VIEW
+cmsoniggi00bh2ggiipmkfzz0	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-11 12:43:16.39	SERVICO_VIEW
+cmsoniqex00bi2ggioomi0cvx	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-11 12:43:29.294	SERVICO_VIEW
+cmsonooua00bk2ggiu38z93ha	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-11 12:48:07.159	SERVICO_VIEW
+cmsonp0h800bl2ggihivaihb4	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-11 12:48:22.239	SERVICO_VIEW
+cmsoojha300bm2ggid35hx3dw	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-11 13:12:03.563	SERVICO_VIEW
+cmsookp6m00bn2ggivayhs6bp	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-11 13:13:00.455	SERVICO_VIEW
+cmsoyjsaz00bp2ggi0i48p1bg	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-08-11 17:52:13.871	SERVICO_VIEW
+cmssv1lhz0005i6j3bwvaa9b1	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-08-14 11:25:11.058	PORTAL_VIEW
+cmssx38fa0006i6j3n8c6bg2z	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-08-14 12:22:26.716	SERVICO_VIEW
+cmssxr4ey0007i6j3ytd55bm1	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-08-14 12:41:01.273	SERVICO_VIEW
+cmst1444v000ai6j3t5sy77x3	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.64	2026-08-14 14:15:04.191	PORTAL_VIEW
+cmst14mei000bi6j35suaia0k	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.64	2026-08-14 14:15:27.92	SERVICO_VIEW
+cmst176ah000ci6j320ebt3cl	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.64	2026-08-14 14:17:27.002	SERVICO_VIEW
+cmst17ydg000di6j31a8f0qkn	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.64	2026-08-14 14:18:03.404	SERVICO_VIEW
+cmst1jzsg000ei6j3slpqdj3x	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.64	2026-08-14 14:27:25.111	SERVICO_VIEW
+cmst7ldb5000fi6j3wi1c0l31	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-08-14 17:16:29.067	NOTICIA_VIEW
+cmst814r0000gi6j3t9opcp2s	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-08-14 17:28:44.47	NOTICIA_VIEW
+cmstd0vd5000hi6j3x0m72exl	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-08-14 19:48:30.449	NOTICIA_VIEW
+cmstd18ah000ii6j3zayl2vag	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-08-14 19:48:47.19	SERVICO_VIEW
+cmsx60u0a000213zxjdi6k245	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-08-17 11:43:36.396	PORTAL_VIEW
+cmsxgvssf000413zxcgjcg85c	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-17 16:47:36.433	PORTAL_VIEW
+cmsxicodb000513zxzuqva3pm	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-17 17:28:43.814	SERVICO_VIEW
+cmsxidfrg000613zxha9lr0hs	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-08-17 17:29:19.31	SERVICO_VIEW
+cmsxj4ayt000713zxviwf7n6v	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-08-17 17:50:13.125	SERVICO_VIEW
+cmsxj4u28000813zx0so9tohb	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.69	2026-08-17 17:50:37.874	SERVICO_VIEW
+cmtlflqqj006nlvies5s2urd1	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.59	2026-09-03 11:15:46.801	PORTAL_VIEW
+cmtlflqvw006olviestecnze9	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.59	2026-09-03 11:15:47.266	SERVICO_VIEW
+cmtlgj2ef006tlvievbn8orxl	Serviços Corporativos	Serviços Corporativos		fe80::960d:7fa3:9c61:cde9%21	2026-09-03 11:41:41.76	PORTAL_VIEW
+cmtlgkbok006ulvie9t1wjtt6	Serviços Corporativos	Serviços Corporativos		fe80::960d:7fa3:9c61:cde9%21	2026-09-03 11:42:40.532	SERVICO_VIEW
+cmtlglgi8006vlviey09ipimp	Serviços Corporativos	Serviços Corporativos		fe80::960d:7fa3:9c61:cde9%21	2026-09-03 11:43:33.446	SERVICO_VIEW
+cmtlgol4w006ylviete0in5ac	Serviços Corporativos	Serviços Corporativos		fe80::960d:7fa3:9c61:cde9%21	2026-09-03 11:45:59.413	SERVICO_VIEW
+cmtlgtcny0070lvie2ltvio6l	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.92	2026-09-03 11:52:07.841	PORTAL_VIEW
+cmtlho9j6007glviezalriq9y	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.65	2026-09-03 12:16:11.289	PORTAL_VIEW
+cmtlhoedh007hlviejmd1hljc	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.65	2026-09-03 12:16:17.586	SERVICO_VIEW
+cmtlhoro2007ilvien3v3qrxw	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.65	2026-09-03 12:16:34.81	SERVICO_VIEW
+cmtlhp2rr007klviernu8cn3x	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.65	2026-09-03 12:16:49.203	SERVICO_VIEW
+cmtlhqn34007llviepoj9s23d	Serviços Corporativos	Serviços Corporativos		::ffff:172.31.104.65	2026-09-03 12:18:02.188	SERVICO_VIEW
 \.
 
 
@@ -3413,5 +3413,5 @@ GRANT CREATE ON SCHEMA public TO PUBLIC;
 -- PostgreSQL database dump complete
 --
 
-\unrestrict G6zeH5UwfQ5MQCB39myU1ezmfzHvOf9tw7qGNQG5CMUloy2DMFh5z4cNORDE2tE
+\unrestrict f7foR6gh2O5fclk96Rb57vHqGn61r88EGxSYuYbQFzgc1CQyLrYIlIxQaWSXXqV
 

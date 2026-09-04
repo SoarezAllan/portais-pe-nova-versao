@@ -10,18 +10,23 @@ import {
   Eye,
   Activity,
   Globe,
-  Filter,
   Calendar,
   Layers,
   Loader2,
   Building2,
-  ShieldCheck,
-  Compass,
+  Newspaper,
+  Briefcase,
+  Lightbulb,
+  Gavel,
+  GraduationCap,
+  Sparkles,
+  CheckCircle2,
+  ArrowUpRight,
 } from 'lucide-react';
 
 const ACESSOS_QUERY = `
   query GetAcessos {
-    acessos(take: 500, orderBy: [{ dataAcesso: desc }]) {
+    acessos(take: 1500, orderBy: [{ dataAcesso: desc }]) {
       id
       portal
       tipo
@@ -47,10 +52,122 @@ interface AcessoItem {
   dataAcesso: string;
 }
 
+// Configuração visual dos Portais
+const PORTAL_CONFIG: Record<string, { label: string; color: string; bg: string; text: string; bar: string }> = {
+  'Engenharia e Arquitetura': {
+    label: 'Engenharia e Arquitetura',
+    color: 'bg-indigo-600',
+    bg: 'bg-indigo-50',
+    text: 'text-indigo-700',
+    bar: 'from-indigo-500 to-indigo-700',
+  },
+  'Patrimônio': {
+    label: 'Patrimônio Estadual',
+    color: 'bg-blue-600',
+    bg: 'bg-blue-50',
+    text: 'text-blue-700',
+    bar: 'from-blue-500 to-blue-700',
+  },
+  'Serviços Corporativos': {
+    label: 'Serviços Corporativos',
+    color: 'bg-emerald-600',
+    bg: 'bg-emerald-50',
+    text: 'text-emerald-700',
+    bar: 'from-emerald-500 to-emerald-700',
+  },
+  'Contratos Corporativos': {
+    label: 'Serviços Corporativos',
+    color: 'bg-emerald-600',
+    bg: 'bg-emerald-50',
+    text: 'text-emerald-700',
+    bar: 'from-emerald-500 to-emerald-700',
+  },
+};
+
+// Normalizador de nomes de portais/áreas
+function normalizePortalName(raw: string): string {
+  const lower = (raw || '').toLowerCase();
+  if (lower.includes('eng') || lower.includes('arq')) return 'Engenharia e Arquitetura';
+  if (lower.includes('patrim')) return 'Patrimônio';
+  if (lower.includes('servi') || lower.includes('contrat')) return 'Serviços Corporativos';
+  return raw || 'Geral';
+}
+
+// Configuração visual e amigável dos Tipos de Conteúdo
+const TIPO_CONFIG: Record<string, { label: string; icon: any; color: string; bg: string; text: string; bar: string }> = {
+  PORTAL_VIEW: {
+    label: 'Páginas Iniciais e Navegação',
+    icon: Globe,
+    color: 'bg-blue-500',
+    bg: 'bg-blue-50',
+    text: 'text-blue-700',
+    bar: 'from-blue-400 to-blue-600',
+  },
+  PAGE_VIEW: {
+    label: 'Páginas Iniciais e Navegação',
+    icon: Globe,
+    color: 'bg-blue-500',
+    bg: 'bg-blue-50',
+    text: 'text-blue-700',
+    bar: 'from-blue-400 to-blue-600',
+  },
+  SERVICO_VIEW: {
+    label: 'Visualizações de Serviços',
+    icon: Briefcase,
+    color: 'bg-purple-500',
+    bg: 'bg-purple-50',
+    text: 'text-purple-700',
+    bar: 'from-purple-400 to-purple-600',
+  },
+  NOTICIA_VIEW: {
+    label: 'Leituras de Notícias',
+    icon: Newspaper,
+    color: 'bg-emerald-500',
+    bg: 'bg-emerald-50',
+    text: 'text-emerald-700',
+    bar: 'from-emerald-400 to-emerald-600',
+  },
+  SOLUCAO_VIEW: {
+    label: 'Projetos e Inovação',
+    icon: Lightbulb,
+    color: 'bg-amber-500',
+    bg: 'bg-amber-50',
+    text: 'text-amber-700',
+    bar: 'from-amber-400 to-amber-600',
+  },
+  LEGISLACAO_VIEW: {
+    label: 'Consultas a Legislações',
+    icon: Gavel,
+    color: 'bg-slate-600',
+    bg: 'bg-slate-50',
+    text: 'text-slate-700',
+    bar: 'from-slate-500 to-slate-700',
+  },
+  CURSO_VIEW: {
+    label: 'Capacitações e Cursos',
+    icon: GraduationCap,
+    color: 'bg-cyan-500',
+    bg: 'bg-cyan-50',
+    text: 'text-cyan-700',
+    bar: 'from-cyan-400 to-cyan-600',
+  },
+};
+
+function formatTipo(raw: string) {
+  return TIPO_CONFIG[raw] || {
+    label: raw || 'Navegação Geral',
+    icon: Layers,
+    color: 'bg-slate-500',
+    bg: 'bg-slate-50',
+    text: 'text-slate-700',
+    bar: 'from-slate-400 to-slate-600',
+  };
+}
+
 export function IndicadoresPage() {
   const { user, isAdmin } = useAuth();
   const [selectedArea, setSelectedArea] = useState<string>('ALL');
-  const [selectedPeriod, setSelectedPeriod] = useState<string>('30'); // '1', '7', '30', 'ALL'
+  const [selectedPeriod, setSelectedPeriod] = useState<string>('ALL'); // '1', '7', '30', 'ALL'
 
   const { data, isLoading } = useQuery({
     queryKey: ['indicadores-acessos'],
@@ -58,37 +175,42 @@ export function IndicadoresPage() {
       graphqlRequest<{ acessos: AcessoItem[]; areas: { id: string; nome: string }[] }>(ACESSOS_QUERY),
   });
 
-  const allAcessos = data?.acessos ?? [];
+  const allAcessos = useMemo(() => {
+    return (data?.acessos ?? []).map((a) => ({
+      ...a,
+      portalNormalizado: normalizePortalName(a.portal || a.area),
+    }));
+  }, [data?.acessos]);
+
   const dbAreas = data?.areas ?? [];
 
-  // Available areas for filtering
+  // Áreas disponíveis para filtro
   const availableAreas = useMemo(() => {
     if (isAdmin) {
-      return dbAreas;
+      return [
+        { id: 'all', nome: 'Todas as Áreas' },
+        { id: 'eng', nome: 'Engenharia e Arquitetura' },
+        { id: 'pat', nome: 'Patrimônio' },
+        { id: 'serv', nome: 'Serviços Corporativos' },
+      ];
     }
     return user?.areas || [];
-  }, [isAdmin, dbAreas, user?.areas]);
+  }, [isAdmin, user?.areas]);
 
-  // Filtered acessos based on role, area filter, and period filter
+  // Acessos filtrados
   const filteredAcessos = useMemo(() => {
     const now = new Date();
     return allAcessos.filter((item) => {
       // 1. Role-based / area filter
       if (!isAdmin) {
-        const userAreaNames = (user?.areas || []).map((a) => a.nome);
-        const userAreaIds = (user?.areas || []).map((a) => a.id);
-        const matchesUserArea =
-          userAreaNames.includes(item.area) ||
-          userAreaIds.includes(item.area) ||
-          userAreaNames.some((n) => item.portal.includes(n));
+        const userAreaNames = (user?.areas || []).map((a) => normalizePortalName(a.nome));
+        const matchesUserArea = userAreaNames.includes(item.portalNormalizado);
         if (!matchesUserArea) return false;
       }
 
       if (selectedArea !== 'ALL') {
-        const matchesSelected =
-          item.area === selectedArea ||
-          item.portal.toLowerCase().includes(selectedArea.toLowerCase());
-        if (!matchesSelected) return false;
+        const normSelected = normalizePortalName(selectedArea);
+        if (item.portalNormalizado !== normSelected) return false;
       }
 
       // 2. Period filter
@@ -105,29 +227,32 @@ export function IndicadoresPage() {
 
   // KPIs
   const totalAcessos = filteredAcessos.length;
-  const uniqueIps = useMemo(() => new Set(filteredAcessos.map((a) => a.ip).filter(Boolean)).size, [filteredAcessos]);
+  const uniqueIps = useMemo(
+    () => new Set(filteredAcessos.map((a) => a.ip).filter(Boolean)).size,
+    [filteredAcessos]
+  );
 
-  // By Portal / Area
+  // Agrupamento por Portal Normalizado
   const byPortal = useMemo(() => {
     const map: Record<string, number> = {};
     filteredAcessos.forEach((a) => {
-      const key = a.area || a.portal || 'Geral';
+      const key = a.portalNormalizado;
       map[key] = (map[key] || 0) + 1;
     });
     return Object.entries(map).sort((a, b) => b[1] - a[1]);
   }, [filteredAcessos]);
 
-  // By Section / Type
+  // Agrupamento por Tipo de Conteúdo
   const byTipo = useMemo(() => {
     const map: Record<string, number> = {};
     filteredAcessos.forEach((a) => {
-      const key = a.tipo || 'Página Inicial';
+      const key = a.tipo || 'PORTAL_VIEW';
       map[key] = (map[key] || 0) + 1;
     });
     return Object.entries(map).sort((a, b) => b[1] - a[1]);
   }, [filteredAcessos]);
 
-  // By Date (Last 7 Days)
+  // Atividade nos Últimos 7 Dias
   const byDay = useMemo(() => {
     const map: Record<string, number> = {};
     const last7Days = Array.from({ length: 7 }, (_, i) => {
@@ -159,61 +284,65 @@ export function IndicadoresPage() {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center py-20">
-        <Loader2 className="h-10 w-10 animate-spin text-blue-600" />
+      <div className="flex flex-col items-center justify-center py-24">
+        <Loader2 className="h-10 w-10 animate-spin text-[#003087]" />
+        <p className="text-sm text-slate-500 mt-3 font-medium">Carregando indicadores de acesso...</p>
       </div>
     );
   }
 
   return (
     <div className="space-y-8">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      {/* Top Header */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
         <div>
-          <div className="flex items-center gap-2">
-            <h2 className="text-2xl font-bold text-gray-900">Indicadores de Acesso</h2>
-            <Badge variant="outline" className={isAdmin ? 'bg-blue-50 text-blue-700 border-blue-200' : 'bg-green-50 text-green-700 border-green-200'}>
-              {isAdmin ? 'Visão Geral (Admin)' : 'Visão Setorial (Operador)'}
+          <div className="flex items-center gap-3">
+            <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Indicadores de Acesso</h2>
+            <Badge
+              variant="outline"
+              className={
+                isAdmin
+                  ? 'bg-blue-50 text-[#003087] border-blue-200 font-semibold px-2.5 py-0.5'
+                  : 'bg-emerald-50 text-emerald-700 border-emerald-200 font-semibold px-2.5 py-0.5'
+              }
+            >
+              {isAdmin ? 'Visão Consolidada (Admin)' : 'Visão Setorial'}
             </Badge>
           </div>
-          <p className="text-sm text-gray-500 mt-1">
-            {isAdmin
-              ? 'Métricas consolidadas de tráfego e visualizações de todos os portais do Estado'
-              : `Métricas de acesso filtradas para sua(s) área(s): ${user?.areas?.map((a) => a.nome).join(', ') || 'Nenhuma área vinculada'}`}
+          <p className="text-sm text-slate-500 mt-1">
+            Métricas de visualização e engajamento dos cidadãos e servidores nos portais do Estado de Pernambuco
           </p>
         </div>
 
         {/* Filters */}
         <div className="flex flex-wrap items-center gap-3">
           {/* Area Filter */}
-          <div className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg border shadow-sm">
-            <Building2 className="h-4 w-4 text-gray-500" />
+          <div className="flex items-center gap-2 bg-slate-50 px-3.5 py-2 rounded-xl border border-slate-200 shadow-sm focus-within:ring-2 focus-within:ring-[#003087]">
+            <Building2 className="h-4 w-4 text-slate-500" />
             <select
               value={selectedArea}
               onChange={(e) => setSelectedArea(e.target.value)}
-              className="text-sm bg-transparent border-none focus:outline-none text-gray-700 font-medium"
+              className="text-sm bg-transparent border-none focus:outline-none text-slate-700 font-medium cursor-pointer"
             >
-              <option value="ALL">{isAdmin ? 'Todas as Áreas / Portais' : 'Todas as Minhas Áreas'}</option>
-              {availableAreas.map((area) => (
-                <option key={area.id} value={area.nome}>
-                  {area.nome}
-                </option>
-              ))}
+              <option value="ALL">Todos os Portais</option>
+              <option value="Engenharia e Arquitetura">Engenharia e Arquitetura</option>
+              <option value="Patrimônio">Patrimônio Estadual</option>
+              <option value="Serviços Corporativos">Serviços Corporativos</option>
             </select>
           </div>
 
           {/* Period Filter */}
-          <div className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg border shadow-sm">
-            <Calendar className="h-4 w-4 text-gray-500" />
+          <div className="flex items-center gap-2 bg-slate-50 px-3.5 py-2 rounded-xl border border-slate-200 shadow-sm focus-within:ring-2 focus-within:ring-[#003087]">
+            <Calendar className="h-4 w-4 text-slate-500" />
             <select
               value={selectedPeriod}
               onChange={(e) => setSelectedPeriod(e.target.value)}
-              className="text-sm bg-transparent border-none focus:outline-none text-gray-700 font-medium"
+              className="text-sm bg-transparent border-none focus:outline-none text-slate-700 font-medium cursor-pointer"
             >
-              <option value="1">Hoje (24h)</option>
-              <option value="7">Últimos 7 dias</option>
+              <option value="ALL">Todo o Período</option>
               <option value="30">Últimos 30 dias</option>
-              <option value="ALL">Todo o período</option>
+              <option value="7">Últimos 7 dias</option>
+              <option value="1">Hoje (Últimas 24h)</option>
             </select>
           </div>
         </div>
@@ -221,95 +350,156 @@ export function IndicadoresPage() {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <Card className="border shadow-sm hover:shadow transition-shadow">
+        <Card className="border border-slate-100 shadow-sm hover:shadow-md transition-all rounded-2xl bg-gradient-to-br from-white to-blue-50/30">
           <CardContent className="p-5 flex items-center justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase text-slate-500 tracking-wider">Total de Acessos</p>
-              <p className="text-3xl font-extrabold text-slate-900 mt-2">{totalAcessos}</p>
-              <p className="text-xs text-blue-600 mt-1 flex items-center gap-1 font-medium">
-                <TrendingUp className="h-3.5 w-3.5" /> Registros no período
+              <p className="text-xs font-bold uppercase text-slate-500 tracking-wider">Total de Acessos</p>
+              <p className="text-3xl font-extrabold text-slate-900 mt-2">{totalAcessos.toLocaleString('pt-BR')}</p>
+              <p className="text-xs text-blue-600 mt-1 flex items-center gap-1 font-semibold">
+                <TrendingUp className="h-3.5 w-3.5" /> Registros confirmados
               </p>
             </div>
-            <div className="h-12 w-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+            <div className="h-12 w-12 rounded-2xl bg-blue-100 text-[#003087] flex items-center justify-center shadow-inner">
               <Eye className="h-6 w-6" />
             </div>
           </CardContent>
         </Card>
 
-        <Card className="border shadow-sm hover:shadow transition-shadow">
+        <Card className="border border-slate-100 shadow-sm hover:shadow-md transition-all rounded-2xl bg-gradient-to-br from-white to-emerald-50/30">
           <CardContent className="p-5 flex items-center justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase text-slate-500 tracking-wider">Visitantes Únicos</p>
-              <p className="text-3xl font-extrabold text-slate-900 mt-2">{uniqueIps}</p>
-              <p className="text-xs text-green-600 mt-1 flex items-center gap-1 font-medium">
+              <p className="text-xs font-bold uppercase text-slate-500 tracking-wider">Visitantes Únicos</p>
+              <p className="text-3xl font-extrabold text-slate-900 mt-2">{uniqueIps.toLocaleString('pt-BR')}</p>
+              <p className="text-xs text-emerald-600 mt-1 flex items-center gap-1 font-semibold">
                 <Users className="h-3.5 w-3.5" /> Endereços IP distintos
               </p>
             </div>
-            <div className="h-12 w-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+            <div className="h-12 w-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center shadow-inner">
               <Users className="h-6 w-6" />
             </div>
           </CardContent>
         </Card>
 
-        <Card className="border shadow-sm hover:shadow transition-shadow">
+        <Card className="border border-slate-100 shadow-sm hover:shadow-md transition-all rounded-2xl bg-gradient-to-br from-white to-purple-50/30">
           <CardContent className="p-5 flex items-center justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase text-slate-500 tracking-wider">Média Diária</p>
-              <p className="text-3xl font-extrabold text-slate-900 mt-2">
-                {selectedPeriod === '1' ? totalAcessos : Math.round(totalAcessos / (parseInt(selectedPeriod, 10) || 30))}
+              <p className="text-xs font-bold uppercase text-slate-500 tracking-wider">Portal Mais Acessado</p>
+              <p className="text-lg font-bold text-slate-900 mt-2 line-clamp-1">
+                {byPortal[0]?.[0] || 'Engenharia e Arq.'}
               </p>
-              <p className="text-xs text-slate-500 mt-1 flex items-center gap-1">
-                <Activity className="h-3.5 w-3.5" /> Acessos / dia
+              <p className="text-xs text-purple-600 mt-1 font-semibold">
+                {byPortal[0]?.[1] || 0} visitas ({totalAcessos > 0 ? Math.round(((byPortal[0]?.[1] || 0) / totalAcessos) * 100) : 0}%)
               </p>
             </div>
-            <div className="h-12 w-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
-              <Activity className="h-6 w-6" />
+            <div className="h-12 w-12 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center shadow-inner">
+              <Building2 className="h-6 w-6" />
             </div>
           </CardContent>
         </Card>
 
-        <Card className="border shadow-sm hover:shadow transition-shadow">
+        <Card className="border border-slate-100 shadow-sm hover:shadow-md transition-all rounded-2xl bg-gradient-to-br from-white to-amber-50/30">
           <CardContent className="p-5 flex items-center justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase text-slate-500 tracking-wider">Principal Conteúdo</p>
+              <p className="text-xs font-bold uppercase text-slate-500 tracking-wider">Principal Conteúdo</p>
               <p className="text-lg font-bold text-slate-900 mt-2 line-clamp-1">
-                {byTipo[0]?.[0] || 'N/A'}
+                {formatTipo(byTipo[0]?.[0]).label}
               </p>
-              <p className="text-xs text-slate-500 mt-1">
-                {byTipo[0]?.[1] || 0} acessos registrados
+              <p className="text-xs text-amber-700 mt-1 font-semibold">
+                {byTipo[0]?.[1] || 0} acessos ({totalAcessos > 0 ? Math.round(((byTipo[0]?.[1] || 0) / totalAcessos) * 100) : 0}%)
               </p>
             </div>
-            <div className="h-12 w-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
-              <Compass className="h-6 w-6" />
+            <div className="h-12 w-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center shadow-inner">
+              <Sparkles className="h-6 w-6" />
             </div>
           </CardContent>
         </Card>
       </div>
 
+      {/* Proportional Segment Bar (Total Distribution) */}
+      <Card className="border border-slate-100 shadow-sm rounded-2xl p-5 bg-white">
+        <div className="space-y-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <h3 className="text-sm font-bold text-slate-800 flex items-center gap-2">
+              <Activity className="h-4 w-4 text-[#003087]" /> Divisão Geral de Tráfego entre Portais
+            </h3>
+            <span className="text-xs font-semibold text-slate-500">100% dos {totalAcessos} acessos</span>
+          </div>
+
+          {/* Segmented Bar */}
+          <div className="h-4 w-full bg-slate-100 rounded-full overflow-hidden flex shadow-inner">
+            {byPortal.map(([portal, count]) => {
+              const pct = totalAcessos > 0 ? (count / totalAcessos) * 100 : 0;
+              const cfg = PORTAL_CONFIG[portal] || { color: 'bg-slate-500' };
+              return (
+                <div
+                  key={portal}
+                  style={{ width: `${pct}%` }}
+                  className={`${cfg.color} h-full transition-all duration-500 hover:opacity-90`}
+                  title={`${portal}: ${count} (${Math.round(pct)}%)`}
+                />
+              );
+            })}
+          </div>
+
+          {/* Legend */}
+          <div className="flex flex-wrap gap-4 pt-1">
+            {byPortal.map(([portal, count]) => {
+              const pct = totalAcessos > 0 ? Math.round((count / totalAcessos) * 100) : 0;
+              const cfg = PORTAL_CONFIG[portal] || { color: 'bg-slate-500', text: 'text-slate-700' };
+              return (
+                <div key={portal} className="flex items-center gap-2 text-xs">
+                  <span className={`h-3 w-3 rounded-full ${cfg.color}`} />
+                  <span className="font-semibold text-slate-700">{portal}:</span>
+                  <span className="font-bold text-slate-900">{count} ({pct}%)</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </Card>
+
       {/* Charts & Analytics Grids */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Distribution by Area/Portal */}
-        <Card className="border shadow-sm">
-          <CardHeader className="pb-3 border-b">
-            <CardTitle className="text-base font-bold flex items-center gap-2 text-slate-800">
-              <Globe className="h-4 w-4 text-blue-600" /> Acessos por Área / Portal
+        <Card className="border border-slate-100 shadow-sm rounded-2xl overflow-hidden bg-white">
+          <CardHeader className="pb-3 border-b border-slate-100 bg-slate-50/50">
+            <CardTitle className="text-base font-bold flex items-center justify-between text-slate-900">
+              <span className="flex items-center gap-2">
+                <Globe className="h-4 w-4 text-[#003087]" /> Acessos por Portal Oficial
+              </span>
+              <span className="text-xs font-normal text-slate-500">Consolidado</span>
             </CardTitle>
           </CardHeader>
-          <CardContent className="p-5 space-y-4">
+          <CardContent className="p-6 space-y-5">
             {byPortal.length === 0 ? (
               <p className="text-sm text-slate-400 text-center py-6">Nenhum dado registrado para o filtro atual.</p>
             ) : (
               byPortal.map(([portal, count]) => {
                 const percentage = totalAcessos > 0 ? Math.round((count / totalAcessos) * 100) : 0;
+                const cfg = PORTAL_CONFIG[portal] || {
+                  label: portal,
+                  color: 'bg-slate-600',
+                  bg: 'bg-slate-50',
+                  text: 'text-slate-700',
+                  bar: 'from-slate-500 to-slate-700',
+                };
                 return (
-                  <div key={portal} className="space-y-1.5">
-                    <div className="flex justify-between text-sm">
-                      <span className="font-medium text-slate-700">{portal}</span>
-                      <span className="text-slate-500 font-semibold">{count} ({percentage}%)</span>
+                  <div key={portal} className="space-y-2 bg-slate-50/60 p-3.5 rounded-xl border border-slate-100">
+                    <div className="flex justify-between items-center text-sm">
+                      <span className="font-bold text-slate-800 flex items-center gap-2">
+                        <span className={`h-2.5 w-2.5 rounded-full ${cfg.color}`} />
+                        {cfg.label}
+                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-slate-900 font-extrabold">{count.toLocaleString('pt-BR')}</span>
+                        <Badge variant="outline" className={`${cfg.bg} ${cfg.text} border-transparent font-bold text-xs`}>
+                          {percentage}%
+                        </Badge>
+                      </div>
                     </div>
-                    <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                    <div className="w-full bg-slate-200/70 h-3 rounded-full overflow-hidden p-0.5">
                       <div
-                        className="bg-blue-600 h-full rounded-full transition-all duration-500"
+                        className={`bg-gradient-to-r ${cfg.bar} h-full rounded-full transition-all duration-700`}
                         style={{ width: `${percentage}%` }}
                       />
                     </div>
@@ -321,27 +511,42 @@ export function IndicadoresPage() {
         </Card>
 
         {/* Distribution by Content Type */}
-        <Card className="border shadow-sm">
-          <CardHeader className="pb-3 border-b">
-            <CardTitle className="text-base font-bold flex items-center gap-2 text-slate-800">
-              <Layers className="h-4 w-4 text-purple-600" /> Acessos por Tipo de Conteúdo
+        <Card className="border border-slate-100 shadow-sm rounded-2xl overflow-hidden bg-white">
+          <CardHeader className="pb-3 border-b border-slate-100 bg-slate-50/50">
+            <CardTitle className="text-base font-bold flex items-center justify-between text-slate-900">
+              <span className="flex items-center gap-2">
+                <Layers className="h-4 w-4 text-purple-600" /> Acessos por Tipo de Conteúdo
+              </span>
+              <span className="text-xs font-normal text-slate-500">Engajamento</span>
             </CardTitle>
           </CardHeader>
-          <CardContent className="p-5 space-y-4">
+          <CardContent className="p-6 space-y-5">
             {byTipo.length === 0 ? (
               <p className="text-sm text-slate-400 text-center py-6">Nenhum dado registrado para o filtro atual.</p>
             ) : (
-              byTipo.map(([tipo, count]) => {
+              byTipo.map(([rawTipo, count]) => {
                 const percentage = totalAcessos > 0 ? Math.round((count / totalAcessos) * 100) : 0;
+                const tipoInfo = formatTipo(rawTipo);
+                const IconComponent = tipoInfo.icon;
                 return (
-                  <div key={tipo} className="space-y-1.5">
-                    <div className="flex justify-between text-sm">
-                      <span className="font-medium text-slate-700">{tipo}</span>
-                      <span className="text-slate-500 font-semibold">{count} ({percentage}%)</span>
+                  <div key={rawTipo} className="space-y-2 bg-slate-50/60 p-3.5 rounded-xl border border-slate-100">
+                    <div className="flex justify-between items-center text-sm">
+                      <span className="font-bold text-slate-800 flex items-center gap-2">
+                        <div className={`p-1 rounded-md ${tipoInfo.bg} ${tipoInfo.text}`}>
+                          <IconComponent className="h-4 w-4" />
+                        </div>
+                        {tipoInfo.label}
+                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-slate-900 font-extrabold">{count.toLocaleString('pt-BR')}</span>
+                        <Badge variant="outline" className={`${tipoInfo.bg} ${tipoInfo.text} border-transparent font-bold text-xs`}>
+                          {percentage}%
+                        </Badge>
+                      </div>
                     </div>
-                    <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                    <div className="w-full bg-slate-200/70 h-3 rounded-full overflow-hidden p-0.5">
                       <div
-                        className="bg-purple-600 h-full rounded-full transition-all duration-500"
+                        className={`bg-gradient-to-r ${tipoInfo.bar} h-full rounded-full transition-all duration-700`}
                         style={{ width: `${percentage}%` }}
                       />
                     </div>
@@ -354,14 +559,17 @@ export function IndicadoresPage() {
       </div>
 
       {/* Activity Timeline (Last 7 Days) */}
-      <Card className="border shadow-sm">
-        <CardHeader className="pb-3 border-b">
-          <CardTitle className="text-base font-bold flex items-center gap-2 text-slate-800">
-            <TrendingUp className="h-4 w-4 text-emerald-600" /> Atividade nos Últimos 7 Dias
+      <Card className="border border-slate-100 shadow-sm rounded-2xl bg-white overflow-hidden">
+        <CardHeader className="pb-3 border-b border-slate-100 bg-slate-50/50">
+          <CardTitle className="text-base font-bold flex items-center justify-between text-slate-900">
+            <span className="flex items-center gap-2">
+              <TrendingUp className="h-4 w-4 text-emerald-600" /> Histórico de Atividade Recente (Últimos 7 Dias)
+            </span>
+            <span className="text-xs font-normal text-slate-500">Volume Diário</span>
           </CardTitle>
         </CardHeader>
         <CardContent className="p-6">
-          <div className="flex items-end justify-between gap-2 h-40 pt-4">
+          <div className="flex items-end justify-between gap-3 h-48 pt-6">
             {byDay.map(([dateStr, count]) => {
               const heightPercent = Math.round((count / maxDayCount) * 100);
               const formattedDate = new Date(dateStr + 'T00:00:00').toLocaleDateString('pt-BR', {
@@ -371,16 +579,16 @@ export function IndicadoresPage() {
               });
               return (
                 <div key={dateStr} className="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
-                  <span className="text-xs font-bold text-slate-700 group-hover:text-blue-600 transition-colors">
+                  <span className="text-xs font-bold text-slate-800 group-hover:text-[#003087] group-hover:scale-110 transition-all">
                     {count}
                   </span>
-                  <div className="w-full max-w-[48px] bg-slate-100 rounded-t-md h-full flex items-end overflow-hidden">
+                  <div className="w-full max-w-[56px] bg-slate-100 rounded-t-xl h-full flex items-end overflow-hidden p-1 shadow-inner">
                     <div
-                      className="w-full bg-blue-600 hover:bg-blue-700 transition-all rounded-t-md"
-                      style={{ height: `${Math.max(heightPercent, 6)}%` }}
+                      className="w-full bg-gradient-to-t from-[#003087] to-blue-500 hover:from-blue-600 hover:to-blue-400 transition-all rounded-t-lg shadow-sm"
+                      style={{ height: `${Math.max(heightPercent, 8)}%` }}
                     />
                   </div>
-                  <span className="text-[11px] text-slate-500 font-medium capitalize">
+                  <span className="text-[11px] text-slate-500 font-semibold capitalize tracking-tight">
                     {formattedDate}
                   </span>
                 </div>
@@ -391,41 +599,57 @@ export function IndicadoresPage() {
       </Card>
 
       {/* Recent Access Log Table */}
-      <Card className="border shadow-sm">
-        <CardHeader className="pb-3 border-b flex flex-row items-center justify-between">
-          <CardTitle className="text-base font-bold text-slate-800">
-            Registros Recentes de Acesso
-          </CardTitle>
-          <span className="text-xs text-slate-500">Exibindo os últimos acessos</span>
+      <Card className="border border-slate-100 shadow-sm rounded-2xl bg-white overflow-hidden">
+        <CardHeader className="pb-3 border-b border-slate-100 bg-slate-50/50 flex flex-row items-center justify-between">
+          <div>
+            <CardTitle className="text-base font-bold text-slate-900">
+              Registros em Tempo Real
+            </CardTitle>
+            <p className="text-xs text-slate-500 mt-0.5">Últimos acessos auditados pelo sistema</p>
+          </div>
+          <Badge variant="outline" className="bg-white text-slate-600 border-slate-200">
+            {filteredAcessos.length} total
+          </Badge>
         </CardHeader>
         <CardContent className="p-0">
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-left">
-              <thead className="bg-slate-50 text-slate-700 font-semibold border-b text-xs uppercase tracking-wider">
+              <thead className="bg-slate-50 text-slate-600 font-bold border-b border-slate-100 text-xs uppercase tracking-wider">
                 <tr>
-                  <th className="px-5 py-3">Data / Hora</th>
-                  <th className="px-5 py-3">Portal</th>
-                  <th className="px-5 py-3">Área</th>
-                  <th className="px-5 py-3">Conteúdo / Ação</th>
-                  <th className="px-5 py-3">IP do Visitante</th>
+                  <th className="px-6 py-3.5">Data / Hora</th>
+                  <th className="px-6 py-3.5">Portal Oficial</th>
+                  <th className="px-6 py-3.5">Tipo de Acesso</th>
+                  <th className="px-6 py-3.5">Endereço IP</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
-                {filteredAcessos.slice(0, 15).map((log) => (
-                  <tr key={log.id} className="hover:bg-slate-50 transition-colors">
-                    <td className="px-5 py-3 text-xs text-slate-500 whitespace-nowrap font-mono">
-                      {log.dataAcesso ? new Date(log.dataAcesso).toLocaleString('pt-BR') : '-'}
-                    </td>
-                    <td className="px-5 py-3 font-medium text-slate-900">{log.portal || '-'}</td>
-                    <td className="px-5 py-3">
-                      <Badge variant="outline" className="text-xs font-normal">
-                        {log.area || '-'}
-                      </Badge>
-                    </td>
-                    <td className="px-5 py-3 text-slate-700 font-medium">{log.tipo || 'Visualização de Página'}</td>
-                    <td className="px-5 py-3 text-xs font-mono text-slate-500">{log.ip || '127.0.0.1'}</td>
-                  </tr>
-                ))}
+                {filteredAcessos.slice(0, 15).map((log) => {
+                  const portalCfg = PORTAL_CONFIG[log.portalNormalizado] || {
+                    bg: 'bg-slate-100',
+                    text: 'text-slate-800',
+                  };
+                  const tipoCfg = formatTipo(log.tipo);
+                  const IconComp = tipoCfg.icon;
+                  return (
+                    <tr key={log.id} className="hover:bg-blue-50/30 transition-colors">
+                      <td className="px-6 py-3.5 text-xs text-slate-600 whitespace-nowrap font-mono font-medium">
+                        {log.dataAcesso ? new Date(log.dataAcesso).toLocaleString('pt-BR') : '-'}
+                      </td>
+                      <td className="px-6 py-3.5">
+                        <span className={`inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-bold ${portalCfg.bg} ${portalCfg.text}`}>
+                          {log.portalNormalizado}
+                        </span>
+                      </td>
+                      <td className="px-6 py-3.5">
+                        <div className="flex items-center gap-2">
+                          <IconComp className="h-3.5 w-3.5 text-slate-500" />
+                          <span className="font-semibold text-slate-800 text-xs">{tipoCfg.label}</span>
+                        </div>
+                      </td>
+                      <td className="px-6 py-3.5 text-xs font-mono text-slate-500">{log.ip || '127.0.0.1'}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
