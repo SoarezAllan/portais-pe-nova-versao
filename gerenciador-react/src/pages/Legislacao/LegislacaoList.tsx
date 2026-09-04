@@ -2,7 +2,7 @@ import { useList } from '@/hooks/useList';
 import { DataTable } from '@/components/DataTable';
 import { Card, CardContent } from '@/components/ui/card';
 
-const FIELDS = 'id titulo linkExterno categoria areaResponsavel { id nome }';
+const FIELDS = 'id titulo linkExterno categoria areaResponsavel { id nome } subarea { id nome }';
 
 export function LegislacaoList() {
 const { list, remove } = useList('legislacoes', { fields: FIELDS });

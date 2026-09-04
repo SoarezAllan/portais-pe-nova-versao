@@ -2,7 +2,7 @@ import { useList } from '@/hooks/useList';
 import { DataTable, ActiveBadge } from '@/components/DataTable';
 import { Card, CardContent } from '@/components/ui/card';
 
-const FIELDS = 'id titulo slug categoria linkExterno ativo areaResponsavel { id nome }';
+const FIELDS = 'id titulo slug categoria linkExterno ativo areaResponsavel { id nome } subarea { id nome }';
 
 export function SolucoesList() {
   const { list, remove } = useList('solucoes', { fields: FIELDS });

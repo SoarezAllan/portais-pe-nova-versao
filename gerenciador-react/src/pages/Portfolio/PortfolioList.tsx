@@ -2,7 +2,7 @@ import { useList } from '@/hooks/useList';
 import { DataTable, ActiveBadge } from '@/components/DataTable';
 import { Card, CardContent } from '@/components/ui/card';
 
-const FIELDS = 'id titulo slug resumo imagem { id url } ativo areaResponsavel { id nome }';
+const FIELDS = 'id titulo slug resumo imagem { id url } ativo areaResponsavel { id nome } subarea { id nome }';
 
 export function PortfolioList() {
   const { list, remove } = useList('portfolios', { fields: FIELDS });

@@ -142,7 +142,7 @@ export function PortfolioForm() {
               <Input id="titulo" {...register('titulo', { required: true })} placeholder="Ex: Reforma do Palácio do Campo das Princesas" />
               {titulo && (
                 <p className="text-xs text-slate-500 font-mono">
-                  Slug gerado automaticamente: <span className="text-blue-600 font-medium">/{generateSlug(titulo)}</span>
+                  Endereço (link da página) gerado automaticamente: <span className="text-blue-600 font-medium">/{generateSlug(titulo)}</span>
                 </p>
               )}
             </div>

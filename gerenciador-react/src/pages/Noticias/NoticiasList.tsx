@@ -2,7 +2,7 @@ import { useList } from '@/hooks/useList';
 import { DataTable, ActiveBadge } from '@/components/DataTable';
 import { Card, CardContent } from '@/components/ui/card';
 
-const FIELDS = 'id titulo slug dataPublicacao destaque ativo areaResponsavel { id nome } tags { id nome }';
+const FIELDS = 'id titulo slug dataPublicacao destaque ativo areaResponsavel { id nome } subarea { id nome } tags { id nome }';
 
 export function NoticiasList() {
   const { list, remove } = useList('noticias', { fields: FIELDS });

@@ -20,6 +20,7 @@ import {
   ChevronsLeft,
   ChevronsRight,
   Layers,
+  AlertTriangle,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -58,6 +59,10 @@ export function DataTable({
   const [selectedStatus, setSelectedStatus] = useState('ALL');
   const [selectedCategoria, setSelectedCategoria] = useState('ALL');
   const [selectedRole, setSelectedRole] = useState('ALL');
+
+  // Modal de Confirmação de Exclusão
+  const [itemToDelete, setItemToDelete] = useState<{ id: string; title: string } | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   // Estados de Ordenação e Paginação
   const [sortKey, setSortKey] = useState<string | null>(null);
@@ -251,11 +256,34 @@ export function DataTable({
     }
   };
 
+  const handleConfirmDelete = async () => {
+    if (!itemToDelete || !onDelete) return;
+    try {
+      setIsDeleting(true);
+      await onDelete(itemToDelete.id);
+      setItemToDelete(null);
+    } finally {
+      setIsDeleting(false);
+    }
+  };
+
+  const getItemDisplayName = (item: any) => {
+    return (
+      item.titulo ||
+      item.name ||
+      item.nome ||
+      item.tituloDaPagina ||
+      item.itemTitulo ||
+      item.email ||
+      `registro #${item.id}`
+    );
+  };
+
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center py-16 text-slate-500">
         <Loader2 className="h-8 w-8 animate-spin text-[#003087] mb-2" />
-        <span className="text-sm">Carregando registros...</span>
+        <span className="text-sm font-medium">Carregando registros...</span>
       </div>
     );
   }
@@ -529,7 +557,12 @@ export function DataTable({
                             variant="ghost"
                             size="icon"
                             className="h-8 w-8 text-slate-400 hover:text-rose-600 hover:bg-rose-50"
-                            onClick={() => onDelete(item.id)}
+                            onClick={() =>
+                              setItemToDelete({
+                                id: item.id,
+                                title: getItemDisplayName(item),
+                              })
+                            }
                             title="Excluir"
                           >
                             <Trash2 className="h-4 w-4" />
@@ -600,6 +633,64 @@ export function DataTable({
               </div>
             </div>
           )}
+        </div>
+      )}
+
+      {/* Modal de Confirmação de Exclusão */}
+      {itemToDelete && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200">
+          <div
+            className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-100 space-y-4 animate-in zoom-in-95 duration-200"
+            role="dialog"
+            aria-modal="true"
+          >
+            <div className="flex items-center gap-3 text-rose-600">
+              <div className="p-3 bg-rose-50 rounded-xl">
+                <AlertTriangle className="h-6 w-6 text-rose-600" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-slate-900">Confirmar Exclusão</h3>
+                <p className="text-xs text-slate-500">Esta ação é irreversível</p>
+              </div>
+            </div>
+
+            <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-100 text-sm text-slate-700 leading-relaxed">
+              Tem certeza que deseja excluir{' '}
+              <span className="font-bold text-slate-900 break-words">"{itemToDelete.title}"</span>?
+              <br />
+              <span className="text-xs text-rose-600 font-medium mt-1 inline-block">
+                ⚠️ Isso não poderá ser desfeito e o item será removido permanentemente.
+              </span>
+            </div>
+
+            <div className="flex items-center justify-end gap-2.5 pt-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setItemToDelete(null)}
+                disabled={isDeleting}
+                className="text-slate-600 hover:bg-slate-100"
+              >
+                Cancelar
+              </Button>
+              <Button
+                size="sm"
+                onClick={handleConfirmDelete}
+                disabled={isDeleting}
+                className="bg-rose-600 hover:bg-rose-700 text-white shadow-sm"
+              >
+                {isDeleting ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin mr-1.5" /> Excluindo...
+                  </>
+                ) : (
+                  <>
+                    <Trash2 className="h-4 w-4 mr-1.5" /> Sim, Excluir
+                  </>
+                )}
+              </Button>
+            </div>
+          </div>
         </div>
       )}
     </div>
