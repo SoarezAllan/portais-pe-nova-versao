@@ -61,3 +61,4 @@ async function fixSchemaColumns() {
 }
 
 fixSchemaColumns().catch(console.error);
+

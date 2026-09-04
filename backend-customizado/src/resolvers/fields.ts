@@ -8,13 +8,18 @@ export function formatImageField(parent: any, baseName: string) {
   const id = parent[`${baseName}_id`];
   if (!id) return null;
   const ext = parent[`${baseName}_extension`] || 'jpg';
+  const v = parent.updatedAt
+    ? new Date(parent.updatedAt).getTime()
+    : parent.createdAt
+    ? new Date(parent.createdAt).getTime()
+    : '20260904';
   return {
     id,
     filesize: parent[`${baseName}_filesize`] ?? 0,
     width: parent[`${baseName}_width`] ?? 0,
     height: parent[`${baseName}_height`] ?? 0,
     extension: ext,
-    url: `/images/${id}.${ext}`,
+    url: `/images/${id}.${ext}?v=${v}`,
   };
 }
 
