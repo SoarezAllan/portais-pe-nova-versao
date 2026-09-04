@@ -1,0 +1,23 @@
+.componente-card-flutuante {
+  background-color: #ffffff;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  padding: 15px 30px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  /* --- AJUSTES AQUI --- */
+  min-width: 260px; /* Aumentado de 200px para 260px */
+  height: 100px;    /* Aumentado de 80px para 100px */
+  /* ------------------- */
+  
+  white-space: nowrap;
+}
+
+/* ... resto do arquivo ... */

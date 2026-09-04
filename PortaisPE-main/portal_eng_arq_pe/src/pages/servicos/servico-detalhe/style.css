@@ -1,0 +1,248 @@
+/* ARQUIVO: src/pages/servicos/servico-detalhe/style.css (COMPLETO) */
+
+/* Força sans-serif em todos os títulos e conteúdo de serviços */
+.servico-conteudo h1,
+.servico-conteudo h2,
+.servico-conteudo h3,
+.servico-conteudo h4,
+.servico-conteudo h5,
+.servico-conteudo h6,
+.servico-conteudo,
+.servico-corpo,
+.servico-resumo,
+.servico-lateral,
+.lateral-titulo,
+.lateral-item-titulo,
+.lateral-link {
+  font-family: "Arial", "Helvetica", sans-serif !important;
+}
+
+/* Layout principal de 2 colunas */
+.servico-detalhe-container {
+  display: grid;
+  grid-template-columns: 2fr 0.8fr; /* 2 partes para o conteúdo, 0.8 para a barra lateral */
+  gap: 4rem; /* Distância aumentada entre as colunas */
+  max-width: 1200px;
+  margin: 3rem auto 4rem auto;
+  padding: 0 2rem;
+}
+
+/* Container de loading/erro (ocupa a largura toda) */
+.servico-detalhe-loading {
+  max-width: 90%;
+  margin: 3rem auto 4rem auto;
+  padding: 0 2rem;
+}
+
+/* ======= CONTEÚDO PRINCIPAL (ESQUERDA) ======= */
+
+.servico-conteudo {
+  /* Ocupa a coluna '2fr' inteira */
+}
+
+.servico-titulo {
+  font-family: var(--font-secondary); 
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--color-primary-darkblue, #1a2b4e);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.servico-resumo {
+  font-family: var(--font-primary); 
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 2rem;
+  font-style: italic;
+  padding-left: 15px;
+  line-height: 1.6;
+}
+
+.servico-hero-image-wrap {
+  /* Imagem reduzida e centralizada */
+  max-width: 700px; 
+  margin: 2rem auto; 
+  
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.servico-hero-image {
+  width: 100%; 
+  display: block; 
+  height: auto;
+}
+
+.servico-corpo {
+  font-family: var(--font-serif, 'Merriweather', serif); 
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  /* Texto alinhado com a imagem */
+  max-width: 700px; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Estilização padrão para o conteúdo renderizado do Keystone */
+.servico-corpo h2 {
+  font-family: var(--font-secondary);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-primary-darkblue, #1a2b4e);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+.servico-corpo h3 {
+  font-family: var(--font-secondary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+.servico-corpo p {
+  margin-bottom: 1.5rem;
+}
+.servico-corpo ul,
+.servico-corpo ol {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+.servico-corpo li {
+  margin-bottom: 0.5rem;
+}
+
+/* ======= BARRA LATERAL (DIREITA) ======= */
+
+.servico-lateral {
+  border-left: 1px solid #e6e6e6;
+  padding-left: 1.5rem;
+}
+
+.widget-lateral {
+  margin-bottom: 3rem; /* Espaço entre os widgets */
+}
+
+.lateral-titulo {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #222;
+  border-bottom: 2px solid var(--color-primary-blue, #0055a5);
+  padding-bottom: 0.3rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Lista de "Outros Serviços" (com imagem) */
+.widget-outros-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.lateral-item {
+  margin-bottom: 1rem;
+}
+.lateral-link {
+  display: flex;
+  gap: 0.8rem;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s ease, transform 0.2s ease;
+  padding: 0.4rem;
+  border-radius: 6px;
+}
+.lateral-link:hover {
+  background: #f3f6fa;
+  transform: translateX(3px);
+}
+.lateral-thumb {
+  width: 80px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.lateral-item-titulo {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+/* Lista de "Legislação" (simples) */
+.widget-legislacao-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.widget-leg-item a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--color-primary-blue, #004a8d);
+  padding: 0.5rem 0;
+}
+.widget-leg-item .link-icon {
+  transition: transform 0.2s ease;
+  font-weight: 700;
+}
+.widget-leg-item a:hover .link-icon {
+  transform: translateX(5px);
+}
+
+/* ======= WIDGET BOTÃO SOLUÇÃO (NOVO) ======= */
+.widget-solucao-link {
+  text-align: center; /* Centraliza o botão */
+}
+.widget-solucao-link .lateral-titulo {
+  text-align: left; /* Alinha o título do widget à esquerda */
+}
+
+/* Estilo para o botão (usa o .btn.btn-green global) */
+.widget-solucao-link .btn-green {
+  width: 100%; /* Faz o botão ocupar a largura */
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1.1rem;
+  text-decoration: none;
+  line-height: 1.4;
+  white-space: normal; /* Permite que o texto do botão quebre a linha */
+}
+
+
+/* ======= RESPONSIVIDADE ======= */
+@media (max-width: 950px) {
+  .servico-detalhe-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem; 
+  }
+  .servico-lateral {
+    border-left: none;
+    border-top: 1px solid #e6e6e6;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .servico-titulo {
+    font-size: 2.2rem;
+  }
+  .servico-resumo {
+    font-size: 1.1rem;
+  }
+  .servico-corpo {
+    font-size: 1rem; 
+  }
+  .servico-hero-image-wrap, 
+  .servico-corpo {
+    max-width: 100%;
+  }
+}

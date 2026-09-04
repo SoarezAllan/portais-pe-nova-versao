@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Redefinir Senha</title>
+
+  <link rel="stylesheet" href="../style.css">
+
+  <style>
+
+    .success-container{
+      margin-bottom:16px;
+      padding:12px;
+      background:#dcfce7;
+      border:1px solid #86efac;
+      border-radius:8px;
+      color:#166534;
+      display:none;
+    }
+
+    .subtitle{
+      color:#64748b;
+      font-size:14px;
+      margin-bottom:24px;
+      text-align:center;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="left">
+
+    <div class="overlay">
+
+      <div class="logo-badge">
+        PE
+      </div>
+
+      <h1 class="title">
+        Redefinição de Senha
+      </h1>
+
+      <p>
+        Secretaria de Administração
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="right">
+
+    <div class="card">
+
+      <h2 class="card-title">
+        Nova Senha
+      </h2>
+
+      <p class="subtitle">
+        Informe sua nova senha para acessar o sistema.
+      </p>
+
+      <div
+        id="errorContainer"
+        class="error-container"
+      ></div>
+
+      <div
+        id="successContainer"
+        class="success-container"
+      ></div>
+
+      <form id="resetForm">
+
+        <div class="form-group">
+
+          <label class="label">
+            Nova senha
+          </label>
+
+          <input
+            type="password"
+            id="password"
+            class="input"
+            placeholder="Digite a nova senha"
+            required
+          />
+
+        </div>
+
+        <div class="form-group">
+
+          <label class="label">
+            Confirmar senha
+          </label>
+
+          <input
+            type="password"
+            id="confirmPassword"
+            class="input"
+            placeholder="Confirme a nova senha"
+            required
+          />
+
+        </div>
+
+        <button
+          type="submit"
+          id="submitBtn"
+          class="button"
+        >
+
+          Redefinir senha
+
+        </button>
+
+      </form>
+
+      <div class="divider"></div>
+
+      <a
+        id="backToLoginLink"
+        href="#"
+        class="link"
+      >
+        Voltar ao login
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+const BACKEND_PORT = '3001';
+
+const BACKEND_URL =
+  `http://${window.location.hostname}:${BACKEND_PORT}`;
+
+const GRAPHQL_URL =
+  `http://${window.location.hostname}:${BACKEND_PORT}/api/graphql`;
+
+const backToLoginLink =
+  document.getElementById(
+    'backToLoginLink'
+  );
+
+backToLoginLink.href =
+  `${BACKEND_URL}/gerenciador-login`;
+
+const params =
+  new URLSearchParams(
+    window.location.search
+  );
+
+const form =
+  document.getElementById(
+    'resetForm'
+  );
+
+const error =
+  document.getElementById(
+    'errorContainer'
+  );
+
+const success =
+  document.getElementById(
+    'successContainer'
+  );
+
+      const email =
+        params.get('email');
+
+      const token =
+        params.get('token');
+      
+      // Verifica se os parâmetros existem
+      if(!email || !token){
+        error.innerText =
+          'Link inválido ou expirado.';
+        error.style.display='block';
+        form.style.display='none';
+        return;
+      }
+
+form.addEventListener(
+  'submit',
+
+  async (e)=>{
+
+    e.preventDefault();
+
+    const password =
+      document.getElementById(
+        'password'
+      ).value;
+
+    const confirmPassword =
+      document.getElementById(
+        'confirmPassword'
+      ).value;
+
+    const btn =
+      document.getElementById(
+        'submitBtn'
+      );
+
+    const error =
+      document.getElementById(
+        'errorContainer'
+      );
+
+    const success =
+      document.getElementById(
+        'successContainer'
+      );
+
+    error.style.display='none';
+    success.style.display='none';
+
+    if(!email || !token){
+
+      error.innerText =
+        'Link invÃ¡lido ou expirado.';
+
+      error.style.display='block';
+
+      return;
+    }
+
+    if(password !== confirmPassword){
+
+      error.innerText =
+        'As senhas não conferem.';
+
+      error.style.display='block';
+
+      return;
+    }
+
+    btn.disabled=true;
+
+    btn.innerText =
+      'Redefinindo...';
+
+    try{
+
+      const response =
+        await fetch(
+          GRAPHQL_URL,
+
+          {
+
+            method:'POST',
+
+            headers:{
+              'Content-Type':
+              'application/json'
+            },
+
+            credentials:'include',
+
+            body:JSON.stringify({
+
+              query:`
+
+                mutation(
+                  $token:String!
+                  $password:String!
+                ){
+                  resetPassword(
+                    token:$token
+                    password:$password
+                  )
+                }
+
+              `,
+
+              variables:{
+
+                token: token,
+
+                password: password
+
+              }
+
+            })
+
+          }
+
+        );
+
+      const result =
+        await response.json();
+
+      if(result.errors){
+
+        throw new Error(
+          result.errors[0].message
+        );
+
+      }
+
+      if(
+        result.data?.resetPassword
+      ){
+
+        success.innerText =
+          'Senha redefinida com sucesso!';
+
+        success.style.display =
+          'block';
+
+        setTimeout(()=>{
+
+          window.location.href =
+            `${BACKEND_URL}/gerenciador-login`;
+
+        },2000);
+
+      }
+
+      else{
+
+        throw new Error(
+          'NÃ£o foi possÃ­vel redefinir a senha.'
+        );
+
+      }
+
+    }
+
+    catch(err){
+
+      console.error(err);
+
+      error.innerText =
+        err.message ||
+        'Erro ao conectar com o servidor.';
+
+      error.style.display='block';
+
+    }
+
+    finally{
+
+      btn.disabled=false;
+
+      btn.innerText=
+        'Redefinir senha';
+
+    }
+
+  }
+
+);
+
+</script>
+
+</body>
+</html>

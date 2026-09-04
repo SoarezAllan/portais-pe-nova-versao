@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+
+    Gerenciamento de Conteúdo - Portais PE
+
+  </title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="left">
+
+    <div class="overlay">
+
+      <div class="logo-badge">
+
+        PE
+
+      </div>
+
+      <h1 class="title">
+
+        Painel de Gerenciamento de Conteúdo
+
+      </h1>
+
+      <p>
+
+        Secretaria de Administração
+
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="right">
+
+    <div class="card">
+
+      <h2 class="card-title">
+
+        Acesso ao Sistema
+
+      </h2>
+
+      <p class="subtitle">
+
+        
+      </p>
+
+      <form id="loginForm">
+
+        <div class="form-group">
+
+          <label class="label">
+
+            Email Institucional
+
+          </label>
+
+          <input
+
+            type="email"
+
+            id="email"
+
+            class="input"
+
+            placeholder="seu.email@pe.gov.br"
+
+            required
+
+          >
+
+        </div>
+
+        <div class="form-group">
+
+          <label class="label">
+
+            Senha
+
+          </label>
+
+          <input
+
+            type="password"
+
+            id="password"
+
+            class="input"
+
+            placeholder="Sua senha"
+
+            required
+
+          >
+
+        </div>
+
+        <div
+
+          id="errorContainer"
+
+          class="error-container"
+
+        ></div>
+
+        <button
+
+          type="submit"
+
+          id="submitBtn"
+
+          class="button"
+
+        >
+
+          Entrar
+
+        </button>
+
+      </form>
+
+      <div class="divider"></div>
+
+      <a
+
+        id="forgotPasswordLink"
+
+        href="#"
+
+        class="link"
+
+      >
+
+        Esqueceu sua senha?
+
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+const BACKEND_PORT = '3001';
+
+const BACKEND_URL =
+
+  `http://${window.location.hostname}:${BACKEND_PORT}`;
+
+const GRAPHQL_URL =
+
+  `http://${window.location.hostname}:${BACKEND_PORT}/api/graphql`;
+
+
+const form =
+
+  document.getElementById(
+
+    'loginForm'
+
+  );
+
+
+const emailInput =
+
+  document.getElementById(
+
+    'email'
+
+  );
+
+
+const passwordInput =
+
+  document.getElementById(
+
+    'password'
+
+  );
+
+
+const submitBtn =
+
+  document.getElementById(
+
+    'submitBtn'
+
+  );
+
+
+const forgotPasswordLink =
+
+  document.getElementById(
+
+    'forgotPasswordLink'
+
+  );
+
+forgotPasswordLink.href =
+
+  `${BACKEND_URL}/recuperar-senha`;
+
+const errorContainer =
+
+  document.getElementById(
+
+    'errorContainer'
+
+  );
+
+
+
+function showError(message){
+
+  errorContainer.innerText =
+
+    message;
+
+
+  errorContainer.style.display =
+
+    'block';
+
+}
+
+
+
+function hideError(){
+
+  errorContainer.style.display =
+
+    'none';
+
+
+  errorContainer.innerText =
+
+    '';
+
+}
+
+
+
+form.addEventListener(
+
+  'submit',
+
+  async (e) => {
+
+    e.preventDefault();
+
+    hideError();
+
+    submitBtn.disabled = true;
+
+    submitBtn.innerText =
+
+      'Autenticando...';
+
+
+    const email =
+
+      emailInput.value.trim();
+
+
+    const password =
+
+      passwordInput.value;
+
+
+    try {
+
+      const response =
+
+        await fetch(
+
+          GRAPHQL_URL,
+
+          {
+
+            method: 'POST',
+
+            headers: {
+
+              'Content-Type':
+
+              'application/json'
+
+            },
+
+            credentials:
+
+              'include',
+
+            body:
+
+              JSON.stringify({
+
+                query: `
+
+                  mutation(
+
+                    $email: String!,
+
+                    $password: String!
+
+                  ){
+
+                    authenticateUserWithPassword(
+
+                      email: $email,
+
+                      password: $password
+
+                    ){
+
+                      ... on UserAuthenticationWithPasswordSuccess{
+
+                        sessionToken
+
+                      }
+
+                      ... on UserAuthenticationWithPasswordFailure{
+
+                        message
+
+                      }
+
+                    }
+
+                  }
+
+                `,
+
+                variables: {
+
+                  email,
+
+                  password
+
+                }
+
+              })
+
+          }
+
+        );
+
+
+      const result =
+
+        await response.json();
+
+
+      if (
+
+        result.errors?.length
+
+      ){
+
+        throw new Error(
+
+          result.errors[0].message
+
+        );
+
+      }
+
+
+      const authResult =
+
+        result?.data
+
+          ?.authenticateUserWithPassword;
+
+
+      if (
+
+        authResult?.sessionToken
+
+      ){
+
+        submitBtn.innerText =
+
+          'Redirecionando...';
+
+
+        setTimeout(
+          ()=>{
+
+            window.location.href =
+              `${BACKEND_URL}`;
+
+          },
+          300
+        );
+
+      }
+
+      else{
+
+        showError(
+
+          authResult?.message ||
+
+          'E-mail ou senha incorretos.'
+
+        );
+
+      }
+
+    }
+
+    catch(error){
+
+      console.error(error);
+
+
+      showError(
+
+        error.message ||
+
+        'Erro ao conectar com o servidor.'
+
+      );
+
+    }
+
+    finally{
+
+      submitBtn.disabled = false;
+
+
+      submitBtn.innerText =
+
+        'Entrar';
+
+    }
+
+  }
+
+);
+
+</script>
+
+</body>
+
+</html>

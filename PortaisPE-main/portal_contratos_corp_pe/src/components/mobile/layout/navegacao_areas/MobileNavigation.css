@@ -1,0 +1,116 @@
+/* Container Principal (Mobile) */
+.mobile-nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #ffffff;
+  position: relative;
+  margin-bottom: 0;
+  width: 100%;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Título */
+.mobile-nav-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  color: #0A1A44;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 0;
+}
+
+/* Botão de Expandir */
+.mobile-nav-btn {
+  width: 100%;
+  max-width: 400px;
+  padding: 15px 20px;
+  background-color: #ffffff;
+  border: 2px solid #E0E0E0;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #004A8D;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.mobile-nav-btn.active {
+  border-color: #004A8D;
+  background-color: #f0f7ff;
+}
+
+.arrow-indicator {
+  transition: transform 0.3s ease;
+}
+
+.mobile-nav-btn.active .arrow-indicator {
+  transform: rotate(180deg);
+}
+
+/* Dropdown */
+.mobile-nav-dropdown {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 10px;
+  background-color: #ffffff;
+  border: 1px solid #E0E0E0;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  overflow: hidden;
+  animation: slideDownMobile 0.3s ease;
+  z-index: 100;
+}
+
+.mobile-nav-item {
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.mobile-nav-item:last-child {
+  border-bottom: none;
+}
+
+.mobile-nav-item:active {
+  background-color: #f5f5f5;
+}
+
+.nav-item-icon {
+  font-size: 1.2rem;
+  min-width: 24px;
+  text-align: center;
+  font-weight: 800; 
+  color: #004A8D;
+}
+
+.nav-item-text {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+@keyframes slideDownMobile {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === REGRA IMPORTANTE: Esconder no Desktop (acima de 768px) === */
+@media (min-width: 769px) {
+  .mobile-nav-container {
+    display: none !important;
+  }
+}

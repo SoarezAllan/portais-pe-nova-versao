@@ -1,0 +1,57 @@
+/* ================================================ */
+/* ARQUIVO: src/pages/home/style.css (LIMPO)        */
+/* ================================================ */
+
+/* NOTA: Removemos toda a lógica de layout de seção daqui.
+   Ela agora é controlada pelo componente 'SectionBlock'.
+*/
+
+/* --- Ajustes Específicos que parecem ser usados pelos filhos --- */
+/* Mantive estes pois parecem ser usados dentro de <Servicos> ou <Solucoes> */
+
+.servico-gallery {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border-color);
+}
+
+.servico-link-externo { 
+  margin-top: 60px; 
+  padding-top: 40px; 
+  text-align: center; 
+  border-top: 1px solid var(--border-color); 
+}
+
+/* --- Widgets da Sidebar (Legislacao) --- */
+/* Mantive por segurança, caso seja usado em algum componente interno */
+.legislacao-list { 
+  list-style: none; 
+  padding: 0; 
+  margin: 0; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 15px; 
+}
+
+.legislacao-list a { 
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+  padding: 15px; 
+  background-color: var(--white); 
+  border: 1px solid var(--border-color); 
+  border-radius: 8px; 
+  text-decoration: none; 
+  color: var(--primary-blue); 
+  font-weight: 500; 
+  transition: all 0.2s ease; 
+}
+
+.legislacao-list a:hover { 
+  border-color: var(--primary-green); 
+  transform: translateY(-3px); 
+  box-shadow: 0 8px 20px rgba(0, 74, 141, 0.1); 
+}
+
+.legislacao-list .link-icon { font-size: 1.2rem; }
+.legislacao-list .link-text { flex: 1; line-height: 1.4; }

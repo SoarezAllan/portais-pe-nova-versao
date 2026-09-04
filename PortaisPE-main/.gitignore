@@ -1,0 +1,32 @@
+# Dependências
+node_modules/
+**/node_modules/
+
+# Variáveis de ambiente (SENHAS, SECRETS, DB URL)
+.env
+**/.env
+.env.local
+**/.env.local
+
+# Build
+dist/
+build/
+.next/
+**/dist/
+**/build/
+
+# Uploads locais (imagens do Keystone)
+gerenciamento_keystone/public/images/*
+!gerenciamento_keystone/public/images/.gitkeep
+
+# Keystone gerado automaticamente
+.keystone/
+**/.keystone/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/
+.DS_Store

@@ -1,0 +1,41 @@
+/* Base para todos os botões */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: var(--font-primary);
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+/* Modificador para botões verdes */
+.btn-green {
+  background-color: var(--color-accent-green);
+  color: var(--color-white);
+  box-shadow: 0 4px 15px rgba(22, 163, 74, 0.2);
+}
+
+.btn-green:hover {
+  background-color: #15803d; /* Um pouco mais escuro */
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(22, 163, 74, 0.3);
+}
+
+/* Modificador para botões amarelos */
+.btn-yellow {
+  background: var(--color-accent-yellow);
+  color: var(--color-text-dark);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.btn-yellow:hover {
+  background: #eab308;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}

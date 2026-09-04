@@ -1,0 +1,39 @@
+.tag-component {
+  display: inline-block;
+  padding: 5px 12px;
+  
+  /* Identidade Visual (Amarelo) */
+  background-color: #FFD500;
+  color: #000;
+  
+  font-weight: 700;
+  font-size: 0.8rem;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none; /* Remove o sublinhado do link */
+  
+  /* Sombra suave */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  
+  /* Garante que o cursor mostre que é clicável */
+  cursor: pointer;
+  
+  /* Transições suaves */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+/* Efeito Hover (ao passar o mouse) */
+.tag-component:hover {
+  transform: translateY(-2px); /* Sobe um pouquinho */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  filter: brightness(1.05); /* Leve brilho */
+}
+
+/* Efeito Active (ao clicar) */
+.tag-component:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}

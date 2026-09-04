@@ -1,0 +1,99 @@
+/* Wrapper */
+.componente-card-imagem-wrapper {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+/* O Card */
+.componente-card-imagem {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 350px; /* Altura padrão para Serviços e Soluções */
+  background-color: var(--secondary-color, #E0E0E0);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.componente-card-imagem:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+}
+
+/* Imagem de Fundo */
+.card-imagem-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.componente-card-imagem:hover .card-imagem-bg {
+  transform: scale(1.05);
+}
+
+/* Overlay e Conteúdo */
+.card-imagem-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.55) 60%, rgba(0, 0, 0, 0) 100%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #ffffff;
+}
+
+/* Título */
+.card-imagem-title {
+  font-family: var(--font-primary, 'Montserrat', 'Inter', sans-serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  line-height: 1.2;
+  transition: transform 0.3s ease;
+}
+
+/* Resumo / Descrição no Hover (estilização idêntica à tela inicial) */
+.card-imagem-resumo {
+  font-family: var(--font-primary, 'Inter', 'Segoe UI', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #ffffff;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  margin: 0;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.componente-card-imagem:hover .card-imagem-resumo {
+  opacity: 1;
+  max-height: 120px;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .componente-card-imagem {
+    height: 300px;
+  }
+  .card-imagem-title {
+    font-size: 1.35rem;
+  }
+  .card-imagem-resumo {
+    font-size: 0.88rem;
+  }
+}

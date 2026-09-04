@@ -1,0 +1,105 @@
+/* ARQUIVO: src/components/layout/SectionBlock/style.module.css */
+
+.sectionContainer {
+  padding: 40px 0;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; /* Alinha o botão com a base do título */
+  margin-bottom: 30px;
+  /* REMOVIDO: border-bottom (A linha cinza que você não queria) */
+}
+
+/* Container para o Título e a Linha Colorida */
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Espaço entre o texto e a linha colorida */
+}
+
+.title {
+  font-size: 2rem;
+  /* ALTERADO: Usando o azul mais escuro que você pediu */
+  color: var(--primary-blue-dark); 
+  font-weight: 800; /* Mais grosso para impor respeito */
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+/* A NOVA LINHA COLORIDA (Substitui o ::after) */
+.underline {
+  width: 60px;
+  height: 6px; /* Um pouco mais grossa para destacar */
+  border-radius: 3px;
+  background-color: var(--primary-green); /* Cor padrão */
+}
+
+/* --- BOTÕES --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 30px;
+  background-color: var(--primary-green);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  
+  /* ALTERADO: Borda bem arredondada (Pílula) */
+  border-radius: 50px; 
+}
+
+.btn:hover {
+  filter: brightness(0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* --- RESPONSIVIDADE --- */
+.mobileBtnContainer {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .headerRow {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .titleContainer {
+    align-items: center; /* Centraliza título e linha no mobile */
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .desktopBtn {
+    display: none;
+  }
+
+  .mobileBtnContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    width: 100%;
+  }
+
+  .mobileBtn {
+    width: 100%;
+    max-width: 250px;
+  }
+}

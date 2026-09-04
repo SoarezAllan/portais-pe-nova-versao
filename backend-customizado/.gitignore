@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+*.log
+public/images/*
+!public/images/.gitkeep
+</content>
+

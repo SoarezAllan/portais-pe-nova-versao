@@ -1,0 +1,220 @@
+.materia-detalhe-container {
+  display: grid;
+  grid-template-columns: 2fr 0.8fr;
+  gap: 3rem;
+  max-width: 75%;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+/* ======= CONTEUDO PRINCIPAL ======= */
+.materia-conteudo {
+  max-width: 85%;
+}
+
+.materia-titulo {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.materia-subtitulo {
+  font-size: 1.3rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.materia-imagem {
+  width: 100%;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+  object-fit: cover;
+  max-height: 380px;
+}
+
+@media (max-width: 768px) {
+  .materia-imagem {
+    max-height: 260px;
+  }
+}
+
+
+.materia-meta {
+  font-size: 0.9rem;
+  color: #777;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.materia-resumo {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 1.8rem;
+  line-height: 1.7;
+}
+
+.materia-corpo {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: #222;
+}
+
+.materia-corpo p {
+  margin-bottom: 1.5rem;
+}
+
+/* ======= ÁREA DE TAGS (ESTILO EVOLUÍDO) ======= */
+.materia-tags-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+
+.tags-titulo {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.tags-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem; 
+}
+
+.tag-badge {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    background-color: #f8f9fa; /* Fundo bem leve */
+    border: 1px solid #e2e8f0;
+    border-radius: 20px; /* Mais arredondado (estilo 'pill') */
+    padding: 0.3rem 0.8rem;
+    transition: all 0.2s ease;
+    font-size: 0.85rem;
+    color: #2d3748;
+    font-weight: 600;
+}
+
+.tag-badge:hover {
+    background-color: #ebf8ff; 
+    border-color: #4299e1;
+    color: #2b6cb0;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.tag-nome {
+    margin-right: 0.5rem;
+}
+
+.tag-count {
+    background-color: #e2e8f0; /* Cinza neutro para contagem */
+    color: #4a5568;
+    padding: 0.1rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    min-width: 18px;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+/* Quando passa o mouse no badge todo, a contagem muda de cor também */
+.tag-badge:hover .tag-count {
+    background-color: #4299e1; /* Azul no hover */
+    color: white;
+}
+
+/* ======= LATERAL ======= */
+.materia-lateral {
+  border-left: 1px solid #e6e6e6;
+  padding-left: 1.5rem;
+}
+
+.lateral-titulo {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #222;
+  border-bottom: 2px solid #0055a5;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1.2rem;
+}
+
+.lateral-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lateral-item {
+  margin-bottom: 1rem;
+}
+
+.lateral-link {
+  display: flex;
+  gap: 0.8rem;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s ease, transform 0.2s ease;
+  padding: 0.4rem;
+  border-radius: 6px;
+}
+
+.lateral-link:hover {
+  background: #f3f6fa;
+  transform: translateX(3px);
+}
+
+.lateral-thumb {
+  width: 80px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.lateral-item-titulo {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.lateral-data {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+/* ======= RESPONSIVIDADE ======= */
+@media (max-width: 950px) {
+  .materia-detalhe-container {
+    grid-template-columns: 1fr;
+    max-width: 95%; 
+  }
+
+  .materia-lateral {
+    border-left: none;
+    border-top: 1px solid #e6e6e6;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    padding-left: 0;
+  }
+    
+  .materia-conteudo {
+      max-width: 100%;
+  }
+
+  .materia-tags-section {
+      margin-top: 2rem; 
+      padding-top: 1.5rem;
+  }
+}

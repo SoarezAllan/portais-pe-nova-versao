@@ -1,0 +1,342 @@
+/* =====================================================
+   RESET
+===================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* =====================================================
+   HEADER BASE
+===================================================== */
+.header {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+  z-index: 3000;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.header-container {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+.header-content {
+  height: 120px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+
+
+/* =====================================================
+   LOGOS — DESKTOP
+===================================================== */
+.logo-area {
+  display: flex;
+  align-items: center;
+  z-index: 4000;
+
+  text-decoration: none;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+
+  max-width: 420px; /* largura máxima do bloco */
+}
+
+.logo-img {
+  height: 110px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* =====================================================
+   BOTÃO MENU MOBILE
+===================================================== */
+.menu-toggle {
+  display: none; /* desktop escondido */
+
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  padding: 0;
+  margin-left: auto; /* FORÇA IR PARA A DIREITA */
+
+  z-index: 5000;
+}
+
+
+
+
+.hamburger-icon,
+.close-icon {
+  font-size: 3rem;   /* AUMENTA O ÍCONE DE VERDADE */
+  line-height: 1;
+  display: block;
+}
+
+
+/* =====================================================
+   NAV DESKTOP
+===================================================== */
+.nav-container {
+  display: flex;
+  justify-content: center;
+  margin-left: -80px; /* ajuste fino */
+}
+
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-links > li {
+  position: relative;
+}
+
+.nav-links > li > a {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #2d3748;
+  padding: 1.2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Hover underline */
+.nav-links > li > a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #008037;
+  transition: width 0.3s ease;
+}
+
+.nav-links > li > a:hover {
+  color: #008037;
+}
+
+.nav-links > li > a:hover::after {
+  width: 100%;
+}
+
+.arrow {
+  font-size: 0.75em;
+  transition: transform 0.3s;
+}
+
+.dropdown:hover .arrow {
+  transform: rotate(180deg);
+}
+
+/* =====================================================
+   DROPDOWN DESKTOP
+===================================================== */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  min-width: 240px;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+  z-index: 9999;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.dropdown-menu li a:hover {
+  background: #f7fafc;
+  color: #008037;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* =====================================================
+   MOBILE OVERLAY
+===================================================== */
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 2000;
+}
+
+.mobile-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  width: 85%;
+  max-width: 360px;
+
+  background: #ffffff;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+
+  z-index: 6000; /* ACIMA DE TUDO */
+  overflow-y: auto;
+}
+
+
+.mobile-menu.active {
+  transform: translateX(0);
+}
+
+/* =====================================================
+   MOBILE BREAKPOINT
+===================================================== */
+@media (max-width: 1024px) {
+
+  .header-container {
+    padding: 0 20px;
+  }
+
+  .header-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+  /* Logo Mobile */
+  .logo-img {
+    height: 60px;
+  }
+
+
+  /* esconder desktop */
+  .nav-container {
+    display: none;
+  }
+
+  /* botão mobile */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* lista principal */
+  .mobile-menu > ul > li > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a202c;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  /* submenu */
+  .has-sub ul {
+  max-height: 0;
+  overflow: hidden;
+  background: #f8f9fa;
+  transition: max-height 0.35s ease;
+  border-top: 1px solid #e5e7eb;
+}
+
+.has-sub.open ul {
+  max-height: 600px;
+}
+
+/* SUBITENS */
+.has-sub ul li a {
+  display: flex;
+  align-items: center;
+
+  padding: 16px 24px 16px 52px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #374151;
+
+  background: #f8f9fa;
+  border-bottom: 1px solid #e5e7eb;
+
+  position: relative;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* indicador visual (linha lateral) */
+.has-sub ul li a::before {
+  content: '';
+  position: absolute;
+  left: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #008037;
+  opacity: 0.6;
+}
+
+/* hover / active */
+.has-sub ul li a:hover {
+  background: #eef2f7;
+  color: #008037;
+}
+
+.has-sub ul li a:active {
+  background: #e2e8f0;
+}
+
+}
+
+/* ÍCONE DO HAMBURGUER (IMAGEM) */
+.hamburger-img {
+  width: 38px;        /* ajuste aqui o tamanho */
+  height: 38px;
+  object-fit: contain;
+}

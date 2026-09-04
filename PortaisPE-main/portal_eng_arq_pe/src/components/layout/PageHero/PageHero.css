@@ -1,0 +1,102 @@
+.page-hero-component {
+  position: relative;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 110px
+}
+
+.hero-overlay {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(10, 26, 68, 0.75);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.hero-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  margin: 0;
+}
+
+.hero-cards-container {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.hero-square-card {
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  width: 160px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box; /* Boa prática para o padding não afetar a largura */
+}
+
+.hero-square-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  border-bottom: 4px solid #FDD835;
+}
+
+.card-icon { font-size: 2.5rem; color: #0A1A44; }
+.card-value { font-size: 2.5rem; font-weight: 800; color: #004A8D; line-height: 1; }
+
+/* --- CORREÇÃO APLICADA AQUI --- */
+.card-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #555;
+  margin: 0;
+  text-transform: uppercase;
+  line-height: 1.2;
+  
+  /* Força a quebra de palavras longas para caberem no card */
+  word-break: break-word;
+}
+
+@media (max-width: 768px) {
+  .page-hero-component { height: 350px; margin-bottom: 20px; }
+  .hero-title { font-size: 2rem; }
+  .hero-cards-container { position: relative; bottom: auto; left: auto; transform: none; margin-top: 20px; width: 100%; padding: 0 20px; }
+  .hero-square-card { width: 100%; height: auto; padding: 15px 20px; flex-direction: row; justify-content: flex-start; border-radius: 12px; gap: 15px; }
+  .card-icon, .card-value { font-size: 1.5rem; }
+  .card-label { 
+    text-align: left; 
+    font-size: 0.9rem;
+    /* A regra 'word-break' herdada da base também funcionará aqui */
+  }
+}

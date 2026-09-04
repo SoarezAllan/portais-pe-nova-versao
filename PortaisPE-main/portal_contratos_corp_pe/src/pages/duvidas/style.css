@@ -1,0 +1,121 @@
+/* ARQUIVO: src/pages/duvidas/style.css (NOVO ESTILO) */
+
+/* ================= TÍTULO DA PÁGINA (PADRÃO NOTÍCIAS) ================= */
+
+.duvidas-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--color-primary-darkblue);
+  margin-bottom: 2.5rem;
+  text-align: center;
+  font-family: var(--font-secondary);
+}
+
+@media (max-width: 768px) {
+  .duvidas-title {
+    font-size: 2rem;
+  }
+}
+
+
+/* O .section-title já vem do CSS global, 
+   mas garantimos espaçamento correto aqui */
+.faq-section .section-title {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+
+/* Container principal (centraliza) */
+.faq-main-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* (O .section-title deve vir do seu CSS global) */
+
+.faq-container {
+  border: 1px solid var(--border-color, #ddd);
+  border-radius: var(--border-radius-lg, 12px);
+  overflow: hidden; /* Garante que os cantos fiquem arredondados */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.faq-item {
+  /* Borda apenas entre os itens */
+  border-bottom: 1px solid var(--border-color, #ddd);
+}
+.faq-item:last-child {
+  border-bottom: none; /* Remove a última borda */
+}
+
+/* A Pergunta (botão) */
+.faq-question {
+  display: flex;
+  justify-content: space-between; /* Título na esquerda, ícone na direita */
+  align-items: center;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  
+  background-color: var(--color-white, #fff);
+  border: none;
+  cursor: pointer;
+  
+  font-family: var(--font-secondary);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-primary-darkblue, #1a2b4e);
+  text-align: left;
+  
+  transition: background-color 0.2s ease;
+}
+
+.faq-question:hover {
+  background-color: var(--color-background-light, #f9f9f9);
+}
+
+/* Ícone de [+] e [-] */
+.faq-toggle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--color-primary-blue, #004a8d);
+}
+
+/* A Resposta (conteúdo) */
+.faq-answer {
+  padding: 0 2rem 1.5rem 2rem; /* 0 em cima, 2rem nos lados, 1.5rem embaixo */
+  background-color: var(--color-white, #fff);
+  animation: fadeIn 0.3s ease; /* Animação de fade-in */
+}
+
+/* Estilização do texto vindo do DocumentRenderer */
+.faq-answer p {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.faq-answer ul,
+.faq-answer ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.faq-answer li {
+  margin-bottom: 0.5rem;
+}
+
+/* Animação simples de fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

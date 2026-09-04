@@ -1,0 +1,192 @@
+/* =========================
+   CARD PRINCIPAL
+========================= */
+
+.gestor-card {
+  position: relative;
+  width: 220px;
+  padding: 10px;
+  text-align: center;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.gestor-card:hover {
+  transform: translateY(-6px);
+}
+
+/* =========================
+   FRENTE DO CARD
+========================= */
+
+.gestor-card-front {
+  padding: 20px;
+  text-align: center;
+}
+
+/* FOTO REDONDA */
+.gestor-foto {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 15px auto;
+  display: block;
+  border: 3px solid #004A8D;
+  transition: transform 0.3s ease;
+}
+
+.gestor-card:hover .gestor-foto {
+  transform: scale(1.05);
+}
+
+/* TEXTO */
+.gestor-nome {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.gestor-cargo {
+  color: #004A8D;
+  font-weight: 600;
+  margin-top: 5px;
+  font-size: 0.95rem;
+}
+
+.gestor-descricao {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* =========================
+   HOVER (OVERLAY)
+========================= */
+
+.gestor-card-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(10, 26, 68, 0.95);
+  color: #fff;
+
+  opacity: 0;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  transition: opacity 0.3s ease;
+  border-radius: 10px;
+}
+
+/* ATIVA O HOVER */
+.gestor-card:hover .gestor-card-hover {
+  opacity: 1;
+}
+
+/* TITULOS DO HOVER */
+.gestor-card-hover h4 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* CONTATO */
+.gestor-card-hover p {
+  font-size: 0.85rem;
+  margin: 2px 0;
+}
+
+/* LISTA DE ÁREAS */
+.gestor-card-hover ul {
+  padding-left: 15px;
+  margin-top: 5px;
+  text-align: left;
+}
+
+.gestor-card-hover li {
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+/* =========================
+   GRID / ORGANOGRAMA
+========================= */
+
+.organograma-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 1024px) {
+  .gestor-card {
+    width: 200px;
+  }
+
+  .gestor-foto {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+@media (max-width: 768px) {
+  .organograma-cards {
+    gap: 20px;
+  }
+
+  .gestor-card {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .gestor-foto {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gestor-card {
+    max-width: 100%;
+  }
+
+  .gestor-foto {
+    width: 100px;
+    height: 100px;
+  }
+
+  .gestor-nome {
+    font-size: 1rem;
+  }
+
+  .gestor-cargo {
+    font-size: 0.9rem;
+  }
+
+  .gestor-descricao {
+    font-size: 0.85rem;
+  }
+}

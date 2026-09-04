@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', 'Montserrat', sans-serif;
+  background-color: var(--white, #ffffff);
+  color: #333;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.legislacao-grid-container.page-main-content {
+  max-width: 1300px;
+  width: 92%;
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 60px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .desktop-only-hero { display: none !important; }
+}
+
+.search-bar-container { margin-bottom: 2rem; width: 100%; }
+.search-input {
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+.search-input:focus {
+  outline: none;
+  border-color: #004d99;
+  box-shadow: 0 0 0 3px rgba(0, 77, 153, 0.1);
+}
+
+.topic-section { margin-bottom: 45px; }
+.topic-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-weight: 800;
+  color: #0A1A44;
+  margin-bottom: 1.5rem;
+  position: relative;
+  text-align: left;
+}
+.topic-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 5px;
+  background-color: #FDD835;
+  border-radius: 3px;
+  margin-top: 8px;
+}
+
+.legislacao-modern-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.legislacao-item-link {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 1.5rem;
+  background-color: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.legislacao-item-link:hover {
+  box-shadow: 0 8px 20px rgba(0, 77, 153, 0.08);
+  transform: translateY(-3px);
+  border-color: #93c5fd;
+}
+
+.item-category-tag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 0.4rem;
+}
+.item-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0A1A44;
+  margin: 0 0 0.4rem 0;
+  line-height: 1.3;
+}
+.legislacao-item-link:hover .item-title { color: #004d99; }
+.item-summary { font-size: 0.92rem; color: #475569; line-height: 1.5; margin: 0; }
+
+.legislacao-no-results {
+  text-align: center;
+  padding: 2.5rem;
+  font-style: italic;
+  color: #64748b;
+  background: #f8fafc;
+  border-radius: 12px;
+}
+
+@media (max-width: 640px) {
+  .legislacao-grid-container.page-main-content {
+    width: 100%;
+    padding: 0 16px;
+  }
+  .legislacao-item-link {
+    padding: 1rem;
+  }
+  .item-title {
+    font-size: 1.05rem;
+  }
+}

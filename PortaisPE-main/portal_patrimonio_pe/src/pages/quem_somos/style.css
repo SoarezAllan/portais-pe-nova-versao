@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+
+body { font-family: 'Montserrat', sans-serif; background-color: var(--white); color: #333; margin: 0; min-height: 100vh; }
+
+/* ========================================= */
+/* MURAL AZUL E AMARELO (Hero)               */
+/* ========================================= */
+
+.mural-section {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr; 
+  width: 100%;
+  background-color: #004A8D;
+  color: #ffffff;
+}
+
+.mural-intro {
+  padding: 5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #004A8D;
+  position: relative;
+  z-index: 1;
+}
+
+.mural-intro h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 4px solid #FDD835;
+  display: inline-block;
+  align-self: flex-start;
+  text-transform: uppercase;
+}
+
+.mural-intro p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ffffff;
+}
+
+.mural-grid-wrapper {
+  padding: 0;
+  height: auto;
+  min-width: 0;
+}
+
+.mural-grid {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.mural-item {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.mural-grid .item-1, .mural-grid .item-4 { background-color: #005499; }
+.mural-grid .item-2, .mural-grid .item-3 { background-color: #003F7A; }
+
+.mural-item:hover { background-color: #002a52 !important; }
+
+.mural-item-valor {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #FDD835;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.mural-item-titulo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.mural-item-descricao {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #e0e0e0;
+}
+
+/* ========================================= */
+/* CONTEÚDO INFERIOR                         */
+/* ========================================= */
+
+.quem-somos-grid-container.page-main-content {
+  max-width: 90%; 
+  width: 100%; 
+  margin: 40px auto; 
+  padding-bottom: 60px;
+}
+
+.topic-section { margin-bottom: 60px; }
+
+.topic-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0A1A44;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.topic-title::after {
+  content: ''; display: block; width: 60px; height: 6px; background-color: #FDD835; border-radius: 3px; margin-top: 8px;
+}
+
+/* C:\Users\clovis.melo\Documents\Edicao-Portal\producao_portal_patrimonio_pe\portal_patrimonio_pe\src\pages\quem_somos\style.css */
+
+.intro-text { 
+  font-size: 1.1rem; 
+  line-height: 1.8; 
+  color: #444; 
+  text-align: justify; 
+  white-space: pre-line; /* <--- Adicione esta linha */
+}
+
+.organograma-imagem {
+  width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #eee;
+}
+
+/* ========================================= */
+/* TIME / EQUIPE                             */
+/* ========================================= */
+
+.time-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.time-card {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    border-top: none;
+    border-radius: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.time-card:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.time-card-foto {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 20px;
+  border: 5px solid #004A8D;
+  background: transparent;
+  box-shadow: none;
+}
+
+.time-card-nome {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0A1A44;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+}
+
+.time-card-cargo {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #004A8D;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.time-card-descricao {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+}
+
+.time-card-foto-wrapper {
+  margin: -1px -1px 16px -1px;
+  background-color: #f0f4f8;
+  padding: 20px 0;
+}
+/* ========================================= */
+/* RESPONSIVIDADE (Mobile & Tablet)          */
+/* ========================================= */
+
+@media (max-width: 992px) {
+  
+  .mural-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mural-intro {
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .mural-intro h2 {
+    align-self: center; 
+  }
+
+  .mural-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; 
+    width: 100%;
+    padding: 0 20px 30px 20px;
+    gap: 15px; 
+    height: auto;
+    grid-template-columns: none;
+    grid-template-rows: none;
+  }
+
+  .mural-item {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+    background-color: #005499;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+
+  .mural-grid .item-1, .mural-grid .item-2, 
+  .mural-grid .item-3, .mural-grid .item-4 {
+    background-color: #005499;
+  }
+  
+  .mural-item:nth-child(even) {
+    background-color: #003F7A;
+  }
+
+  .mural-grid::-webkit-scrollbar { height: 6px; }
+  .mural-grid::-webkit-scrollbar-track { background: #003F7A; border-radius: 3px; margin: 0 20px; }
+  .mural-grid::-webkit-scrollbar-thumb { background: #FDD835; border-radius: 3px; }
+
+  .time-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+  }
+
+  .time-card-foto {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Ajustes Desktop Grande */
+@media (min-width: 1024px) {
+  .quem-somos-grid-container.page-main-content { 
+    max-width: 60%; 
+    margin-top: 60px; 
+    padding-bottom: 80px; 
+  }
+  .topic-title { font-size: 2rem; }
+
+  .time-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}

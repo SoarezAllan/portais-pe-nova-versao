@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', 'Montserrat', sans-serif;
+  background-color: var(--white, #ffffff);
+  color: var(--primary-blue-dark, #002a5c);
+  margin: 0;
+  min-height: 100vh;
+}
+
+.cursos-grid-container.page-main-content {
+  max-width: 1300px;
+  width: 92%;
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 40px;
+  box-sizing: border-box;
+}
+
+.topic-title {
+  color: var(--primary-blue-dark, #002a5c);
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  position: relative;
+  text-align: left;
+}
+
+.topic-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 5px;
+  background-color: var(--primary-yellow, #FFC107);
+  border-radius: 3px;
+  margin-top: 8px;
+}
+
+.topic-section + .topic-section { margin-top: 50px; }
+
+/* Barra de Pesquisa */
+.search-bar-container { margin-bottom: 2rem; width: 100%; }
+.search-input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  transition: all 0.2s;
+}
+.search-input:focus {
+  outline: none;
+  border-color: #004d99;
+  box-shadow: 0 0 0 3px rgba(0, 77, 153, 0.1);
+}
+
+/* Header de Inscrição */
+.inscricao-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  background-color: #f8fafc;
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.inscricao-header p { margin: 0; font-weight: 600; color: #334155; }
+.btn-yellow {
+  background-color: #facc15;
+  color: #0f172a;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-yellow:hover {
+  background-color: #eab308;
+  transform: translateY(-2px);
+}
+
+/* Cards de Programação */
+.programacao-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Scroll Horizontal para Realizados */
+.horizontal-scroll-wrapper {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding-bottom: 15px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.horizontal-scroll-wrapper::-webkit-scrollbar { height: 6px; }
+.horizontal-scroll-wrapper::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 3px; }
+
+.programacao-card {
+  background-color: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  min-width: 270px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  scroll-snap-align: start;
+}
+.programacao-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 640px) {
+  .cursos-grid-container.page-main-content {
+    width: 100%;
+    padding: 0 16px;
+  }
+  .programacao-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .inscricao-header {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+}

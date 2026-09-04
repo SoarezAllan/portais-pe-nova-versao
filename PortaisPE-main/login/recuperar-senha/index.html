@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Recuperar Senha
+  </title>
+
+  <link rel="stylesheet" href="../style.css">
+
+  <style>
+
+    .subtitle{
+      color:#64748b;
+      font-size:14px;
+      text-align:center;
+      margin-bottom:24px;
+      line-height:1.6;
+    }
+
+    .success-container{
+
+      display:none;
+
+      margin-bottom:16px;
+
+      padding:12px;
+
+      background:#dcfce7;
+
+      border:1px solid #86efac;
+
+      border-radius:8px;
+
+      color:#166534;
+
+      font-size:14px;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="left">
+
+    <div class="overlay">
+
+      <div class="logo-badge">
+
+        PE
+
+      </div>
+
+      <h1 class="title">
+
+        Recuperação de Senha
+
+      </h1>
+
+      <p>
+
+        Secretaria de Administração
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="right">
+
+    <div class="card">
+
+      <h2 class="card-title">
+
+        Esqueceu sua senha?
+
+      </h2>
+
+      <p class="subtitle">
+
+        Informe seu e-mail institucional.
+        Você receberá uma senha temporária
+        para redefinir sua senha.
+
+      </p>
+
+      <div
+
+        id="errorContainer"
+
+        class="error-container"
+
+      ></div>
+
+      <div
+
+        id="successContainer"
+
+        class="success-container"
+
+      ></div>
+
+      <form id="forgotForm">
+
+        <div class="form-group">
+
+          <label class="label">
+
+            E-mail institucional
+
+          </label>
+
+          <input
+
+            type="email"
+
+            id="email"
+
+            class="input"
+
+            placeholder="seu.email@pe.gov.br"
+
+            required
+
+          >
+
+        </div>
+
+        <button
+
+          type="submit"
+
+          id="submitBtn"
+
+          class="button"
+
+        >
+
+          Enviar recuperação
+
+        </button>
+
+      </form>
+
+      <div class="divider"></div>
+
+      <a
+
+        id="backToLoginLink"
+
+        href="#"
+
+        class="link"
+
+      >
+
+        Voltar ao login
+
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+const BACKEND_PORT = '3001';
+
+const BACKEND_URL =
+
+  `http://${window.location.hostname}:${BACKEND_PORT}`;
+
+const GRAPHQL_URL =
+
+  `http://${window.location.hostname}:${BACKEND_PORT}/api/graphql`;
+
+
+const backToLoginLink =
+
+  document.getElementById(
+    'backToLoginLink'
+  );
+
+backToLoginLink.href =
+
+  `${BACKEND_URL}/gerenciador-login`;
+
+const form =
+
+  document.getElementById(
+    'forgotForm'
+  );
+
+
+form.addEventListener(
+
+  'submit',
+
+  async (e)=>{
+
+    e.preventDefault();
+
+    const email =
+
+      document.getElementById(
+        'email'
+      ).value;
+
+
+    const btn =
+
+      document.getElementById(
+        'submitBtn'
+      );
+
+
+    const error =
+
+      document.getElementById(
+        'errorContainer'
+      );
+
+
+    const success =
+
+      document.getElementById(
+        'successContainer'
+      );
+
+
+    error.style.display='none';
+
+    success.style.display='none';
+
+
+    btn.disabled=true;
+
+    btn.innerText='Enviando...';
+
+
+    try{
+
+
+      const response =
+
+        await fetch(
+
+          GRAPHQL_URL,
+
+          {
+
+            method:'POST',
+
+            headers:{
+
+              'Content-Type':
+              'application/json'
+
+            },
+
+            credentials:'include',
+
+            body:JSON.stringify({
+
+              query:`
+
+                mutation(
+
+                  $email:String!
+
+                ){
+
+                  forgotPassword(
+
+                    email:$email
+
+                  )
+
+                }
+
+              `,
+
+              variables:{
+
+                email
+
+              }
+
+            })
+
+          }
+
+        );
+
+
+      const result =
+
+        await response.json();
+
+
+      if(result.errors){
+
+        throw new Error(
+
+          result.errors[0].message
+
+        );
+
+      }
+
+
+      if(
+
+        result.data?.forgotPassword
+
+      ){
+
+        success.innerText=
+
+          'Email enviado com sucesso! Verifique sua caixa de entrada.';
+
+
+        success.style.display=
+
+          'block';
+
+
+        form.reset();
+
+
+      }
+
+      else{
+
+        throw new Error(
+
+          'NÃ£o foi possÃ­vel enviar o email.'
+
+        );
+
+      }
+
+    }
+
+    catch(err){
+
+      console.error(err);
+
+
+      error.innerText=
+
+        err.message ||
+
+        'Erro ao conectar com o servidor.';
+
+
+      error.style.display=
+
+        'block';
+
+    }
+
+    finally{
+
+
+      btn.disabled=false;
+
+
+      btn.innerText=
+
+        'Enviar recuperaÃ§Ã£o';
+
+    }
+
+  }
+
+);
+
+</script>
+
+</body>
+
+</html>

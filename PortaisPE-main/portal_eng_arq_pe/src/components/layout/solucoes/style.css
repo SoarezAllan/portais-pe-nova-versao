@@ -1,0 +1,145 @@
+/* ARQUIVO: src/components/layout/solucoes/style.css */
+/* ALINHADO COM O ESTILO DE SERVIÇOS */
+
+/* === CONTAINER PRINCIPAL === */
+.solucoes-section {
+  width: 100%; /* Correção: Ocupa 100% do SectionBlock da Home */
+  display: flex;
+  flex-direction: column;
+}
+
+/* === A GRADE (GRID) === */
+.solucoes-section .cards {
+  display: grid;
+  /* Padrão Desktop: 3 colunas iguais (idêntico ao Serviços) */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  width: 100%;
+  margin: 0;
+}
+
+/* === LINKS === */
+.solucoes-section .card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%; /* Garante que o link ocupe a altura toda da coluna */
+}
+
+/* === CARD (ESTRUTURA E VISUAL) === */
+.solucoes-section .card {
+  position: relative;
+  border-radius: 20px; /* Borda arredondada padrão */
+  overflow: hidden;
+  height: 350px; /* Altura fixa para alinhar com Serviços */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background-color: var(--secondary-color); /* Fallback global */
+}
+
+/* Efeito Hover no Card */
+.solucoes-section .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+}
+
+/* === IMAGEM DE FUNDO === */
+.solucoes-section .card-image-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* Zoom na imagem ao passar o mouse */
+.solucoes-section .card:hover .card-image-background {
+  transform: scale(1.05);
+}
+
+/* === CONTEÚDO (TEXTO E GRADIENTE) === */
+.solucoes-section .card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px;
+  color: var(--white);
+  /* Gradiente para leitura do texto */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
+  z-index: 2;
+}
+
+.solucoes-section .card-content h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--white);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  margin: 0;
+  line-height: 1.2;
+  transition: transform 0.3s ease;
+}
+
+/* Texto de Resumo (Efeito Acordeão) */
+.solucoes-section .card-content p {
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--white); /* Garante cor branca */
+  opacity: 0;          /* Começa invisível */
+  max-height: 0;       /* Sem altura */
+  margin-top: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Animação do Texto no Hover */
+.solucoes-section .card:hover .card-content h3 {
+  transform: translateY(-5px); /* Título sobe um pouquinho */
+}
+
+.solucoes-section .card:hover .card-content p {
+  opacity: 1;
+  max-height: 100px;
+  margin-top: 10px;
+}
+
+/* === ESTADOS DE CARREGAMENTO === */
+.solucoes-loading, 
+.solucoes-fallback {
+  width: 100%;
+  text-align: center;
+  padding: 40px 0;
+  font-size: 1.2rem;
+  color: var(--black);
+}
+
+/* ========================================================= */
+/* 📱 RESPONSIVIDADE (MEDIA QUERIES)                         */
+/* ========================================================= */
+
+/* Tablet (até 1024px) */
+@media (max-width: 1024px) {
+  .solucoes-section .cards {
+    grid-template-columns: repeat(2, 1fr); /* 2 Colunas */
+  }
+}
+
+/* Mobile (até 768px) */
+@media (max-width: 768px) {
+  .solucoes-section .cards {
+    grid-template-columns: 1fr; /* 1 Coluna */
+    gap: 20px;
+  }
+
+  .solucoes-section .card {
+    height: 300px; /* Levemente menor no celular */
+  }
+
+  .solucoes-section .card-content h3 {
+    font-size: 1.4rem;
+  }
+}
