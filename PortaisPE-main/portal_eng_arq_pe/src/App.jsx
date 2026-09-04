@@ -47,7 +47,8 @@ function App() {
       <Suspense fallback={<PageLoading />}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/quem-somos" element={<PaginaQuemSomos />} />
+          <Route path="/sobre" element={<PaginaQuemSomos />} />
+            <Route path="/quem-somos" element={<PaginaQuemSomos />} />
           <Route path="/duvidas" element={<PaginaDuvidas />} />
           <Route path="/legislacao" element={<PaginaLegislacao />} />
           <Route path="/materias" element={<NoticiasHistorico />} />

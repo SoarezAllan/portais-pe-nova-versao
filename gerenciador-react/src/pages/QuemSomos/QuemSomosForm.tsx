@@ -182,7 +182,7 @@ export function QuemSomosForm() {
         </Button>
         <div>
           <h2 className="text-2xl font-bold text-gray-800">
-            {isNew ? 'Nova Página Quem Somos' : 'Editar Página Quem Somos'}
+            {isNew ? 'Nova Página Sobre' : 'Editar Página Sobre'}
           </h2>
           <p className="text-sm text-gray-500 mt-1">Gerencie a página institucional, itens do mural e equipe da área</p>
         </div>
@@ -195,7 +195,7 @@ export function QuemSomosForm() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="tituloDaPagina">Título da Página *</Label>
-                <Input id="tituloDaPagina" {...register('tituloDaPagina', { required: true })} placeholder="Ex: Quem Somos" />
+                <Input id="tituloDaPagina" {...register('tituloDaPagina', { required: true })} placeholder="Ex: Sobre" />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="areaResponsavel">Área Responsável *</Label>

@@ -73,7 +73,7 @@ const Header = () => {
               </li>
 
               <li>
-                <Link to="/quem-somos">Quem somos</Link>
+                <Link to="/sobre">Sobre</Link>
               </li>
 
               <li>
@@ -127,7 +127,7 @@ const Header = () => {
 
       <nav className={`mobile-menu ${menuOpen ? "active" : ""}`}>
         <ul>
-          {["Início", "Quem somos", "Notícias", "Portfólio"].map((item) => (
+          {["Início", "Sobre", "Notícias", "Portfólio"].map((item) => (
             <li key={item}>
               <Link
                 to={`/${

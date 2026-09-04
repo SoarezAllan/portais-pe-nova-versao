@@ -60,7 +60,7 @@ const navGroups: NavGroup[] = [
   {
     title: 'Institucional',
     items: [
-      { to: '/quem-somos', label: 'Quem Somos', icon: Users },
+      { to: '/quem-somos', label: 'Sobre', icon: Users },
       { to: '/portfolio', label: 'Portfólio', icon: Image },
     ],
   },

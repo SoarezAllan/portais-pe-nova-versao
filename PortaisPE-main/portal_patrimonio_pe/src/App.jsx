@@ -72,6 +72,7 @@ function App() {
           <Routes>
             {/* Rotas públicas */}
             <Route path="/" element={<Home />} />
+            <Route path="/sobre" element={<PaginaQuemSomos />} />
             <Route path="/quem-somos" element={<PaginaQuemSomos />} />
             <Route path="/duvidas" element={<PaginaDuvidas />} />
             <Route path="/legislacao" element={<PaginaLegislacao />} />

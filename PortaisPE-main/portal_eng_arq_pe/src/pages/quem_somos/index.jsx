@@ -82,7 +82,7 @@ const PaginaQuemSomos = () => {
       <main>
         <section className="mural-section">
           <div className="mural-intro">
-            <h2>{mural?.tituloDaPagina || 'Quem Somos'}</h2>
+            <h2>{mural?.tituloDaPagina || 'Sobre'}</h2>
             {mural?.texto && <p>{mural.texto}</p>}
           </div>
 

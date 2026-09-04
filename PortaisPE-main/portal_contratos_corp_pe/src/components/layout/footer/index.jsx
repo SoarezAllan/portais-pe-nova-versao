@@ -52,7 +52,7 @@ function Footer() {
             {/* ▼▼▼ MUDANÇAS AQUI ▼▼▼ */}
             <ul className="footer-links">
               <li><Link to="/">Início</Link></li>
-              <li><Link to="/quem-somos">Quem somos</Link></li>
+              <li><Link to="/sobre">Sobre</Link></li>
               <li><Link to="/materias">Notícias</Link></li>
               <li><Link to="/servicos">Serviços</Link></li>
               <li><Link to="/solucoes">Projetos e Inovação</Link></li>

@@ -10,7 +10,7 @@ const ROUTE_NAMES: Record<string, string> = {
   'solucoes': 'Soluções',
   'legislacao': 'Legislação',
   'gestores': 'Gestores e Equipe',
-  'quem-somos': 'Quem Somos',
+  'quem-somos': 'Sobre',
   'usuarios': 'Usuários',
   'auditoria': 'Logs de Auditoria',
   'novo': 'Novo Registro',

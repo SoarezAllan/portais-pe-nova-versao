@@ -57,7 +57,7 @@ const Header = () => {
           <nav className="nav-container">
             <ul className="nav-links">
               <li><Link to="/">Início</Link></li>
-              <li><Link to="/quem-somos">Quem somos</Link></li>
+              <li><Link to="/sobre">Sobre</Link></li>
               <li><Link to="/materias">Notícias</Link></li>
 
               <li className="dropdown">
@@ -97,7 +97,7 @@ const Header = () => {
 
       <nav className={`mobile-menu ${menuOpen ? "active" : ""}`}>
         <ul>
-          {["Início", "Quem somos", "Notícias", "Cursos", "Dúvidas"].map((item) => (
+          {["Início", "Sobre", "Notícias", "Cursos", "Dúvidas"].map((item) => (
             <li key={item}>
               <Link to={`/${item === "Início" ? "" : item.toLowerCase().replace(" ", "-")}`}>{item}</Link>
             </li>

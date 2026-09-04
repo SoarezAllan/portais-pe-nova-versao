@@ -16,8 +16,8 @@ const { list, remove } = useList('quemSomos', { fields: FIELDS });
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-bold text-gray-800">Quem Somos</h2>
-        <p className="text-sm text-gray-500 mt-1">Gerenciar página Quem Somos</p>
+        <h2 className="text-2xl font-bold text-gray-800">Sobre</h2>
+        <p className="text-sm text-gray-500 mt-1">Gerenciar página Sobre</p>
       </div>
       <Card>
         <CardContent className="p-6">
