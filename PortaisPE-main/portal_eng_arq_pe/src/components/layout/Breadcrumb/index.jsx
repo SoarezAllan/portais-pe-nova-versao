@@ -3,15 +3,17 @@ import { Link, useLocation } from 'react-router-dom';
 import './style.css';
 
 const ROUTE_MAP = {
-  'quem-somos': 'Quem Somos',
+  'sobre': 'Sobre',
+  'quem-somos': 'Sobre',
   'servicos': 'Serviços',
   'materias': 'Notícias',
   'noticias': 'Notícias',
-  'cursos': 'Cursos e Programações',
+  'cursos': 'Cursos e Capacitações',
   'legislacao': 'Legislação',
   'solucoes': 'Projetos e Inovação',
   'duvidas': 'Dúvidas Frequentes',
-  'portfolio': 'Portfólio de Obras',
+  'portifolio': 'Portfólio',
+  'portfolio': 'Portfólio',
   'gestores': 'Gestores e Equipe',
   'materia-detalhe': 'Notícia',
   'servico-detalhe': 'Serviço',
