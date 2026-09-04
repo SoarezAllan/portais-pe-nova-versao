@@ -8,3 +8,4 @@ console.log('Gerando novo dump do banco atualizado para versionamento no Git...'
 execSync(dumpCmd, { stdio: 'inherit' });
 execSync(dumpCmd2, { stdio: 'inherit' });
 console.log('Dumps gerados com sucesso em database_backups/!');
+
