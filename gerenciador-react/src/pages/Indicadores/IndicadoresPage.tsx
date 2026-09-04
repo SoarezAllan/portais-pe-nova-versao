@@ -63,10 +63,10 @@ const PORTAL_CONFIG: Record<string, { label: string; color: string; bg: string; 
   },
   'Patrimônio': {
     label: 'Patrimônio Estadual',
-    color: 'bg-blue-600',
-    bg: 'bg-blue-50',
-    text: 'text-blue-700',
-    bar: 'from-blue-500 to-blue-700',
+    color: 'bg-amber-500',
+    bg: 'bg-amber-50',
+    text: 'text-amber-800',
+    bar: 'from-amber-400 to-amber-500',
   },
   'Serviços Corporativos': {
     label: 'Serviços Corporativos',
