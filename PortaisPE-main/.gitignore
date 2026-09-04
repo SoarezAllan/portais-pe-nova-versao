@@ -16,8 +16,8 @@ build/
 **/build/
 
 # Uploads locais (imagens do Keystone)
-gerenciamento_keystone/public/images/*
-!gerenciamento_keystone/public/images/.gitkeep
+# gerenciamento_keystone/public/images/*
+
 
 # Keystone gerado automaticamente
 .keystone/
