@@ -8,8 +8,8 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { ImageUpload } from '@/components/ImageUpload';
 import { useForm, Controller } from 'react-hook-form';
-import { useEffect, useState } from 'react';
-import { Loader2, ArrowLeft, Save } from 'lucide-react';
+import { useEffect, useState, useMemo } from 'react';
+import { Loader2, ArrowLeft, Save, Building } from 'lucide-react';
 import { graphqlRequest, generateSlug } from '@/lib/api';
 
 const AREAS_QUERY = `query { areas { id nome } }`;
@@ -24,6 +24,15 @@ export function PortfolioForm() {
     queryKey: ['areas'],
     queryFn: () => graphqlRequest<{ areas: { id: string; nome: string }[] }>(AREAS_QUERY),
   });
+
+  // O portfólio pertence exclusivamente à Área de Engenharia e Arquitetura
+  const engArea = useMemo(() => {
+    return areas?.areas.find(
+      (a) =>
+        a.nome.toLowerCase().includes('engenharia') ||
+        a.nome.toLowerCase().includes('arquitetura')
+    );
+  }, [areas]);
 
   const { data: itemData } = useQuery({
     queryKey: ['portfolios', 'get', id],
@@ -53,6 +62,7 @@ export function PortfolioForm() {
 
   const titulo = watch('titulo');
 
+  // Preenchimento inicial dos dados
   useEffect(() => {
     if (itemData?.item) {
       const item = itemData.item;
@@ -62,12 +72,15 @@ export function PortfolioForm() {
         resumo: item.resumo || '',
         imagemAlt: item.imagemAlt || '',
         ativo: item.ativo ?? true,
-        areaResponsavel: item.areaResponsavel?.id || '',
+        areaResponsavel: item.areaResponsavel?.id || engArea?.id || '',
         imagem: item.imagem || null,
       });
+    } else if (isNew && engArea?.id) {
+      setValue('areaResponsavel', engArea.id);
     }
-  }, [itemData, reset]);
+  }, [itemData, engArea, isNew, reset, setValue]);
 
+  // Geração automática do endereço
   useEffect(() => {
     if (isNew && titulo && !watch('slug')) {
       setValue('slug', generateSlug(titulo));
@@ -77,6 +90,7 @@ export function PortfolioForm() {
   const onSubmit = async (formData: any) => {
     setSaving(true);
     try {
+      const targetAreaId = formData.areaResponsavel || engArea?.id;
       const data: any = {
         titulo: formData.titulo,
         slug: generateSlug(formData.titulo),
@@ -95,8 +109,8 @@ export function PortfolioForm() {
         };
       }
 
-      if (formData.areaResponsavel) {
-        data.areaResponsavel = { connect: { id: formData.areaResponsavel } };
+      if (targetAreaId) {
+        data.areaResponsavel = { connect: { id: targetAreaId } };
       }
 
       if (isNew) {
@@ -115,7 +129,7 @@ export function PortfolioForm() {
   if (!isNew && itemData === undefined) {
     return (
       <div className="flex items-center justify-center py-12">
-        <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+        <Loader2 className="h-8 w-8 animate-spin text-[#003087]" />
       </div>
     );
   }
@@ -130,58 +144,110 @@ export function PortfolioForm() {
           <h2 className="text-2xl font-bold text-gray-800">
             {isNew ? 'Novo Item do Portfólio' : 'Editar Item do Portfólio'}
           </h2>
+          <p className="text-sm text-gray-500 mt-0.5">Galeria institucional de obras e projetos</p>
         </div>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        <Card>
-          <CardHeader><CardTitle>Informações Básicas</CardTitle></CardHeader>
+        <Card className="border-slate-200 shadow-sm">
+          <CardHeader>
+            <CardTitle className="text-lg">Informações do Projeto</CardTitle>
+          </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="titulo">Título *</Label>
-              <Input id="titulo" {...register('titulo', { required: true })} placeholder="Ex: Reforma do Palácio do Campo das Princesas" />
+              <Label htmlFor="titulo">Título do Projeto *</Label>
+              <Input
+                id="titulo"
+                {...register('titulo', { required: true })}
+                placeholder="Ex: Reforma e Restauro do Palácio do Campo das Princesas"
+              />
               {titulo && (
                 <p className="text-xs text-slate-500 font-mono">
-                  Endereço (link da página) gerado automaticamente: <span className="text-blue-600 font-medium">/{generateSlug(titulo)}</span>
+                  Endereço (link da página) gerado automaticamente:{' '}
+                  <span className="text-[#003087] font-semibold">/{generateSlug(titulo)}</span>
                 </p>
               )}
             </div>
 
+            {/* Seleção Exclusiva da Área de Engenharia e Arquitetura */}
             <div className="space-y-2">
               <Label htmlFor="areaResponsavel">Área Responsável</Label>
-              <select id="areaResponsavel" {...register('areaResponsavel')} className="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm">
-                <option value="">Selecione...</option>
-                {areas?.areas.map((a) => (
-                  <option key={a.id} value={a.id}>{a.nome}</option>
-                ))}
-              </select>
+              <div className="relative">
+                <select
+                  id="areaResponsavel"
+                  {...register('areaResponsavel')}
+                  className="flex h-10 w-full rounded-md border border-slate-300 bg-slate-50 px-3 py-2 text-sm text-slate-800 font-medium cursor-not-allowed opacity-90"
+                  disabled
+                >
+                  {engArea ? (
+                    <option value={engArea.id}>{engArea.nome}</option>
+                  ) : (
+                    <option value="">Engenharia e Arquitetura</option>
+                  )}
+                </select>
+              </div>
+              <p className="text-xs text-slate-500 flex items-center gap-1.5 mt-1">
+                <Building className="h-3.5 w-3.5 text-[#003087]" />
+                O módulo de Portfólio é exclusivo do Portal de Engenharia e Arquitetura.
+              </p>
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="resumo">Resumo do Projeto</Label>
-              <Textarea id="resumo" rows={3} {...register('resumo')} />
+              <Label htmlFor="resumo">Resumo / Descrição da Obra</Label>
+              <Textarea
+                id="resumo"
+                rows={3}
+                {...register('resumo')}
+                placeholder="Descreva brevemente o projeto, intervenções realizadas, localização..."
+              />
             </div>
 
-            <div className="flex items-center gap-2">
-              <Checkbox id="ativo" checked={watch('ativo')} onCheckedChange={(v) => setValue('ativo', !!v)} />
-              <Label htmlFor="ativo">Ativo</Label>
+            <div className="flex items-center gap-2 pt-1">
+              <Checkbox
+                id="ativo"
+                checked={watch('ativo')}
+                onCheckedChange={(v) => setValue('ativo', !!v)}
+              />
+              <Label htmlFor="ativo" className="cursor-pointer font-medium text-slate-700">
+                Publicar no portal (Ativo)
+              </Label>
             </div>
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader><CardTitle>Imagem de Capa</CardTitle></CardHeader>
+        <Card className="border-slate-200 shadow-sm">
+          <CardHeader>
+            <CardTitle className="text-lg">Imagem de Capa do Projeto</CardTitle>
+          </CardHeader>
           <CardContent>
-            <Controller control={control} name="imagem" render={({ field }) => (
-              <ImageUpload value={field.value} onChange={field.onChange} label="Imagem Principal" />
-            )} />
+            <Controller
+              control={control}
+              name="imagem"
+              render={({ field }) => (
+                <ImageUpload
+                  value={field.value}
+                  onChange={field.onChange}
+                  label="Foto Principal do Projeto"
+                />
+              )}
+            />
           </CardContent>
         </Card>
 
         <div className="flex items-center gap-3 justify-end">
-          <Button type="button" variant="outline" onClick={() => navigate('/portfolio')}>Cancelar</Button>
-          <Button type="submit" disabled={saving}>
-            {saving ? <><Loader2 className="h-4 w-4 mr-2 animate-spin" /> Salvando...</> : <><Save className="h-4 w-4 mr-2" /> Salvar</>}
+          <Button type="button" variant="outline" onClick={() => navigate('/portfolio')}>
+            Cancelar
+          </Button>
+          <Button type="submit" disabled={saving} className="bg-[#003087] hover:bg-[#002266] text-white">
+            {saving ? (
+              <>
+                <Loader2 className="h-4 w-4 mr-2 animate-spin" /> Salvando...
+              </>
+            ) : (
+              <>
+                <Save className="h-4 w-4 mr-2" /> Salvar Projeto
+              </>
+            )}
           </Button>
         </div>
       </form>
