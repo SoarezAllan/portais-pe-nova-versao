@@ -61,3 +61,4 @@ async function verifyEverything() {
 }
 
 verifyEverything().catch(console.error);
+

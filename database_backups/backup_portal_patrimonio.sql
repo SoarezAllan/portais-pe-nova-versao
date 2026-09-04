@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict QAEwDa6guV0bxXux6654XvIxqJflaoF5mKd0KbkcVupMeqFMgnDfbCrpVnGbCba
+\restrict YR5fVZ8yb2qcmwXqmWUdHElKmdyeaKaWjpV7qldkSfr5AnOga7uz0hx74GDolkz
 
 -- Dumped from database version 18.4
 -- Dumped by pg_dump version 18.4
@@ -331,7 +331,8 @@ CREATE TABLE public."PaginaQuemSomos" (
     "muralTextoIntrodutorio" text DEFAULT ''::text NOT NULL,
     subarea text,
     "timeTitulo" text DEFAULT 'Nosso Time'::text NOT NULL,
-    "tituloDaPagina" text DEFAULT 'Sobre'::text NOT NULL
+    "tituloDaPagina" text DEFAULT 'Sobre'::text NOT NULL,
+    "timeDescricao" text DEFAULT ''::text NOT NULL
 );
 
 
@@ -2482,10 +2483,10 @@ cmtliqh2u007vlviek7f416fn	Autorizada restauração do antigo prédio do Diario	A
 -- Data for Name: PaginaQuemSomos; Type: TABLE DATA; Schema: public; Owner: patrimonio_user
 --
 
-COPY public."PaginaQuemSomos" (id, "createdAt", "areaResponsavel", "createdBy", "muralTextoIntrodutorio", subarea, "timeTitulo", "tituloDaPagina") FROM stdin;
-cmq9rfbp70009g5ah6bliwon4	\N	cmq81pn5v0001j9azrqcx4d99		Da mudança de layout até projetos complexos, do levantamento cartográfico à avaliação de imóveis. A área de arquitetura e engenharia está pronta com uma equipe própria, técnica e qualificada para atuar no Patrimônio Imobiliário da Administração Direta e Vinculada (IASSEPE, ATI e FUNAPE)  Estadual, conforme decreto nº 58.355/2025, de forma a preservar a história, atualizar demandas e permitir edificações seguras e eficientes para todo o Estado de Pernambuco.	\N	Nosso Time	Sobre
-1	\N	cmq6yxa510000nh1tnduds1mc		Desde a maca do hospital à viatura policial. Da escola ao palácio do governo.\nTudo isso faz parte do patrimônio do Estado. E para dar conta de tudo é preciso uma equipe técnica capacitada e uma gestão eficiente. \nUma boa administração patrimonial leva a melhores políticas públicas e a um Estado mais próximo do cidadão. Esse é nosso propósito. 	\N	Nosso Time	Sobre
-cmreyx3540010tsps2t8u6l90	2026-07-10 13:25:10.244	cmq81pvoq0003j9azcu4vg0ws		A área de Serviços Corporativos da Secretaria de Administração do Estado de Pernambuco é responsável por planejar, disciplinar, coordenar, executar e acompanhar as políticas públicas administrativas relacionadas à gestão dos serviços corporativos, nos temas Telemática, Frota, Energia (PPP e eficiência energética) e Água, no âmbito da Administração Pública Estadual.\n\nNossa atuação busca oferecer soluções integradas que atendam às necessidades dos órgãos e entidades estaduais, contribuindo para uma gestão mais moderna, transparente e orientada por resultados. 	cmrtn2i7v0000bqr5csm0w82l	Nosso time 	Sobre
+COPY public."PaginaQuemSomos" (id, "createdAt", "areaResponsavel", "createdBy", "muralTextoIntrodutorio", subarea, "timeTitulo", "tituloDaPagina", "timeDescricao") FROM stdin;
+cmq9rfbp70009g5ah6bliwon4	\N	cmq81pn5v0001j9azrqcx4d99		Da mudança de layout até projetos complexos, do levantamento cartográfico à avaliação de imóveis. A área de arquitetura e engenharia está pronta com uma equipe própria, técnica e qualificada para atuar no Patrimônio Imobiliário da Administração Direta e Vinculada (IASSEPE, ATI e FUNAPE)  Estadual, conforme decreto nº 58.355/2025, de forma a preservar a história, atualizar demandas e permitir edificações seguras e eficientes para todo o Estado de Pernambuco.	\N	Nosso Time	Sobre	
+1	\N	cmq6yxa510000nh1tnduds1mc		Desde a maca do hospital à viatura policial. Da escola ao palácio do governo.\nTudo isso faz parte do patrimônio do Estado. E para dar conta de tudo é preciso uma equipe técnica capacitada e uma gestão eficiente. \nUma boa administração patrimonial leva a melhores políticas públicas e a um Estado mais próximo do cidadão. Esse é nosso propósito. 	\N	Nosso Time	Sobre	
+cmreyx3540010tsps2t8u6l90	2026-07-10 13:25:10.244	cmq81pvoq0003j9azcu4vg0ws		A área de Serviços Corporativos da Secretaria de Administração do Estado de Pernambuco é responsável por planejar, disciplinar, coordenar, executar e acompanhar as políticas públicas administrativas relacionadas à gestão dos serviços corporativos, nos temas Telemática, Frota, Energia (PPP e eficiência energética) e Água, no âmbito da Administração Pública Estadual.\n\nNossa atuação busca oferecer soluções integradas que atendam às necessidades dos órgãos e entidades estaduais, contribuindo para uma gestão mais moderna, transparente e orientada por resultados. 	cmrtn2i7v0000bqr5csm0w82l	Nosso time 	Sobre	
 \.
 
 
@@ -3412,5 +3413,5 @@ GRANT CREATE ON SCHEMA public TO PUBLIC;
 -- PostgreSQL database dump complete
 --
 
-\unrestrict QAEwDa6guV0bxXux6654XvIxqJflaoF5mKd0KbkcVupMeqFMgnDfbCrpVnGbCba
+\unrestrict YR5fVZ8yb2qcmwXqmWUdHElKmdyeaKaWjpV7qldkSfr5AnOga7uz0hx74GDolkz
 
