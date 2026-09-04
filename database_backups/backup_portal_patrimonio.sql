@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict ziYS2bAIv4cwNOitkTYg5UEX2cWU3QMsz9brQ4rlyQd8iiUVw10czNaaGOm7Hcz
+\restrict WXCpRsfWqwQwNp9xkOZTis3UUtcTLGDOXZQJDd6ZPQ6mf6orfyCCccwbJhD7wiY
 
 -- Dumped from database version 18.4
 -- Dumped by pg_dump version 18.4
@@ -19,8 +19,128 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
+ALTER TABLE IF EXISTS ONLY public."_User_areas" DROP CONSTRAINT IF EXISTS "_User_areas_B_fkey";
+ALTER TABLE IF EXISTS ONLY public."_User_areas" DROP CONSTRAINT IF EXISTS "_User_areas_A_fkey";
+ALTER TABLE IF EXISTS ONLY public."_Noticia_tags" DROP CONSTRAINT IF EXISTS "_Noticia_tags_B_fkey";
+ALTER TABLE IF EXISTS ONLY public."_Noticia_tags" DROP CONSTRAINT IF EXISTS "_Noticia_tags_A_fkey";
+ALTER TABLE IF EXISTS ONLY public."Tag" DROP CONSTRAINT IF EXISTS "Tag_subarea_fkey";
+ALTER TABLE IF EXISTS ONLY public."Tag" DROP CONSTRAINT IF EXISTS "Tag_areaResponsavel_fkey";
+ALTER TABLE IF EXISTS ONLY public."Subareas" DROP CONSTRAINT IF EXISTS "Subareas_area_fkey";
+ALTER TABLE IF EXISTS ONLY public."Solucoes" DROP CONSTRAINT IF EXISTS "Solucoes_subarea_fkey";
+ALTER TABLE IF EXISTS ONLY public."Solucoes" DROP CONSTRAINT IF EXISTS "Solucoes_areaResponsavel_fkey";
+ALTER TABLE IF EXISTS ONLY public."Setores" DROP CONSTRAINT IF EXISTS "Setores_gerencia_fkey";
+ALTER TABLE IF EXISTS ONLY public."Servicos" DROP CONSTRAINT IF EXISTS "Servicos_subarea_fkey";
+ALTER TABLE IF EXISTS ONLY public."Servicos" DROP CONSTRAINT IF EXISTS "Servicos_areaResponsavel_fkey";
+ALTER TABLE IF EXISTS ONLY public."QuemSomosTimeItem" DROP CONSTRAINT IF EXISTS "QuemSomosTimeItem_pagina_fkey";
+ALTER TABLE IF EXISTS ONLY public."QuemSomosSubareaItem" DROP CONSTRAINT IF EXISTS "QuemSomosSubareaItem_subarea_fkey";
+ALTER TABLE IF EXISTS ONLY public."QuemSomosSubareaItem" DROP CONSTRAINT IF EXISTS "QuemSomosSubareaItem_pagina_fkey";
+ALTER TABLE IF EXISTS ONLY public."QuemSomosMuralItem" DROP CONSTRAINT IF EXISTS "QuemSomosMuralItem_pagina_fkey";
+ALTER TABLE IF EXISTS ONLY public."Portfolios" DROP CONSTRAINT IF EXISTS "Portfolios_subarea_fkey";
+ALTER TABLE IF EXISTS ONLY public."Portfolios" DROP CONSTRAINT IF EXISTS "Portfolios_areaResponsavel_fkey";
+ALTER TABLE IF EXISTS ONLY public."PortfolioImagens" DROP CONSTRAINT IF EXISTS "PortfolioImagens_portfolio_fkey";
+ALTER TABLE IF EXISTS ONLY public."PaginaQuemSomos" DROP CONSTRAINT IF EXISTS "PaginaQuemSomos_subarea_fkey";
+ALTER TABLE IF EXISTS ONLY public."PaginaQuemSomos" DROP CONSTRAINT IF EXISTS "PaginaQuemSomos_areaResponsavel_fkey";
+ALTER TABLE IF EXISTS ONLY public."Noticia" DROP CONSTRAINT IF EXISTS "Noticia_subarea_fkey";
+ALTER TABLE IF EXISTS ONLY public."Noticia" DROP CONSTRAINT IF EXISTS "Noticia_autor_fkey";
+ALTER TABLE IF EXISTS ONLY public."Noticia" DROP CONSTRAINT IF EXISTS "Noticia_areaResponsavel_fkey";
+ALTER TABLE IF EXISTS ONLY public."Legislacoes" DROP CONSTRAINT IF EXISTS "Legislacoes_subarea_fkey";
+ALTER TABLE IF EXISTS ONLY public."Legislacoes" DROP CONSTRAINT IF EXISTS "Legislacoes_areaResponsavel_fkey";
+ALTER TABLE IF EXISTS ONLY public."Gestores" DROP CONSTRAINT IF EXISTS "Gestores_areaResponsavel_fkey";
+ALTER TABLE IF EXISTS ONLY public."Gerencias" DROP CONSTRAINT IF EXISTS "Gerencias_area_fkey";
+ALTER TABLE IF EXISTS ONLY public."Cursos" DROP CONSTRAINT IF EXISTS "Cursos_subarea_fkey";
+ALTER TABLE IF EXISTS ONLY public."Cursos" DROP CONSTRAINT IF EXISTS "Cursos_areaResponsavel_fkey";
+DROP INDEX IF EXISTS public."_User_areas_B_index";
+DROP INDEX IF EXISTS public."_User_areas_AB_unique";
+DROP INDEX IF EXISTS public."_Noticia_tags_B_index";
+DROP INDEX IF EXISTS public."_Noticia_tags_AB_unique";
+DROP INDEX IF EXISTS public."User_email_key";
+DROP INDEX IF EXISTS public."Tag_subarea_idx";
+DROP INDEX IF EXISTS public."Tag_nome_key";
+DROP INDEX IF EXISTS public."Tag_areaResponsavel_idx";
+DROP INDEX IF EXISTS public."Subareas_area_idx";
+DROP INDEX IF EXISTS public."Solucoes_subarea_idx";
+DROP INDEX IF EXISTS public."Solucoes_slug_key";
+DROP INDEX IF EXISTS public."Solucoes_areaResponsavel_idx";
+DROP INDEX IF EXISTS public."Setores_gerencia_idx";
+DROP INDEX IF EXISTS public."Servicos_subarea_idx";
+DROP INDEX IF EXISTS public."Servicos_slug_key";
+DROP INDEX IF EXISTS public."Servicos_areaResponsavel_idx";
+DROP INDEX IF EXISTS public."QuemSomosTimeItem_pagina_idx";
+DROP INDEX IF EXISTS public."QuemSomosSubareaItem_subarea_idx";
+DROP INDEX IF EXISTS public."QuemSomosSubareaItem_pagina_idx";
+DROP INDEX IF EXISTS public."QuemSomosMuralItem_pagina_idx";
+DROP INDEX IF EXISTS public."Portfolios_subarea_idx";
+DROP INDEX IF EXISTS public."Portfolios_slug_key";
+DROP INDEX IF EXISTS public."Portfolios_areaResponsavel_idx";
+DROP INDEX IF EXISTS public."PortfolioImagens_portfolio_idx";
+DROP INDEX IF EXISTS public."PaginaQuemSomos_subarea_idx";
+DROP INDEX IF EXISTS public."PaginaQuemSomos_areaResponsavel_idx";
+DROP INDEX IF EXISTS public."Noticia_subarea_idx";
+DROP INDEX IF EXISTS public."Noticia_slug_key";
+DROP INDEX IF EXISTS public."Noticia_autor_idx";
+DROP INDEX IF EXISTS public."Noticia_areaResponsavel_idx";
+DROP INDEX IF EXISTS public."Legislacoes_subarea_idx";
+DROP INDEX IF EXISTS public."Legislacoes_areaResponsavel_idx";
+DROP INDEX IF EXISTS public."Gestores_areaResponsavel_idx";
+DROP INDEX IF EXISTS public."Gerencias_area_idx";
+DROP INDEX IF EXISTS public."Cursos_subarea_idx";
+DROP INDEX IF EXISTS public."Cursos_areaResponsavel_idx";
+ALTER TABLE IF EXISTS ONLY public._prisma_migrations DROP CONSTRAINT IF EXISTS _prisma_migrations_pkey;
+ALTER TABLE IF EXISTS ONLY public."User" DROP CONSTRAINT IF EXISTS "User_pkey";
+ALTER TABLE IF EXISTS ONLY public."Tag" DROP CONSTRAINT IF EXISTS "Tag_pkey";
+ALTER TABLE IF EXISTS ONLY public."Subareas" DROP CONSTRAINT IF EXISTS "Subareas_pkey";
+ALTER TABLE IF EXISTS ONLY public."Solucoes" DROP CONSTRAINT IF EXISTS "Solucoes_pkey";
+ALTER TABLE IF EXISTS ONLY public."Setores" DROP CONSTRAINT IF EXISTS "Setores_pkey";
+ALTER TABLE IF EXISTS ONLY public."Servicos" DROP CONSTRAINT IF EXISTS "Servicos_pkey";
+ALTER TABLE IF EXISTS ONLY public."QuemSomosTimeItem" DROP CONSTRAINT IF EXISTS "QuemSomosTimeItem_pkey";
+ALTER TABLE IF EXISTS ONLY public."QuemSomosSubareaItem" DROP CONSTRAINT IF EXISTS "QuemSomosSubareaItem_pkey";
+ALTER TABLE IF EXISTS ONLY public."QuemSomosMuralItem" DROP CONSTRAINT IF EXISTS "QuemSomosMuralItem_pkey";
+ALTER TABLE IF EXISTS ONLY public."Portfolios" DROP CONSTRAINT IF EXISTS "Portfolios_pkey";
+ALTER TABLE IF EXISTS ONLY public."PortfolioImagens" DROP CONSTRAINT IF EXISTS "PortfolioImagens_pkey";
+ALTER TABLE IF EXISTS ONLY public."PaginaQuemSomos" DROP CONSTRAINT IF EXISTS "PaginaQuemSomos_pkey";
+ALTER TABLE IF EXISTS ONLY public."Noticia" DROP CONSTRAINT IF EXISTS "Noticia_pkey";
+ALTER TABLE IF EXISTS ONLY public."Legislacoes" DROP CONSTRAINT IF EXISTS "Legislacoes_pkey";
+ALTER TABLE IF EXISTS ONLY public."Gestores" DROP CONSTRAINT IF EXISTS "Gestores_pkey";
+ALTER TABLE IF EXISTS ONLY public."Gerencias" DROP CONSTRAINT IF EXISTS "Gerencias_pkey";
+ALTER TABLE IF EXISTS ONLY public."Cursos" DROP CONSTRAINT IF EXISTS "Cursos_pkey";
+ALTER TABLE IF EXISTS ONLY public."AuditLogs" DROP CONSTRAINT IF EXISTS "AuditLogs_pkey";
+ALTER TABLE IF EXISTS ONLY public."AreasResponsaveis" DROP CONSTRAINT IF EXISTS "AreasResponsaveis_pkey";
+ALTER TABLE IF EXISTS ONLY public."Acesso" DROP CONSTRAINT IF EXISTS "Acesso_pkey";
+DROP TABLE IF EXISTS public._prisma_migrations;
+DROP TABLE IF EXISTS public."_User_areas";
+DROP TABLE IF EXISTS public."_Noticia_tags";
+DROP TABLE IF EXISTS public."User";
+DROP TABLE IF EXISTS public."Tag";
+DROP TABLE IF EXISTS public."Subareas";
+DROP TABLE IF EXISTS public."Solucoes";
+DROP TABLE IF EXISTS public."Setores";
+DROP TABLE IF EXISTS public."Servicos";
+DROP TABLE IF EXISTS public."QuemSomosTimeItem";
+DROP TABLE IF EXISTS public."QuemSomosSubareaItem";
+DROP TABLE IF EXISTS public."QuemSomosMuralItem";
+DROP TABLE IF EXISTS public."Portfolios";
+DROP TABLE IF EXISTS public."PortfolioImagens";
+DROP TABLE IF EXISTS public."PaginaQuemSomos";
+DROP TABLE IF EXISTS public."Noticia";
+DROP TABLE IF EXISTS public."Legislacoes";
+DROP TABLE IF EXISTS public."Gestores";
+DROP TABLE IF EXISTS public."Gerencias";
+DROP TABLE IF EXISTS public."Cursos";
+DROP TABLE IF EXISTS public."AuditLogs";
+DROP TABLE IF EXISTS public."AreasResponsaveis";
+DROP TABLE IF EXISTS public."Acesso";
+-- *not* dropping schema, since initdb creates it
 --
--- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: pg_database_owner
+-- Name: public; Type: SCHEMA; Schema: -; Owner: patrimonio_user
+--
+
+-- *not* creating schema, since initdb creates it
+
+
+ALTER SCHEMA public OWNER TO patrimonio_user;
+
+--
+-- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: patrimonio_user
 --
 
 COMMENT ON SCHEMA public IS '';
@@ -84,7 +204,7 @@ CREATE TABLE public."AuditLogs" (
 ALTER TABLE public."AuditLogs" OWNER TO postgres;
 
 --
--- Name: Cursos; Type: TABLE; Schema: public; Owner: postgres
+-- Name: Cursos; Type: TABLE; Schema: public; Owner: patrimonio_user
 --
 
 CREATE TABLE public."Cursos" (
@@ -105,7 +225,7 @@ CREATE TABLE public."Cursos" (
 );
 
 
-ALTER TABLE public."Cursos" OWNER TO postgres;
+ALTER TABLE public."Cursos" OWNER TO patrimonio_user;
 
 --
 -- Name: Gerencias; Type: TABLE; Schema: public; Owner: postgres
@@ -149,7 +269,7 @@ CREATE TABLE public."Gestores" (
 ALTER TABLE public."Gestores" OWNER TO postgres;
 
 --
--- Name: Legislacoes; Type: TABLE; Schema: public; Owner: postgres
+-- Name: Legislacoes; Type: TABLE; Schema: public; Owner: patrimonio_user
 --
 
 CREATE TABLE public."Legislacoes" (
@@ -167,10 +287,10 @@ CREATE TABLE public."Legislacoes" (
 );
 
 
-ALTER TABLE public."Legislacoes" OWNER TO postgres;
+ALTER TABLE public."Legislacoes" OWNER TO patrimonio_user;
 
 --
--- Name: Noticia; Type: TABLE; Schema: public; Owner: postgres
+-- Name: Noticia; Type: TABLE; Schema: public; Owner: patrimonio_user
 --
 
 CREATE TABLE public."Noticia" (
@@ -197,10 +317,10 @@ CREATE TABLE public."Noticia" (
 );
 
 
-ALTER TABLE public."Noticia" OWNER TO postgres;
+ALTER TABLE public."Noticia" OWNER TO patrimonio_user;
 
 --
--- Name: PaginaQuemSomos; Type: TABLE; Schema: public; Owner: postgres
+-- Name: PaginaQuemSomos; Type: TABLE; Schema: public; Owner: patrimonio_user
 --
 
 CREATE TABLE public."PaginaQuemSomos" (
@@ -216,7 +336,7 @@ CREATE TABLE public."PaginaQuemSomos" (
 );
 
 
-ALTER TABLE public."PaginaQuemSomos" OWNER TO postgres;
+ALTER TABLE public."PaginaQuemSomos" OWNER TO patrimonio_user;
 
 --
 -- Name: PortfolioImagens; Type: TABLE; Schema: public; Owner: postgres
@@ -321,7 +441,7 @@ CREATE TABLE public."QuemSomosTimeItem" (
 ALTER TABLE public."QuemSomosTimeItem" OWNER TO postgres;
 
 --
--- Name: Servicos; Type: TABLE; Schema: public; Owner: postgres
+-- Name: Servicos; Type: TABLE; Schema: public; Owner: patrimonio_user
 --
 
 CREATE TABLE public."Servicos" (
@@ -351,7 +471,7 @@ CREATE TABLE public."Servicos" (
 );
 
 
-ALTER TABLE public."Servicos" OWNER TO postgres;
+ALTER TABLE public."Servicos" OWNER TO patrimonio_user;
 
 --
 -- Name: Setores; Type: TABLE; Schema: public; Owner: postgres
@@ -371,7 +491,7 @@ CREATE TABLE public."Setores" (
 ALTER TABLE public."Setores" OWNER TO postgres;
 
 --
--- Name: Solucoes; Type: TABLE; Schema: public; Owner: postgres
+-- Name: Solucoes; Type: TABLE; Schema: public; Owner: patrimonio_user
 --
 
 CREATE TABLE public."Solucoes" (
@@ -398,7 +518,7 @@ CREATE TABLE public."Solucoes" (
 );
 
 
-ALTER TABLE public."Solucoes" OWNER TO postgres;
+ALTER TABLE public."Solucoes" OWNER TO patrimonio_user;
 
 --
 -- Name: Subareas; Type: TABLE; Schema: public; Owner: postgres
@@ -418,7 +538,7 @@ CREATE TABLE public."Subareas" (
 ALTER TABLE public."Subareas" OWNER TO postgres;
 
 --
--- Name: Tag; Type: TABLE; Schema: public; Owner: postgres
+-- Name: Tag; Type: TABLE; Schema: public; Owner: patrimonio_user
 --
 
 CREATE TABLE public."Tag" (
@@ -429,10 +549,10 @@ CREATE TABLE public."Tag" (
 );
 
 
-ALTER TABLE public."Tag" OWNER TO postgres;
+ALTER TABLE public."Tag" OWNER TO patrimonio_user;
 
 --
--- Name: User; Type: TABLE; Schema: public; Owner: postgres
+-- Name: User; Type: TABLE; Schema: public; Owner: patrimonio_user
 --
 
 CREATE TABLE public."User" (
@@ -449,10 +569,10 @@ CREATE TABLE public."User" (
 );
 
 
-ALTER TABLE public."User" OWNER TO postgres;
+ALTER TABLE public."User" OWNER TO patrimonio_user;
 
 --
--- Name: _Noticia_tags; Type: TABLE; Schema: public; Owner: postgres
+-- Name: _Noticia_tags; Type: TABLE; Schema: public; Owner: patrimonio_user
 --
 
 CREATE TABLE public."_Noticia_tags" (
@@ -461,7 +581,7 @@ CREATE TABLE public."_Noticia_tags" (
 );
 
 
-ALTER TABLE public."_Noticia_tags" OWNER TO postgres;
+ALTER TABLE public."_Noticia_tags" OWNER TO patrimonio_user;
 
 --
 -- Name: _User_areas; Type: TABLE; Schema: public; Owner: postgres
@@ -1706,7 +1826,7 @@ cmt1vzu7m001r13zx5aj5bt7n	2026-08-20 19:01:44.241	agelson.santana@sad.pe.gov.br	
 
 
 --
--- Data for Name: Cursos; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: Cursos; Type: TABLE DATA; Schema: public; Owner: patrimonio_user
 --
 
 COPY public."Cursos" (id, titulo, resumo, "linkExterno", "dataDoCurso", "areaResponsavel", "createdAt", "createdBy", subarea, "updatedAt", "updatedBy", status, local, modalidade) FROM stdin;
@@ -1762,7 +1882,7 @@ cmqtig8790002hp20oyetl58f	Teste	testando	tal tal atla	dYo30iFNb73ww6cAzoTqbQ	208
 
 
 --
--- Data for Name: Legislacoes; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: Legislacoes; Type: TABLE DATA; Schema: public; Owner: patrimonio_user
 --
 
 COPY public."Legislacoes" (id, titulo, "linkExterno", categoria, resumo, "areaResponsavel", "createdAt", "createdBy", subarea, "updatedAt", "updatedBy") FROM stdin;
@@ -1813,7 +1933,7 @@ cmsf1ry1600792ggiuhl1kjqu	Uso, identificação, aquisição, locação e cadastr
 
 
 --
--- Data for Name: Noticia; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: Noticia; Type: TABLE DATA; Schema: public; Owner: patrimonio_user
 --
 
 COPY public."Noticia" (id, titulo, subtitulo, autor, "dataPublicacao", "imagemPrincipal_id", "imagemPrincipal_filesize", "imagemPrincipal_width", "imagemPrincipal_height", "imagemPrincipal_extension", "imagemPrincipalAlt", corpo, destaque, resumo, slug, "areaResponsavel", "createdAt", "createdBy", subarea, ativo) FROM stdin;
@@ -1832,13 +1952,13 @@ cmshr0jeb00842ggi69t9qoil	Gerência de Frota alcança 73,20% da meta anual de ec
 
 
 --
--- Data for Name: PaginaQuemSomos; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: PaginaQuemSomos; Type: TABLE DATA; Schema: public; Owner: patrimonio_user
 --
 
 COPY public."PaginaQuemSomos" (id, "createdAt", "areaResponsavel", "createdBy", "muralTextoIntrodutorio", subarea, "timeTitulo", "tituloDaPagina", "timeDescricao") FROM stdin;
 cmreyx3540010tsps2t8u6l90	2026-07-10 13:25:10.244	cmq81pvoq0003j9azcu4vg0ws		A área de Serviços Corporativos da Secretaria de Administração do Estado de Pernambuco é responsável por planejar, disciplinar, coordenar, executar e acompanhar as políticas públicas administrativas relacionadas à gestão dos serviços corporativos, nos temas Telemática, Frota, Energia (PPP e eficiência energética) e Água, no âmbito da Administração Pública Estadual.\n\nNossa atuação busca oferecer soluções integradas que atendam às necessidades dos órgãos e entidades estaduais, contribuindo para uma gestão mais moderna, transparente e orientada por resultados. 	cmrtn2i7v0000bqr5csm0w82l	Nosso time 	Sobre	
-cmq9rfbp70009g5ah6bliwon4	\N	cmq81pn5v0001j9azrqcx4d99		Para subir o prédio, e para mantê-lo em pé, a quem irão procurar? Podem contar conosco! Nós somos a área técnica de Engenharia e Arquitetura do Estado. Se é um imóvel do Estado, e já não há quem olhe por ele, nós iremos olhar. Iremos olhar cada canto e detalhe. O layout, a divisória, a mesa e seu lugar; a parede, a alvenaria, o teto e a janela; e mesmo o terreno e o preço do aluguel. Nosso trabalho é criar e cuidar.	\N	Nosso Time	Quem Somos	A equipe da GGPAE é multidisciplinar, formada por engenheiros civis, arquitetos, projetistas e técnicos especializados em gestão e fiscalização de obras do Estado de Pernambuco.
 1	\N	cmq6yxa510000nh1tnduds1mc		Desde a maca do hospital à viatura policial. Da escola ao palácio do governo.\nTudo isso faz parte do patrimônio do Estado.	\N	Nosso Time	Sobre	Teste teste teste teste teste teste
+cmq9rfbp70009g5ah6bliwon4	\N	cmq81pn5v0001j9azrqcx4d99		Para subir o prédio, e para mantê-lo em pé, a quem irão procurar? Podem contar conosco! Nós somos a área técnica de Engenharia e Arquitetura do Estado. Se é um imóvel do Estado, e já não há quem olhe por ele, nós iremos olhar. Iremos olhar cada canto e detalhe. O layout, a divisória, a mesa e seu lugar; a parede, a alvenaria, o teto e a janela; e mesmo o terreno e o preço do aluguel. Nosso trabalho é criar e cuidar.	\N	Nosso Time	Sobre	A equipe da GGPAE é multidisciplinar, formada por engenheiros civis, arquitetos, projetistas e técnicos especializados em gestão e fiscalização de obras do Estado de Pernambuco.
 \.
 
 
@@ -1932,7 +2052,7 @@ cmt7a9ndh000rcw7i58495cvr	Eridan Rodrigues	Gerente de Patrimônio Móvel		1	2026
 
 
 --
--- Data for Name: Servicos; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: Servicos; Type: TABLE DATA; Schema: public; Owner: patrimonio_user
 --
 
 COPY public."Servicos" (id, titulo, slug, imagem_id, imagem_filesize, imagem_width, imagem_height, imagem_extension, "imagemAlt", resumo, "oQueE", "quemPrecisa", "comoSolicitar", "areaResponsavel", "createdAt", "createdBy", "updatedAt", "updatedBy", "deletedAt", "deletedBy", subarea, "maisInformacoes", ativo) FROM stdin;
@@ -1976,7 +2096,7 @@ cmq9jevto000gboam7zrq5u0p	GDEST	\N	\N		\N
 
 
 --
--- Data for Name: Solucoes; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: Solucoes; Type: TABLE DATA; Schema: public; Owner: patrimonio_user
 --
 
 COPY public."Solucoes" (id, titulo, slug, categoria, imagem_id, imagem_filesize, imagem_width, imagem_height, imagem_extension, "imagemAlt", resumo, corpo, "linkExterno", "areaResponsavel", "createdAt", "createdBy", subarea, "updatedAt", "updatedBy", ativo) FROM stdin;
@@ -1994,7 +2114,6 @@ cmqjioi3a0008mw2bfz85q62u	Atlas.PE	atlas.pe	geo	El1fS1WxEqH0wSAOOY6hSg	1066651	3
 --
 
 COPY public."Subareas" (id, nome, area, "createdAt", "createdBy", "updatedAt", "updatedBy") FROM stdin;
-cmq9j1frn0000boamvyqh9qnc	Patrimônio Imobiliário	cmq6yxa510000nh1tnduds1mc	\N		\N	
 cmq9rhpc1000dg5ah7p97x6qj	Arquitetura	cmq81pn5v0001j9azrqcx4d99	\N		\N	
 cmqgnv5xk00003adnqj7bkkdv	Patrimônio Móvel	cmq6yxa510000nh1tnduds1mc	\N		\N	
 cmrtn2i7v0000bqr5csm0w82l	Frota	cmq81pvoq0003j9azcu4vg0ws	\N		\N	
@@ -2004,11 +2123,12 @@ cmrtn3l1x0006bqr58awnhiel	Contratos Corporativos	cmq81pvoq0003j9azcu4vg0ws	\N		\
 cmq9rha92000bg5ah7gkhkjyd	Engenharia	cmq81pn5v0001j9azrqcx4d99	\N		\N	
 cmtd6vhk200014ppjfoustafu	Cartografia	cmq81pn5v0001j9azrqcx4d99	\N		\N	
 cmtd6vhk700034ppjh251yoxm	Avaliação	cmq81pn5v0001j9azrqcx4d99	\N		\N	
+cmq9j1frn0000boamvyqh9qnc	Patrimônio Imobiliário	cmq6yxa510000nh1tnduds1mc	\N		2026-09-04 12:40:24.294	Administrador
 \.
 
 
 --
--- Data for Name: Tag; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: Tag; Type: TABLE DATA; Schema: public; Owner: patrimonio_user
 --
 
 COPY public."Tag" (id, nome, "areaResponsavel", subarea) FROM stdin;
@@ -2017,7 +2137,7 @@ cmi62n48s00011b0bbgg5p8dg	INFORMAÇÕES	\N	\N
 
 
 --
--- Data for Name: User; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: User; Type: TABLE DATA; Schema: public; Owner: patrimonio_user
 --
 
 COPY public."User" (id, name, email, password, role, "resetCode", "passwordResetToken", "passwordResetIssuedAt", "passwordResetRedeemedAt", "createdAt") FROM stdin;
@@ -2028,14 +2148,14 @@ cmray1pv20003tspsextpr2hx	Viktoria Heyka	viktoria.cruz@sad.pe.gov.br	$2a$10$GH0P
 cmray09z70002tspsy7n7dw4i	Igor Sacramento	igor.sacramento@sad.pe.gov.br	$2a$10$5KOTm5cqC.EBfGhOk62F9e5Lynu0otddHq/5/ROHa3hJZ3K.Qj8F6	operator	yeec36ql	\N	\N	\N	2026-07-07 03:00:00
 cmqfanycj0000jgwhdjslktjf	Allan Soares	allan.soares.sad@gmail.com	$2a$10$hElLKxgchw9aYVJ/LaS0xuzhrN3dbjAGtAMXpHPEV.fU1oZHSoZuK	operator	27e9e39i	\N	\N	\N	2026-06-15 03:00:00
 cmrkp2oro00006q71uhutfoc7	Diego Santos Rolim 	diego.rolim@sad.pe.gov.br	$2a$10$prbsGZW1W/puT2u2FtzR.Ovx7ArpYmS48J9E.51NTQPW/HIzG/Onq	operator		\N	\N	\N	2026-07-14 03:00:00
-cmrkom6340000esf0tqclr2dl	Clóvis Melo	clovis.melo@sad.pe.gov.br	$2a$10$0movepYT1Gqm1rRRVELQze3h5nVqi09fmAFs8UCdRjY0b4xEiSBma	admin	5k4wuq9p	\N	\N	\N	2026-07-14 03:00:00
-cmq6r6jqo0000elnou72iyd14	Administrador	admin@admin.com	$2a$10$0movepYT1Gqm1rRRVELQze3h5nVqi09fmAFs8UCdRjY0b4xEiSBma	admin		\N	\N	\N	\N
-cmqb02fid0000zhxvp8gj34av	Gustavo Andrade	gustavo.andrade@sad.pe.gov.br	$2a$10$0movepYT1Gqm1rRRVELQze3h5nVqi09fmAFs8UCdRjY0b4xEiSBma	admin		\N	\N	\N	2026-06-12 03:00:00
+cmrkom6340000esf0tqclr2dl	Clóvis Melo	clovis.melo@sad.pe.gov.br	$2a$10$NnD2DzGhcM6SC83M7RWMBOiGxAcLn3vfMn0krwfYTRTbTQpkdbrCy	admin	5k4wuq9p	\N	\N	\N	2026-07-14 03:00:00
+cmqb02fid0000zhxvp8gj34av	Gustavo Andrade	gustavo.andrade@sad.pe.gov.br	$2a$10$NnD2DzGhcM6SC83M7RWMBOiGxAcLn3vfMn0krwfYTRTbTQpkdbrCy	admin		\N	\N	\N	2026-06-12 03:00:00
+cmq6r6jqo0000elnou72iyd14	Administrador	admin@admin.com	$2a$10$gdl6VhbQXrYb65i8/ldPD.cvclsGtMSdcM51I/6AAJYYTTO02o/4.	admin		\N	\N	\N	\N
 \.
 
 
 --
--- Data for Name: _Noticia_tags; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: _Noticia_tags; Type: TABLE DATA; Schema: public; Owner: patrimonio_user
 --
 
 COPY public."_Noticia_tags" ("A", "B") FROM stdin;
@@ -2097,7 +2217,7 @@ ALTER TABLE ONLY public."AuditLogs"
 
 
 --
--- Name: Cursos Cursos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: Cursos Cursos_pkey; Type: CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."Cursos"
@@ -2121,7 +2241,7 @@ ALTER TABLE ONLY public."Gestores"
 
 
 --
--- Name: Legislacoes Legislacoes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: Legislacoes Legislacoes_pkey; Type: CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."Legislacoes"
@@ -2129,7 +2249,7 @@ ALTER TABLE ONLY public."Legislacoes"
 
 
 --
--- Name: Noticia Noticia_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: Noticia Noticia_pkey; Type: CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."Noticia"
@@ -2137,7 +2257,7 @@ ALTER TABLE ONLY public."Noticia"
 
 
 --
--- Name: PaginaQuemSomos PaginaQuemSomos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: PaginaQuemSomos PaginaQuemSomos_pkey; Type: CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."PaginaQuemSomos"
@@ -2185,7 +2305,7 @@ ALTER TABLE ONLY public."QuemSomosTimeItem"
 
 
 --
--- Name: Servicos Servicos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: Servicos Servicos_pkey; Type: CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."Servicos"
@@ -2201,7 +2321,7 @@ ALTER TABLE ONLY public."Setores"
 
 
 --
--- Name: Solucoes Solucoes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: Solucoes Solucoes_pkey; Type: CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."Solucoes"
@@ -2217,7 +2337,7 @@ ALTER TABLE ONLY public."Subareas"
 
 
 --
--- Name: Tag Tag_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: Tag Tag_pkey; Type: CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."Tag"
@@ -2225,7 +2345,7 @@ ALTER TABLE ONLY public."Tag"
 
 
 --
--- Name: User User_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: User User_pkey; Type: CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."User"
@@ -2241,14 +2361,14 @@ ALTER TABLE ONLY public._prisma_migrations
 
 
 --
--- Name: Cursos_areaResponsavel_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: Cursos_areaResponsavel_idx; Type: INDEX; Schema: public; Owner: patrimonio_user
 --
 
 CREATE INDEX "Cursos_areaResponsavel_idx" ON public."Cursos" USING btree ("areaResponsavel");
 
 
 --
--- Name: Cursos_subarea_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: Cursos_subarea_idx; Type: INDEX; Schema: public; Owner: patrimonio_user
 --
 
 CREATE INDEX "Cursos_subarea_idx" ON public."Cursos" USING btree (subarea);
@@ -2269,56 +2389,56 @@ CREATE INDEX "Gestores_areaResponsavel_idx" ON public."Gestores" USING btree ("a
 
 
 --
--- Name: Legislacoes_areaResponsavel_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: Legislacoes_areaResponsavel_idx; Type: INDEX; Schema: public; Owner: patrimonio_user
 --
 
 CREATE INDEX "Legislacoes_areaResponsavel_idx" ON public."Legislacoes" USING btree ("areaResponsavel");
 
 
 --
--- Name: Legislacoes_subarea_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: Legislacoes_subarea_idx; Type: INDEX; Schema: public; Owner: patrimonio_user
 --
 
 CREATE INDEX "Legislacoes_subarea_idx" ON public."Legislacoes" USING btree (subarea);
 
 
 --
--- Name: Noticia_areaResponsavel_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: Noticia_areaResponsavel_idx; Type: INDEX; Schema: public; Owner: patrimonio_user
 --
 
 CREATE INDEX "Noticia_areaResponsavel_idx" ON public."Noticia" USING btree ("areaResponsavel");
 
 
 --
--- Name: Noticia_autor_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: Noticia_autor_idx; Type: INDEX; Schema: public; Owner: patrimonio_user
 --
 
 CREATE INDEX "Noticia_autor_idx" ON public."Noticia" USING btree (autor);
 
 
 --
--- Name: Noticia_slug_key; Type: INDEX; Schema: public; Owner: postgres
+-- Name: Noticia_slug_key; Type: INDEX; Schema: public; Owner: patrimonio_user
 --
 
 CREATE UNIQUE INDEX "Noticia_slug_key" ON public."Noticia" USING btree (slug);
 
 
 --
--- Name: Noticia_subarea_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: Noticia_subarea_idx; Type: INDEX; Schema: public; Owner: patrimonio_user
 --
 
 CREATE INDEX "Noticia_subarea_idx" ON public."Noticia" USING btree (subarea);
 
 
 --
--- Name: PaginaQuemSomos_areaResponsavel_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: PaginaQuemSomos_areaResponsavel_idx; Type: INDEX; Schema: public; Owner: patrimonio_user
 --
 
 CREATE INDEX "PaginaQuemSomos_areaResponsavel_idx" ON public."PaginaQuemSomos" USING btree ("areaResponsavel");
 
 
 --
--- Name: PaginaQuemSomos_subarea_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: PaginaQuemSomos_subarea_idx; Type: INDEX; Schema: public; Owner: patrimonio_user
 --
 
 CREATE INDEX "PaginaQuemSomos_subarea_idx" ON public."PaginaQuemSomos" USING btree (subarea);
@@ -2381,21 +2501,21 @@ CREATE INDEX "QuemSomosTimeItem_pagina_idx" ON public."QuemSomosTimeItem" USING 
 
 
 --
--- Name: Servicos_areaResponsavel_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: Servicos_areaResponsavel_idx; Type: INDEX; Schema: public; Owner: patrimonio_user
 --
 
 CREATE INDEX "Servicos_areaResponsavel_idx" ON public."Servicos" USING btree ("areaResponsavel");
 
 
 --
--- Name: Servicos_slug_key; Type: INDEX; Schema: public; Owner: postgres
+-- Name: Servicos_slug_key; Type: INDEX; Schema: public; Owner: patrimonio_user
 --
 
 CREATE UNIQUE INDEX "Servicos_slug_key" ON public."Servicos" USING btree (slug);
 
 
 --
--- Name: Servicos_subarea_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: Servicos_subarea_idx; Type: INDEX; Schema: public; Owner: patrimonio_user
 --
 
 CREATE INDEX "Servicos_subarea_idx" ON public."Servicos" USING btree (subarea);
@@ -2409,21 +2529,21 @@ CREATE INDEX "Setores_gerencia_idx" ON public."Setores" USING btree (gerencia);
 
 
 --
--- Name: Solucoes_areaResponsavel_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: Solucoes_areaResponsavel_idx; Type: INDEX; Schema: public; Owner: patrimonio_user
 --
 
 CREATE INDEX "Solucoes_areaResponsavel_idx" ON public."Solucoes" USING btree ("areaResponsavel");
 
 
 --
--- Name: Solucoes_slug_key; Type: INDEX; Schema: public; Owner: postgres
+-- Name: Solucoes_slug_key; Type: INDEX; Schema: public; Owner: patrimonio_user
 --
 
 CREATE UNIQUE INDEX "Solucoes_slug_key" ON public."Solucoes" USING btree (slug);
 
 
 --
--- Name: Solucoes_subarea_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: Solucoes_subarea_idx; Type: INDEX; Schema: public; Owner: patrimonio_user
 --
 
 CREATE INDEX "Solucoes_subarea_idx" ON public."Solucoes" USING btree (subarea);
@@ -2437,42 +2557,42 @@ CREATE INDEX "Subareas_area_idx" ON public."Subareas" USING btree (area);
 
 
 --
--- Name: Tag_areaResponsavel_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: Tag_areaResponsavel_idx; Type: INDEX; Schema: public; Owner: patrimonio_user
 --
 
 CREATE INDEX "Tag_areaResponsavel_idx" ON public."Tag" USING btree ("areaResponsavel");
 
 
 --
--- Name: Tag_nome_key; Type: INDEX; Schema: public; Owner: postgres
+-- Name: Tag_nome_key; Type: INDEX; Schema: public; Owner: patrimonio_user
 --
 
 CREATE UNIQUE INDEX "Tag_nome_key" ON public."Tag" USING btree (nome);
 
 
 --
--- Name: Tag_subarea_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: Tag_subarea_idx; Type: INDEX; Schema: public; Owner: patrimonio_user
 --
 
 CREATE INDEX "Tag_subarea_idx" ON public."Tag" USING btree (subarea);
 
 
 --
--- Name: User_email_key; Type: INDEX; Schema: public; Owner: postgres
+-- Name: User_email_key; Type: INDEX; Schema: public; Owner: patrimonio_user
 --
 
 CREATE UNIQUE INDEX "User_email_key" ON public."User" USING btree (email);
 
 
 --
--- Name: _Noticia_tags_AB_unique; Type: INDEX; Schema: public; Owner: postgres
+-- Name: _Noticia_tags_AB_unique; Type: INDEX; Schema: public; Owner: patrimonio_user
 --
 
 CREATE UNIQUE INDEX "_Noticia_tags_AB_unique" ON public."_Noticia_tags" USING btree ("A", "B");
 
 
 --
--- Name: _Noticia_tags_B_index; Type: INDEX; Schema: public; Owner: postgres
+-- Name: _Noticia_tags_B_index; Type: INDEX; Schema: public; Owner: patrimonio_user
 --
 
 CREATE INDEX "_Noticia_tags_B_index" ON public."_Noticia_tags" USING btree ("B");
@@ -2493,7 +2613,7 @@ CREATE INDEX "_User_areas_B_index" ON public."_User_areas" USING btree ("B");
 
 
 --
--- Name: Cursos Cursos_areaResponsavel_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: Cursos Cursos_areaResponsavel_fkey; Type: FK CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."Cursos"
@@ -2501,7 +2621,7 @@ ALTER TABLE ONLY public."Cursos"
 
 
 --
--- Name: Cursos Cursos_subarea_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: Cursos Cursos_subarea_fkey; Type: FK CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."Cursos"
@@ -2525,7 +2645,7 @@ ALTER TABLE ONLY public."Gestores"
 
 
 --
--- Name: Legislacoes Legislacoes_areaResponsavel_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: Legislacoes Legislacoes_areaResponsavel_fkey; Type: FK CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."Legislacoes"
@@ -2533,7 +2653,7 @@ ALTER TABLE ONLY public."Legislacoes"
 
 
 --
--- Name: Legislacoes Legislacoes_subarea_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: Legislacoes Legislacoes_subarea_fkey; Type: FK CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."Legislacoes"
@@ -2541,7 +2661,7 @@ ALTER TABLE ONLY public."Legislacoes"
 
 
 --
--- Name: Noticia Noticia_areaResponsavel_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: Noticia Noticia_areaResponsavel_fkey; Type: FK CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."Noticia"
@@ -2549,7 +2669,7 @@ ALTER TABLE ONLY public."Noticia"
 
 
 --
--- Name: Noticia Noticia_autor_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: Noticia Noticia_autor_fkey; Type: FK CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."Noticia"
@@ -2557,7 +2677,7 @@ ALTER TABLE ONLY public."Noticia"
 
 
 --
--- Name: Noticia Noticia_subarea_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: Noticia Noticia_subarea_fkey; Type: FK CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."Noticia"
@@ -2565,7 +2685,7 @@ ALTER TABLE ONLY public."Noticia"
 
 
 --
--- Name: PaginaQuemSomos PaginaQuemSomos_areaResponsavel_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: PaginaQuemSomos PaginaQuemSomos_areaResponsavel_fkey; Type: FK CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."PaginaQuemSomos"
@@ -2573,7 +2693,7 @@ ALTER TABLE ONLY public."PaginaQuemSomos"
 
 
 --
--- Name: PaginaQuemSomos PaginaQuemSomos_subarea_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: PaginaQuemSomos PaginaQuemSomos_subarea_fkey; Type: FK CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."PaginaQuemSomos"
@@ -2637,7 +2757,7 @@ ALTER TABLE ONLY public."QuemSomosTimeItem"
 
 
 --
--- Name: Servicos Servicos_areaResponsavel_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: Servicos Servicos_areaResponsavel_fkey; Type: FK CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."Servicos"
@@ -2645,7 +2765,7 @@ ALTER TABLE ONLY public."Servicos"
 
 
 --
--- Name: Servicos Servicos_subarea_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: Servicos Servicos_subarea_fkey; Type: FK CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."Servicos"
@@ -2661,7 +2781,7 @@ ALTER TABLE ONLY public."Setores"
 
 
 --
--- Name: Solucoes Solucoes_areaResponsavel_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: Solucoes Solucoes_areaResponsavel_fkey; Type: FK CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."Solucoes"
@@ -2669,7 +2789,7 @@ ALTER TABLE ONLY public."Solucoes"
 
 
 --
--- Name: Solucoes Solucoes_subarea_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: Solucoes Solucoes_subarea_fkey; Type: FK CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."Solucoes"
@@ -2685,7 +2805,7 @@ ALTER TABLE ONLY public."Subareas"
 
 
 --
--- Name: Tag Tag_areaResponsavel_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: Tag Tag_areaResponsavel_fkey; Type: FK CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."Tag"
@@ -2693,7 +2813,7 @@ ALTER TABLE ONLY public."Tag"
 
 
 --
--- Name: Tag Tag_subarea_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: Tag Tag_subarea_fkey; Type: FK CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."Tag"
@@ -2701,7 +2821,7 @@ ALTER TABLE ONLY public."Tag"
 
 
 --
--- Name: _Noticia_tags _Noticia_tags_A_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: _Noticia_tags _Noticia_tags_A_fkey; Type: FK CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."_Noticia_tags"
@@ -2709,7 +2829,7 @@ ALTER TABLE ONLY public."_Noticia_tags"
 
 
 --
--- Name: _Noticia_tags _Noticia_tags_B_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: _Noticia_tags _Noticia_tags_B_fkey; Type: FK CONSTRAINT; Schema: public; Owner: patrimonio_user
 --
 
 ALTER TABLE ONLY public."_Noticia_tags"
@@ -2733,8 +2853,15 @@ ALTER TABLE ONLY public."_User_areas"
 
 
 --
+-- Name: SCHEMA public; Type: ACL; Schema: -; Owner: patrimonio_user
+--
+
+REVOKE USAGE ON SCHEMA public FROM PUBLIC;
+
+
+--
 -- PostgreSQL database dump complete
 --
 
-\unrestrict ziYS2bAIv4cwNOitkTYg5UEX2cWU3QMsz9brQ4rlyQd8iiUVw10czNaaGOm7Hcz
+\unrestrict WXCpRsfWqwQwNp9xkOZTis3UUtcTLGDOXZQJDd6ZPQ6mf6orfyCCccwbJhD7wiY
 
