@@ -22,3 +22,4 @@ dirs.forEach(d => {
 });
 
 console.log('default-user.png and default-user.svg created in all portal public folders.');
+

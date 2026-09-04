@@ -152,20 +152,34 @@ app.register(async (fastify) => {
       return reply.code(403).send({ error: 'Acesso negado' });
     }
     const safeFilename = normalize(rawFilename).replace(/^(\.\.[\/\\])+/, '');
-    const filePath = resolve(imagesDir, safeFilename);
+    let filePath = resolve(imagesDir, safeFilename);
 
     if (!filePath.startsWith(imagesDir)) {
       return reply.code(403).send({ error: 'Acesso negado' });
     }
 
     reply.header('Access-Control-Allow-Origin', '*');
-    reply.header('Cache-Control', 'public, max-age=31536000, immutable');
     reply.header('X-Content-Type-Options', 'nosniff');
+
     if (!existsSync(filePath)) {
+      // Tenta extensões comuns caso o ID tenha vindo sem extensão
+      for (const ext of ['.jpg', '.jpeg', '.png', '.webp', '.svg']) {
+        const withExt = resolve(imagesDir, safeFilename + ext);
+        if (existsSync(withExt)) {
+          filePath = withExt;
+          break;
+        }
+      }
+    }
+
+    if (!existsSync(filePath)) {
+      reply.header('Cache-Control', 'no-cache, no-store, must-revalidate');
       reply.type('image/svg+xml');
       return reply.code(200).send(FALLBACK_SVG);
     }
-    reply.type(getMimeType(safeFilename));
+
+    reply.header('Cache-Control', 'public, max-age=86400');
+    reply.type(getMimeType(filePath));
     return createReadStream(filePath);
   });
 
