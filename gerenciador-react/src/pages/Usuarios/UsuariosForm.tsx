@@ -81,10 +81,15 @@ export function UsuariosForm() {
         data.password = formData.password;
       }
 
-      if (formData.areas && formData.areas.length > 0) {
-        data.areas = { set: formData.areas.map((id: string) => ({ id })) };
+      if (isNew) {
+        // CreateInput only supports "connect", not "set"
+        if (formData.areas && formData.areas.length > 0) {
+          data.areas = { connect: formData.areas.map((id: string) => ({ id })) };
+        }
+        // If no areas selected for new user, omit the field entirely
       } else {
-        data.areas = { set: [] };
+        // UpdateInput supports "set" to replace all relations
+        data.areas = { set: (formData.areas || []).map((id: string) => ({ id })) };
       }
 
       if (isNew) {
