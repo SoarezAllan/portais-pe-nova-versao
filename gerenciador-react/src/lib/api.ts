@@ -40,11 +40,20 @@ export async function graphqlRequest<T>(query: string, variables?: Record<string
   return client.request<T>(query, variables);
 }
 
-export async function uploadFile(file: File): Promise<{ id: string; url: string }> {
+export interface UploadedImage {
+  id: string;
+  url: string;
+  filesize?: number;
+  width?: number;
+  height?: number;
+  extension?: string;
+}
+
+export async function uploadFile(file: File): Promise<UploadedImage> {
   const currentUrl = getApiUrl();
   const formData = new FormData();
   formData.append('operations', JSON.stringify({
-    query: `mutation ($file: Upload!) { uploadImage(file: $file) { id url } }`,
+    query: `mutation ($file: Upload!) { uploadImage(file: $file) { id url filesize width height extension } }`,
     variables: { file: null },
   }));
   formData.append('map', JSON.stringify({ '0': ['variables.file'] }));

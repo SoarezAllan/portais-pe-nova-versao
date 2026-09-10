@@ -6,8 +6,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { ImageUpload } from '@/components/ImageUpload';
-import { useForm, Controller } from 'react-hook-form';
+import { PortfolioMultiImageUpload, type PortfolioImageItem } from '@/components/PortfolioMultiImageUpload';
+import { useForm } from 'react-hook-form';
 import { useEffect, useState, useMemo } from 'react';
 import { Loader2, ArrowLeft, Save, Building } from 'lucide-react';
 import { graphqlRequest, generateSlug } from '@/lib/api';
@@ -19,6 +19,7 @@ export function PortfolioForm() {
   const navigate = useNavigate();
   const isNew = !id || id === 'novo';
   const [saving, setSaving] = useState(false);
+  const [images, setImages] = useState<PortfolioImageItem[]>([]);
 
   const { data: areas } = useQuery({
     queryKey: ['areas'],
@@ -40,7 +41,34 @@ export function PortfolioForm() {
       graphqlRequest<{ item: any }>(
         `query GetPortfolio($id: ID!) {
           item: portfolio(where: { id: $id }) {
-            id titulo slug resumo imagem { id url } imagemAlt ativo areaResponsavel { id nome }
+            id
+            titulo
+            slug
+            resumo
+            imagem {
+              id
+              url
+              filesize
+              width
+              height
+              extension
+            }
+            imagemAlt
+            galeria {
+              id
+              titulo
+              imagem {
+                id
+                url
+                filesize
+                width
+                height
+                extension
+              }
+              ativo
+            }
+            ativo
+            areaResponsavel { id nome }
           }
         }`,
         { id },
@@ -48,15 +76,13 @@ export function PortfolioForm() {
     enabled: !isNew && !!id,
   });
 
-  const { register, handleSubmit, control, reset, watch, setValue } = useForm({
+  const { register, handleSubmit, reset, watch, setValue } = useForm({
     defaultValues: {
       titulo: '',
       slug: '',
       resumo: '',
-      imagemAlt: '',
       ativo: true,
       areaResponsavel: '',
-      imagem: null as any,
     },
   });
 
@@ -70,11 +96,41 @@ export function PortfolioForm() {
         titulo: item.titulo || '',
         slug: item.slug || '',
         resumo: item.resumo || '',
-        imagemAlt: item.imagemAlt || '',
         ativo: item.ativo ?? true,
         areaResponsavel: item.areaResponsavel?.id || engArea?.id || '',
-        imagem: item.imagem || null,
       });
+
+      // Reconstrói a lista unificada de imagens (Capa Principal na posição 0 + Galeria)
+      const loadedImages: PortfolioImageItem[] = [];
+      if (item.imagem && item.imagem.url) {
+        loadedImages.push({
+          id: item.imagem.id || `cover-${Date.now()}`,
+          url: item.imagem.url,
+          filesize: item.imagem.filesize,
+          width: item.imagem.width,
+          height: item.imagem.height,
+          extension: item.imagem.extension,
+          titulo: item.imagemAlt || item.titulo || 'Capa',
+        });
+      }
+
+      if (Array.isArray(item.galeria)) {
+        item.galeria.forEach((g: any) => {
+          if (g.imagem && g.imagem.url) {
+            loadedImages.push({
+              id: g.imagem.id || g.id,
+              url: g.imagem.url,
+              filesize: g.imagem.filesize,
+              width: g.imagem.width,
+              height: g.imagem.height,
+              extension: g.imagem.extension,
+              titulo: g.titulo || '',
+            });
+          }
+        });
+      }
+
+      setImages(loadedImages);
     } else if (isNew && engArea?.id) {
       setValue('areaResponsavel', engArea.id);
     }
@@ -88,6 +144,13 @@ export function PortfolioForm() {
   }, [titulo, isNew, setValue, watch]);
 
   const onSubmit = async (formData: any) => {
+    // Verifica se ainda há imagens enviando
+    const isStillUploading = images.some((img) => img.isUploading);
+    if (isStillUploading) {
+      alert('Por favor, aguarde a conclusão do envio das imagens antes de salvar o projeto.');
+      return;
+    }
+
     setSaving(true);
     try {
       const targetAreaId = formData.areaResponsavel || engArea?.id;
@@ -99,15 +162,34 @@ export function PortfolioForm() {
         ativo: formData.ativo,
       };
 
-      if (formData.imagem && formData.imagem.id) {
+      // Foto principal do projeto (Posição 0)
+      if (images.length > 0 && images[0].id && !images[0].id.startsWith('temp-')) {
         data.imagem = {
-          id: formData.imagem.id,
-          filesize: formData.imagem.filesize || 0,
-          width: formData.imagem.width || 0,
-          height: formData.imagem.height || 0,
-          extension: formData.imagem.extension || 'png',
+          id: images[0].id,
+          filesize: images[0].filesize || 0,
+          width: images[0].width || 0,
+          height: images[0].height || 0,
+          extension: images[0].extension || 'png',
         };
+      } else if (images.length === 0) {
+        data.imagem = null;
       }
+
+      // Galeria de fotos adicionais (Posições 1..14)
+      const galleryImages = images.slice(1).filter((img) => img.id && !img.id.startsWith('temp-'));
+      data.galeria = {
+        create: galleryImages.map((img) => ({
+          imagem: {
+            id: img.id,
+            filesize: img.filesize || 0,
+            width: img.width || 0,
+            height: img.height || 0,
+            extension: img.extension || 'png',
+          },
+          titulo: img.titulo || '',
+          ativo: true,
+        })),
+      };
 
       if (targetAreaId) {
         data.areaResponsavel = { connect: { id: targetAreaId } };
@@ -120,7 +202,8 @@ export function PortfolioForm() {
       }
       navigate('/portfolio');
     } catch (err) {
-      console.error(err);
+      console.error('Erro ao salvar projeto:', err);
+      alert('Ocorreu um erro ao salvar o projeto. Verifique o console para mais detalhes.');
     } finally {
       setSaving(false);
     }
@@ -215,21 +298,16 @@ export function PortfolioForm() {
           </CardContent>
         </Card>
 
+        {/* Seção de Imagens: Capa Principal e Galeria com suporte a múltiplos arquivos (máx 15) */}
         <Card className="border-slate-200 shadow-sm">
           <CardHeader>
-            <CardTitle className="text-lg">Imagem de Capa do Projeto</CardTitle>
+            <CardTitle className="text-lg">Imagem de Capa do Projeto e Fotos</CardTitle>
           </CardHeader>
           <CardContent>
-            <Controller
-              control={control}
-              name="imagem"
-              render={({ field }) => (
-                <ImageUpload
-                  value={field.value}
-                  onChange={field.onChange}
-                  label="Foto Principal do Projeto"
-                />
-              )}
+            <PortfolioMultiImageUpload
+              value={images}
+              onChange={setImages}
+              maxImages={15}
             />
           </CardContent>
         </Card>
@@ -256,3 +334,4 @@ export function PortfolioForm() {
 }
 
 export default PortfolioForm;
+

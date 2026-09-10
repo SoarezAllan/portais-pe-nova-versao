@@ -12,6 +12,7 @@ import { queryMutationTypeDefs } from './schema/query.mutation.js';
 import { DateTimeScalar, JSONScalar, UploadScalar } from './schema/scalars.js';
 import { resolvers } from './resolvers/index.js';
 import { createContext } from './context.js';
+import { prisma } from './prisma.js';
 
 const PORT = Number(process.env.PORT || 3001);
 

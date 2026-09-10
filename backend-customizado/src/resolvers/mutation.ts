@@ -124,6 +124,30 @@ function slugify(text: string): string {
           });
         }
       }
+      if (typeName === 'Portfolio') {
+        if (data.galeria?.create && Array.isArray(data.galeria.create)) {
+          data.galeria.create = data.galeria.create.map((g: any) => {
+            const item: any = {
+              titulo: g.titulo || '',
+              ativo: g.ativo !== undefined ? g.ativo : true,
+            };
+            if (g.imagem) {
+              if (typeof g.imagem === 'object') {
+                item.imagem_id = g.imagem.id || g.imagem.upload || null;
+                item.imagem_extension = g.imagem.extension || g.imagem._extension || 'png';
+                item.imagem_filesize = g.imagem.filesize || g.imagem._filesize || 0;
+                item.imagem_width = g.imagem.width || g.imagem._width || 0;
+                item.imagem_height = g.imagem.height || g.imagem._height || 0;
+              } else if (typeof g.imagem === 'string') {
+                item.imagem_id = g.imagem;
+              }
+            } else if (g.imagem === null) {
+              item.imagem_id = null;
+            }
+            return item;
+          });
+        }
+      }
       const created = await delegate.create({ data });
       queryCache.invalidate(typeName);
       return created;
@@ -222,6 +246,36 @@ function slugify(text: string): string {
             }
             return item;
           });
+        }
+      }
+
+      if (typeName === 'Portfolio') {
+        if (args.data.galeria !== undefined) {
+          await ctx.prisma.portfolioImagem.deleteMany({ where: { portfolioId: args.where.id } });
+          if (data.galeria?.create && Array.isArray(data.galeria.create)) {
+            data.galeria.create = data.galeria.create.map((g: any) => {
+              const item: any = {
+                titulo: g.titulo || '',
+                ativo: g.ativo !== undefined ? g.ativo : true,
+              };
+              if (g.imagem) {
+                if (typeof g.imagem === 'object') {
+                  item.imagem_id = g.imagem.id || g.imagem.upload || null;
+                  item.imagem_extension = g.imagem.extension || g.imagem._extension || 'png';
+                  item.imagem_filesize = g.imagem.filesize || g.imagem._filesize || 0;
+                  item.imagem_width = g.imagem.width || g.imagem._width || 0;
+                  item.imagem_height = g.imagem.height || g.imagem._height || 0;
+                } else if (typeof g.imagem === 'string') {
+                  item.imagem_id = g.imagem;
+                }
+              } else if (g.imagem === null) {
+                item.imagem_id = null;
+              }
+              return item;
+            });
+          } else {
+            delete data.galeria;
+          }
         }
       }
 
