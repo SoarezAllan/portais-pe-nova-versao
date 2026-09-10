@@ -51,9 +51,10 @@ const navGroups: NavGroup[] = [
     items: [
       { to: '/servicos', label: 'Serviços', icon: Globe },
       { to: '/noticias', label: 'Notícias', icon: Newspaper },
-      { to: '/legislacao', label: 'Legislação', icon: Gavel },
-      { to: '/cursos', label: 'Cursos e Capacitações', icon: GraduationCap },
+      { to: '/portfolio', label: 'Portfólio', icon: Image },
       { to: '/solucoes', label: 'Soluções', icon: Lightbulb },
+      { to: '/cursos', label: 'Cursos e Capacitações', icon: GraduationCap },
+      { to: '/legislacao', label: 'Legislação', icon: Gavel },
       { to: '/tags', label: 'Tags', icon: Tag },
     ],
   },
@@ -61,7 +62,6 @@ const navGroups: NavGroup[] = [
     title: 'Institucional',
     items: [
       { to: '/quem-somos', label: 'Sobre', icon: Users },
-      { to: '/portfolio', label: 'Portfólio', icon: Image },
     ],
   },
   {
