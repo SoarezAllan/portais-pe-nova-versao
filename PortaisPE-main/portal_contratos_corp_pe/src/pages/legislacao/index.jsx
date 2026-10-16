@@ -9,6 +9,7 @@ import PageHero from "../../components/layout/PageHero/PageHero";
 import MobileNavigation from "../../components/mobile/layout/navegacao_areas/MobileNavigation";
 import siteConfig from "../../config/siteConfig";
 import apiClient from "../../api"; // Importar apiClient para fazer a requisição GraphQL
+import { fetchSubareas } from "../../services/api";
 
 const GQL_QUERY = `
   query BuscarLegislacoes($siteArea: String!) {
