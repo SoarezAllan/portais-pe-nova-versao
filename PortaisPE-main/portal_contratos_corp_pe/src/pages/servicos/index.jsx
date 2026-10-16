@@ -29,6 +29,8 @@ const categoriaIcones = {
   frota: '🚗',
   contratos_corporativos: '📋',
   agua_e_energia: '💧',
+  agua: '💧',
+  energia: '⚡',
   telematica: '📡',
   outros: '🔗',
 };

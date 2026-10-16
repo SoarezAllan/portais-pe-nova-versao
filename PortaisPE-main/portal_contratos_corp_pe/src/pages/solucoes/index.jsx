@@ -128,6 +128,8 @@ const PaginaSolucoes = () => {
   frota: '🚗',
   contratos_corporativos: '📋',
   agua_e_energia: '💧',
+  agua: '💧',
+  energia: '⚡',
   telematica: '📡',
   outros: '🔗',
 };
