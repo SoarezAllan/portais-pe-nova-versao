@@ -1,25 +1,54 @@
 /* ARQUIVO: src/styles/global.css */
+/* === IMPECCABLE: Design System Tokens === */
 
 :root {
   /* --- Cores Principais --- */
-  --primary-green: #28a745;       /* Verde Padrão */
-  --primary-blue: #004a8d;        /* Azul Padrão */
-  
+  --primary-green: #28a745;
+  --primary-blue: #004a8d;
+
   /* NOVAS CORES ADICIONADAS */
-  --primary-yellow: #FFC107;      /* Amarelo Ouro (para a linha de Serviços) */
-  --primary-blue-dark: #002a5c;   /* Azul Escuro (para os Títulos das Seções) */
+  --primary-yellow: #FFC107;
+  --primary-blue-dark: #002a5c;
 
   --secondary-color: #f0f0f0;
 
   /* --- Cores Neutras --- */
   --white: #ffffff;
-  --black: #333333;
+  --black: #1a1a2e;          /* Impeccable: off-black, nunca #000 puro no texto */
   --border-color: #e0e0e0;
   --background-light: #f9f9f9;
 
   /* --- Tipografia --- */
-  --font-main: 'Roboto', sans-serif; 
-}
+  --font-main: 'Roboto', sans-serif;
+  --font-heading: 'Roboto', sans-serif;
+
+  /* --- Escala Tipográfica Modular (razão 1.25 — Major Third) --- */
+  --text-xs:   0.64rem;   /* 10.24px */
+  --text-sm:   0.8rem;    /* 12.8px  */
+  --text-base: 1rem;      /* 16px    */
+  --text-md:   1.25rem;   /* 20px    */
+  --text-lg:   1.563rem;  /* 25px    */
+  --text-xl:   1.953rem;  /* 31.25px */
+  --text-2xl:  2.441rem;  /* 39px    */
+  --text-3xl:  3.052rem;  /* 48.8px  */
+
+  /* --- Line-height (Impeccable: contraste de ritmo) --- */
+  --leading-tight:  1.2;
+  --leading-snug:   1.4;
+  --leading-normal: 1.6;
+  --leading-loose:  1.8;
+
+  /* --- Escala de Espaçamento (base 4px) --- */
+  --space-1:  0.25rem;  /* 4px  */
+  --space-2:  0.5rem;   /* 8px  */
+  --space-3:  0.75rem;  /* 12px */
+  --space-4:  1rem;     /* 16px */
+  --space-5:  1.5rem;   /* 24px */
+  --space-6:  2rem;     /* 32px */
+  --space-8:  3rem;     /* 48px */
+  --space-10: 4rem;     /* 64px */
+  --space-12: 6rem;     /* 96px */
+
 
 /* Reset Básico */
 * {
