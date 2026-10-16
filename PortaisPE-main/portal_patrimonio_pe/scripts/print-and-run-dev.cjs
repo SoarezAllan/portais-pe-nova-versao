@@ -19,11 +19,11 @@ function readViteConfig() {
 
 const { port, host } = readViteConfig();
 const local = `http://localhost:${port}`;
-const network = `http://${host}:${port}`;
+const network = host && host !== 'true' ? `http://${host}:${port}` : `http://localhost:${port}`;
 console.log('Starting dev server — available at:');
 console.log(`- Local:   ${local}`);
 console.log(`- Network: ${network}`);
 console.log('Press Ctrl+C to stop.\n');
 
-const child = spawn('npx', ['vite', '--host'], { stdio: 'inherit', shell: true, cwd: path.resolve(__dirname, '..') });
+const child = spawn('npx', ['vite', '--host', '0.0.0.0'], { stdio: 'inherit', shell: true, cwd: path.resolve(__dirname, '..') });
 child.on('exit', (code) => process.exit(code));

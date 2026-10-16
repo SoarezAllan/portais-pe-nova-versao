@@ -4,11 +4,8 @@ export function getApiUrl(): string {
   if (import.meta.env.VITE_API_URL) {
     return import.meta.env.VITE_API_URL;
   }
-  if (typeof window !== 'undefined') {
-    // Detecta dinamicamente se estamos acessando via hostname (ex: http://GGPAE-027:5173), IP ou localhost
-    return `${window.location.protocol}//${window.location.hostname}:3001/api/graphql`;
-  }
-  return 'http://localhost:3001/api/graphql';
+  // Usa o proxy do Vite (/api -> backend) para funcionar tanto em localhost quanto em rede
+  return '/api/graphql';
 }
 
 export const API_URL = getApiUrl();
