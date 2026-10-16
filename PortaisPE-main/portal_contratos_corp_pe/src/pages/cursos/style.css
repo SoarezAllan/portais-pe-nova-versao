@@ -1,142 +1,344 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+/* =========================================
+   CURSOS — Redesign (Impeccable)
+   ========================================= */
 
 body {
-  font-family: 'Inter', 'Montserrat', sans-serif;
-  background-color: var(--white, #ffffff);
-  color: var(--primary-blue-dark, #002a5c);
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
+  background-color: #f7f8fa;
+  color: #1a1a2e;
   margin: 0;
   min-height: 100vh;
 }
 
 .cursos-grid-container.page-main-content {
-  max-width: 1300px;
+  max-width: 1200px;
   width: 92%;
-  margin-top: 25px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 40px;
+  margin: 2rem auto;
+  padding-bottom: 5rem;
   box-sizing: border-box;
 }
 
+/* ── Títulos de Seção ── */
 .topic-title {
-  color: var(--primary-blue-dark, #002a5c);
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-  font-weight: 800;
-  margin-bottom: 20px;
+  color: #002a5c;
+  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
   line-height: 1.2;
+  letter-spacing: -0.02em;
   position: relative;
-  text-align: left;
 }
 
 .topic-title::after {
   content: '';
   display: block;
-  width: 60px;
-  height: 5px;
-  background-color: var(--primary-yellow, #FFC107);
-  border-radius: 3px;
-  margin-top: 8px;
+  width: 48px;
+  height: 4px;
+  background: linear-gradient(90deg, #004a8d, #FFC107);
+  border-radius: 2px;
+  margin-top: 0.5rem;
 }
 
-.topic-section + .topic-section { margin-top: 50px; }
+.topic-section + .topic-section { margin-top: 3.5rem; }
 
-/* Barra de Pesquisa */
-.search-bar-container { margin-bottom: 2rem; width: 100%; }
+/* ── Barra de Pesquisa ── */
+.search-bar-container {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.search-bar-container::before {
+  content: '🔍';
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  pointer-events: none;
+}
+
 .search-input {
   width: 100%;
-  padding: 14px 18px;
+  padding: 0.875rem 1rem 0.875rem 2.75rem;
   border-radius: 12px;
-  border: 1px solid #cbd5e1;
-  font-family: 'Inter', sans-serif;
+  border: 1.5px solid #e2e8f0;
+  font-family: inherit;
   font-size: 0.95rem;
   box-sizing: border-box;
-  transition: all 0.2s;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  color: #1a1a2e;
 }
+
+.search-input::placeholder { color: #94a3b8; }
+
 .search-input:focus {
   outline: none;
-  border-color: #004d99;
-  box-shadow: 0 0 0 3px rgba(0, 77, 153, 0.1);
+  border-color: #004a8d;
+  box-shadow: 0 0 0 4px rgba(0, 74, 141, 0.08);
 }
 
-/* Header de Inscrição */
-.inscricao-header {
+/* ── Botão "Dúvidas? Clique aqui" ── */
+.curso-fix-btn-wrapper {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-end;
   margin-bottom: 2rem;
-  background-color: #f8fafc;
-  padding: 1.25rem 1.5rem;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-.inscricao-header p { margin: 0; font-weight: 600; color: #334155; }
-.btn-yellow {
-  background-color: #facc15;
-  color: #0f172a;
-  border: none;
-  padding: 10px 22px;
-  border-radius: 8px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.btn-yellow:hover {
-  background-color: #eab308;
-  transform: translateY(-2px);
 }
 
-/* Cards de Programação */
+.nao-encontrou-curso-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  border: 1.5px solid #004a8d;
+  border-radius: 999px;
+  background: transparent;
+  color: #004a8d;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
+}
+
+.nao-encontrou-curso-btn::before {
+  content: '💬';
+  font-size: 1rem;
+}
+
+.nao-encontrou-curso-btn:hover {
+  background: #004a8d;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 74, 141, 0.2);
+}
+
+.nao-encontrou-curso-btn:active { transform: translateY(0); }
+
+/* ── Grid de Cards ── */
 .programacao-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
 }
 
-/* Scroll Horizontal para Realizados */
-.horizontal-scroll-wrapper {
-  display: flex;
-  overflow-x: auto;
-  gap: 20px;
-  padding-bottom: 15px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-.horizontal-scroll-wrapper::-webkit-scrollbar { height: 6px; }
-.horizontal-scroll-wrapper::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 3px; }
-
+/* ── Card de Curso ── */
 .programacao-card {
-  background-color: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 1.4rem;
+  background: #fff;
+  border: 1px solid #e8edf5;
+  border-radius: 16px;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  transition: all 0.3s ease;
-  min-width: 270px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  scroll-snap-align: start;
-}
-.programacao-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
+.programacao-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.09);
+}
+
+/* Badge no topo do card (Subárea / "Link Útil") */
+.programacao-card-data {
+  background: #002a5c;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.45rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Conteúdo do card */
+.programacao-card-content {
+  padding: 1.25rem 1.25rem 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.programacao-card-content h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.4;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.programacao-card-content p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+/* Metadados: Modalidade, Local */
+.curso-meta-line {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.825rem !important;
+  color: #64748b !important;
+}
+
+.curso-meta-line strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* Data — destaque visual */
+.curso-data-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.825rem !important;
+  font-weight: 600 !important;
+  color: #004a8d !important;
+  background: #eff6ff;
+  border-radius: 6px;
+  padding: 0.3rem 0.65rem;
+  margin-top: 0.25rem;
+  width: fit-content;
+}
+
+.curso-data-card::before { content: '📅'; font-size: 0.85rem; }
+
+/* CTA card (Inscrever-se / Acessar Link) */
+.programacao-card-link {
+  display: block;
+  text-align: center;
+  margin: 0 1.25rem 1.25rem;
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  background: #004a8d;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.programacao-card-link:hover {
+  background: #002a5c;
+  transform: translateY(-1px);
+}
+
+/* ── Modal ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 20, 50, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
+}
+
+.modal-content h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #002a5c;
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #f1f5f9;
+  border: none;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  transition: background 0.15s, color 0.15s;
+  line-height: 1;
+}
+
+.modal-close-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.passos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.passo-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  font-size: 0.9rem;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.passo-numero {
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: #004a8d;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.05rem;
+}
+
+.curso-modal-contato-link {
+  color: #004a8d;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1.5px solid #93c5fd;
+  padding-bottom: 1px;
+  transition: border-color 0.15s;
+}
+
+.curso-modal-contato-link:hover { border-color: #004a8d; }
+
+/* ── Responsivo ── */
 @media (max-width: 640px) {
   .cursos-grid-container.page-main-content {
     width: 100%;
-    padding: 0 16px;
+    padding: 0 1rem 3rem;
   }
   .programacao-cards-grid {
     grid-template-columns: 1fr;
-    gap: 15px;
   }
-  .inscricao-header {
-    flex-direction: column;
-    align-items: stretch;
-    text-align: center;
+  .curso-fix-btn-wrapper {
+    justify-content: center;
   }
 }

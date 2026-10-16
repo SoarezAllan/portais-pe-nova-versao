@@ -171,8 +171,8 @@ const PaginaCursos = () => {
                   ×
                 </button>
 
-                <h3 id="curso-modal-title" style={{ marginTop: 0, fontFamily: 'Montserrat, sans-serif' }}>
-                  Como achar seu curso
+                <h3 id="curso-modal-title">
+                  Como encontrar seu curso
                 </h3>
 
                 <div className="passos-container">
@@ -241,11 +241,14 @@ const PaginaCursos = () => {
               <div className="programacao-cards-grid">
                 {cursosProgramados.map((curso) => (
                   <div key={curso.id} className="programacao-card">
-                    <div className="programacao-card-data">{getSubareaNome(curso) || siteConfig.SITE_AREA}</div>
+                    <div className="programacao-card-data">
+                      {curso.modalidade === 'EAD' ? '🖥️' : '📍'}&nbsp;
+                      {getSubareaNome(curso) || siteConfig.SITE_AREA}
+                    </div>
                     <div className="programacao-card-content">
                       <h3>{curso.titulo}</h3>
                       <p className="curso-meta-line">
-                        <strong>Modalidade:</strong> {curso.modalidade === 'EAD' ? 'EAD' : curso.modalidade || 'Presencial'}
+                        <strong>Modalidade:</strong> {curso.modalidade === 'EAD' ? '🖥️ EAD' : `📍 ${curso.modalidade || 'Presencial'}`}
                       </p>
                       {curso.local && (
                         <p className="curso-meta-line">
@@ -253,13 +256,13 @@ const PaginaCursos = () => {
                         </p>
                       )}
                       <p className="curso-data-card">
-                        Data: {curso.dataDoCurso ? format(new Date(curso.dataDoCurso), 'dd/MM/yyyy') : 'A definir'}
+                        {curso.dataDoCurso ? format(new Date(curso.dataDoCurso), 'dd/MM/yyyy') : 'Data a definir'}
                       </p>
                       {curso.resumo && <p>{curso.resumo}</p>}
                     </div>
                     {curso.linkExterno && (
                       <a href={curso.linkExterno} target="_blank" rel="noopener noreferrer" className="programacao-card-link">
-                        Inscrever-se
+                        Inscrever-se →
                       </a>
                     )}
                   </div>
